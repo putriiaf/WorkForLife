@@ -10,8 +10,7 @@
 </head>
 <body>
 <!--  Hero -->
-<section
-    class="pt-24 md:mt-0 md:h-screen flex flex-col justify-center text-center md:text-left md:flex-row md:justify-between md:items-center lg:px-36 md:px-12 px-4">
+<section class="pt-24 md:mt-0 md:h-screen flex flex-col justify-center text-center md:text-left md:flex-row md:justify-between md:items-center lg:px-36 md:px-12 px-4">
     <div class="md:flex-1 md:mr-10">
       <h1 class="font-montserrat text-4xl font-bold mb-7">
         Mulai Karirmu Disini
