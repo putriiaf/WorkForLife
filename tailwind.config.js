@@ -12,6 +12,10 @@ module.exports = {
       },
       textColor:{
         'pingki':'#E84A5F'
+      },
+      bgColor:{
+        'pingki':'#E84A5F',
+        'dongker':'#123C69'
       }
     },
   },
