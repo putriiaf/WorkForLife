@@ -15,7 +15,8 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id')->references('id')->on('users');
+            //$table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('email')->unique();
             $table->string('namaCP');
             $table->string('noCP');

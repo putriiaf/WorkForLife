@@ -15,7 +15,8 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id')->references('id')->on('users');
+            //$table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('testimoni');
             //$table->timestamps();
         });

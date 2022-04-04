@@ -15,10 +15,12 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('postingan_id')->references('id')->on('posts');
+            //$table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('user_id')->constrained('users');
+            //$table->foreignId('postingan_id')->references('id')->on('posts');
+            $table->foreignId('postingan_id')->constrained('posts');
             $table->string('alasan');
-            //$table->timestamps();
+            // $table->timestamps();
         });
     }
 

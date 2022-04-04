@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('posisi')->nullable();
             $table->enum('is_admin', array('0', '1','2'))->default('0');
             //$table->rememberToken();
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

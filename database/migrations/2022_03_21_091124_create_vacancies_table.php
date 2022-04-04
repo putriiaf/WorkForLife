@@ -15,7 +15,8 @@ class CreateVacanciesTable extends Migration
     {
         Schema::create('vacancies', function (Blueprint $table) {
             $table->id();
-            $table->foreign('company_id')->references('id')->on('companies');
+            //$table->foreignId('company_id')->references('id')->on('companies');
+            $table->foreignId('company_id')->constrained('companies');
             $table->string('posisi');
             $table->string('jobdesc');
             $table->string('kriteria');
