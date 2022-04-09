@@ -11,9 +11,10 @@ module.exports = {
         'montserrat': ['Montserrat']
       },
       textColor:{
-        'pingki':'#E84A5F'
+        'pingki':'#E84A5F',
+        'dongker':'#123C69'
       },
-      bgColor:{
+      backgroundColor:{
         'pingki':'#E84A5F',
         'dongker':'#123C69'
       }
