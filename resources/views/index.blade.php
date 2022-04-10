@@ -33,9 +33,7 @@
     </div>
   </section>
 
-  <section class="font-montserrat">
-  <div class="py-8 top-8"></div>
-  <div class="sm:max-w-3xl pt-8 rounded-xl bg-[#F2F6FB] mx-4 sm:mx-8 md:mx-auto">
+  <div class="font-montserrat sm:max-w-3xl pt-8 rounded-xl bg-[#F2F6FB] mx-4 sm:mx-8 md:mx-auto">
     <div class="w-11/12 sm:w-2/3 mx-auto mb-6">
       <h1 class="focus:outline-none xl:text-xl text-lg text-center text-gray-800 font-extrabold pt-2">Perusahaan Terpercaya</h1>
     </div>
@@ -53,26 +51,25 @@
       <div
         class="w-1/3 sm:w-1/6 flex justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl">
         <img class="focus:outline-none w-12 sm:w-16" src="https://seeklogo.com/images/B/blibli-com-logo-CEA6EEEC52-seeklogo.com.png"
-          alt="Nike" role="img" />
+          alt="Blibli" role="img" />
       </div>
       <div
         class="w-1/3 sm:w-1/6 flex justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl">
         <img class="focus:outline-none w-12 sm:w-16" src="https://seeklogo.com/images/G/goto-logo-E7E408295D-seeklogo.com.png"
-          alt="Toyota" role="img" />
+          alt="Goto" role="img" />
       </div>
       <div
         class="w-1/3 sm:w-1/6 flex justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl">
         <img class="focus:outline-none w-12 sm:w-16" src="https://seeklogo.com/images/T/tokopedia-logo-40654CCDD6-seeklogo.com.png"
-          alt="Toyota" role="img" />
+          alt="Tokopedia" role="img" />
       </div>
       <div
         class="w-1/3 sm:w-1/6 flex justify-center xl:pb-10 pb-16 items-center inset-0 transform  hover:scale-75 transition duration-300 contrast-75 hover:contrast-100 drop-shadow-xl">
         <img class="focus:outline-none w-12 sm:w-16" src="https://seeklogo.com/images/H/halodoc-logo-5A7C52DE38-seeklogo.com.png"
-          alt="Toyota" role="img" />
+          alt="Halodoc" role="img" />
       </div>
     </div>
   </div>
-  </section>
 
   <!-- Loker Terbaru -->
 <section class="relative bg-[#123C69]">
