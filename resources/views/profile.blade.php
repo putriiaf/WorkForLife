@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +10,20 @@
     <title>Profile</title>
 </head>
 <body>
+-->
+@extends('layout.layout')
+
+@section('content')
 <section class="flex item-center justify-center my-20 mx-10">
 
 	<div class="flex-shrink-0 w-44 mb-6 h-44 sm:mb-0">
-		<img src="https://source.unsplash.com/100x100/?portrait?1" alt="" class="object-cover object-center w-full h-full rounded-full bg-white">
+		<img src="{{ asset('img/avatar.png') }}" alt="" class="object-cover object-center w-full h-full rounded-full bg-white">
 	</div>
 	<div class="flex flex-col space-y-4 pl-5 mt-3">
 		<div>
             <h4 class="text-lg mb-1">HALO,</h4>
-			<h2 class="text-4xl font-medium mb-1">Leroy Jenkins</h2>
-			<span class="text-md text">General manager in Pt Maju jaya</span>
+			<h2 class="text-4xl font-medium mb-1">Anung</h2>
+			<span class="text-md text">CEO in Pt Maju jaya</span>
 		</div>
         <div>
             <button class="px-3 py-1 rounded-full bg-[#E84A5F] text-white font-bold border-[#E84A5F] hover:bg-[#E84A5F]/75 border-[#E84A5F]/75">UPDATE PROFIL</button>
@@ -26,75 +31,127 @@
 
 </section>
 
-<section class="flex item-center justify-center">
-<div class="mt-4 px-32 rounded">
-<!-- Tabs -->
-    <ul id="tabs" class="inline-flex w-full px-5 pt-2 space-x-60">
-        <li class="px-4 py-2 -mb-px font-semibold text-gray-800 border-b-2 border-blue-400 rounded-t opacity-50"><a id="default-tab" href="#first">All</a></li>
-        <li class="px-4 py-2 font-semibold text-gray-800 rounded-t opacity-50"><a href="#second">Clothes</a></li>
+<div class="flex flex-wrap font-montserrat" id="tabs-id">
+  <div class="w-full">
+    <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+      <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+        <a class="text-sm font-bold px-5 py-3 border-b-4 border-[#123C69] block-1 leading-normal text-dongker bg-white" onclick="changeAtiveTab(event,'tab-profile')">
+           Informasi Diri
+        </a>
+      </li>
+      <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+        <a class="text-sm font-bold px-5 py-3 border-b-4 leading-normal text-dongker bg-white" onclick="changeAtiveTab(event,'tab-settings')">
+           Postingan Saya
+        </a>
+      </li>
     </ul>
-
-<!-- Tab Contents -->
-    <div id="tab-contents" class="flex h-screen w-max p-6 bg-[#123C69]">
-        <div id="first" class="p-4">
-            <div class="mt-5 md:mt-0 md:col-span-2">
-                <form action="#" method="POST">
-                    <div class="shadow overflow-hidden sm:rounded-md">
-                        <div class="px-4 py-5 bg-white sm:p-6">
-                            <div class="grid grid-cols-6 gap-6">
-                                <div class="col-span-6 sm:col-span-3">
-                                    <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                                    <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                </div>
-
-                                <div class="col-span-6 sm:col-span-3">
-                                    <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                                    <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                </div>
+    <div class="relative flex flex-col min-w-0 break-words bg-[#F6F6F6] mb-6 mx-32 shadow-lg rounded">
+      <div class="px-4 py-5 flex-auto">
+        <div class="tab-content tab-space">
+          <div class="block" id="tab-profile">
+            <div class="mx-auto">
+                <form>
+                    <div class="flex flex-wrap">
+                        <div class="w-full lg:w-6/12 px-4">
+                            <div class="relative w-full mb-3">
+                                <label class="block text-blueGray-600 text-sm font-bold mb-2" htmlfor="grid-password">
+                                    Nama
+                                </label>
+                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 p-2.5" value="Anung" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-6/12 px-4">
+                            <div class="relative w-full mb-3">
+                                <label class="block text-blueGray-600 text-sm font-bold mb-2" htmlfor="grid-password">
+                                    Nomor Telepon
+                                </label>
+                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="0858585885858" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-6/12 px-4">
+                            <div class="relative w-full mb-3">
+                                <label class="block text-blueGray-600 text-sm font-bold mb-2" htmlfor="grid-password">
+                                    Jenis Kelamin
+                                </label>
+                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="Laki - Laki" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-6/12 px-4">
+                            <div class="relative w-full mb-3">
+                                <label class="block text-blueGray-600 text-sm font-bold mb-2" htmlfor="grid-password">
+                                    Email
+                                </label>
+                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="anung@gmail.com" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-6/12 px-4">
+                            <div class="relative w-full mb-3">
+                                <label class="block text-blueGray-600 text-sm font-bold mb-2" htmlfor="grid-password">
+                                    Posisi
+                                </label>
+                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="CEO" disabled readonly>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-6/12 px-4">
+                            <div class="relative w-full mb-3">
+                                <label class="block text-blueGray-600 text-sm font-bold mb-2" htmlfor="grid-password">
+                                    Perusahaan
+                                </label>
+                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="PT Maju Jaya" disabled readonly>
                             </div>
                         </div>
                     </div>
-                </form>
+                </div>
+            </div>
+        <div class="hidden" id="tab-settings">
+            <!-- component -->
+            <div class="flex bg-white shadow-lg rounded-xl mx-4 md:mx-auto max-w-md md:max-w-2xl "><!--horizantil margin is just for display-->
+                <div class="flex items-start px-4 py-6">
+                    <img class="w-12 h-12 rounded-full object-cover mr-4 shadow" src="{{ asset('img/avatar.png') }}" alt="avatar">
+                        <div class="">
+                            <div class="flex items-center justify-between">
+                                <h2 class="text-lg font-semibold text-gray-900 -mt-1">Brad Adams </h2>
+                            </div>
+                            <p class="text-gray-700">12 April 2022</p>
+                            <h6 class="mt-3 font-extrabold">Judul</h6>
+                            <p class="mt-1 text-gray-700 text-sm">
+                                Lorem ipsum, dolor sit amet conse. Saepe optio minus rem dolor sit amet!
+                            </p>
+                        </div>
+                </div>
+            </div>
         </div>
-
+          </div>
         </div>
-        <div id="second" class="hidden p-4">
-            Second tab
-        </div>
+      </div>
     </div>
+  </div>
 </div>
-</section>
 
-<script>
-let tabsContainer = document.querySelector("#tabs");
-
-let tabTogglers = tabsContainer.querySelectorAll("a");
-console.log(tabTogglers);
-
-tabTogglers.forEach(function(toggler) {
-  toggler.addEventListener("click", function(e) {
-    e.preventDefault();
-
-    let tabName = this.getAttribute("href");
-
-    let tabContents = document.querySelector("#tab-contents");
-
-    for (let i = 0; i < tabContents.children.length; i++) {
-
-      tabTogglers[i].parentElement.classList.remove("border-blue-400", "border-b",  "-mb-px", "opacity-100");  tabContents.children[i].classList.remove("hidden");
-      if ("#" + tabContents.children[i].id === tabName) {
-        continue;
-      }
-      tabContents.children[i].classList.add("hidden");
-
+<script type="text/javascript">
+  function changeAtiveTab(event,tabID){
+    let element = event.target;
+    while(element.nodeName !== "A"){
+      element = element.parentNode;
     }
-    e.target.parentElement.classList.add("border-blue-400", "border-b-4", "-mb-px", "opacity-100");
-  });
-});
-
-document.getElementById("default-tab").click();
-
+    ulElement = element.parentNode.parentNode;
+    aElements = ulElement.querySelectorAll("li > a");
+    tabContents = document.getElementById("tabs-id").querySelectorAll(".tab-content > div");
+    for(let i = 0 ; i < aElements.length; i++){
+      aElements[i].classList.remove("border-[#123C69]");
+      aElements[i].classList.add("text-dongker");
+      tabContents[i].classList.add("hidden");
+      tabContents[i].classList.remove("block");
+    }
+    element.classList.add("text-dongker");
+    element.classList.add("border-[#123C69]");
+    document.getElementById(tabID).classList.remove("hidden");
+    document.getElementById(tabID).classList.add("block");
+  }
 </script>
-</section>
+
+@endsection
+<!--
 </body>
 </html>
+-->
