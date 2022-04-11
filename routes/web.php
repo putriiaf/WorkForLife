@@ -31,5 +31,5 @@ Route::get('/logout', function () {
 });
 Route::get('/uploadpost', [UploadPostsController::class, 'index'])->middleware('auth');
 Route::post('/uploadpost', [UploadPostsController::class, 'store']);
-Route::get('/register', [RegisterController::class, 'index'])->middleware('auth');
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
