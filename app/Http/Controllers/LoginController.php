@@ -23,7 +23,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            // $request->session()->regenerate();
+            $request->session()->regenerate();
             if (Auth::user()->is_admin == 1) {
                 return redirect()->intended('/dashboard/events');
             } else {

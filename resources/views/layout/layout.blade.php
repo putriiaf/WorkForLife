@@ -34,17 +34,23 @@
 			<button class="mx-8 px-8 py-2 font-semibold rounded-lg bg-white border-2 border-gray-500 text-dongker hover:bg-white/30 hover:border-gray-500/30" href="">Rekrut Sekarang</button>
 			@endif
 			@if (Route::has('login'))
-			<button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40" href="">Masuk</button>
-			@endif	
+      <form action="/login">
+			<button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">Masuk</button>
+      </form>
+      @endif	
 		</div>
 
 		@else
 		<div class="pt-2 items-center flex-shrink-0 hidden lg:flex">
-			<button type="button" class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
+      <form action="/logout" method="POST">
+			@csrf
+      <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">Keluar</button>
+      </form>
+      
+      <button type="button" class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
                 <div class="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
                     <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" class="object-cover w-full h-full" alt="avatar">
                 </div>
-
                 <h3 class="mx-2 text-sm font-medium text-gray-700 dark:text-gray-200 md:hidden">Khatab wedaa</h3>
             </button>
 		</div>
