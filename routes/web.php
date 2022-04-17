@@ -44,3 +44,7 @@ Route::get('/profile/{username}', function ($username) {
 });
 
 Route::resource('/profile', UserController::class)->middleware('auth');
+
+Route::get('/lihatloker', function() {
+    return view('Loker/loker');
+});
