@@ -50,7 +50,11 @@
       <button type="button" class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
                 <div class="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
                     <a href="/profile">
-                      <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" class="object-cover w-full h-full" alt="avatar">
+                      @if($profilUser->foto_profil)
+                        <img src="{{ asset('storage/' . $profilUser->foto_profil) }}" class="object-cover w-full h-full" alt="avatar">
+                      @else
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" class="object-cover w-full h-full" alt="avatar">
+                      @endif
                     </a>
                 </div>
                 <h3 class="mx-2 text-sm font-medium text-gray-700 dark:text-gray-200 md:hidden">Khatab wedaa</h3>
