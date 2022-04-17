@@ -41,6 +41,16 @@
                           </div>
                       @enderror
                     </div>
+                    <div class="box-login">
+                      <h6 class="disable">Username*</h6>
+                      <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" required value="{{ old('username') }}">
+                      {{-- <label for="nama">Name</label> --}}
+                      @error('username')
+                          <div class="invalid-feedback">
+                              {{ $message }}
+                          </div>
+                      @enderror
+                    </div>
                     <div class="box-login mt-3">
                       <h6 class="disable">Email address*</h6>
                       <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Enter email address" required value="{{ old('email') }}">

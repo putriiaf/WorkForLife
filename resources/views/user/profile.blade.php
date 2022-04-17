@@ -17,16 +17,22 @@
 <section class="flex item-center justify-center my-20 mx-10">
 
 	<div class="flex-shrink-0 w-44 mb-6 h-44 sm:mb-0">
-		<img src="{{ asset('img/avatar.png') }}" alt="" class="object-cover object-center w-full h-full rounded-full bg-white">
+        @if($profilUser->foto_profil == NULL)
+		    <img src="{{ asset('img/avatar.png') }}" alt="" class="object-cover object-center w-full h-full rounded-full bg-white">
+        @else
+            <img src="{{ asset('storage/' . $profilUser->foto_profil) }}" alt="" class="object-cover object-center w-full h-full rounded-full bg-white">
+        @endif
 	</div>
 	<div class="flex flex-col space-y-4 pl-5 mt-3">
 		<div>
             <h4 class="text-lg mb-1">HALO,</h4>
-			<h2 class="text-4xl font-medium mb-1">Anung</h2>
-			<span class="text-md text">CEO in Pt Maju jaya</span>
+			<h2 class="text-4xl font-medium mb-1">{{ $profilUser->nama }}</h2>
+			<span class="text-md text">{{ $profilUser->posisi }} in {{ $profilUser->perusahaan }}</span>
 		</div>
         <div>
-            <button class="px-3 py-1 rounded-full bg-[#E84A5F] text-white font-bold border-[#E84A5F] hover:bg-[#E84A5F]/75 border-[#E84A5F]/75">UPDATE PROFIL</button>
+            <button class="px-3 py-1 rounded-full bg-[#E84A5F] text-white font-bold border-[#E84A5F] hover:bg-[#E84A5F]/75 border-[#E84A5F]/75">
+                <a href="/profile/{{ auth()->user()->username }}/edit">EDIT PROFIL</a> 
+            </button>
         </div>
 
 </section>
@@ -57,7 +63,7 @@
                                 <label class="block text-blueGray-600 text-sm font-bold mb-2" htmlfor="grid-password">
                                     Nama
                                 </label>
-                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 p-2.5" value="Anung" disabled readonly>
+                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 p-2.5" value="{{ $profilUser->nama }}" disabled readonly>
                             </div>
                         </div>
                         <div class="w-full lg:w-6/12 px-4">
@@ -65,7 +71,7 @@
                                 <label class="block text-blueGray-600 text-sm font-bold mb-2" htmlfor="grid-password">
                                     Nomor Telepon
                                 </label>
-                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="0858585885858" disabled readonly>
+                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ $profilUser->no_telp }}" disabled readonly>
                             </div>
                         </div>
                         <div class="w-full lg:w-6/12 px-4">
@@ -73,7 +79,7 @@
                                 <label class="block text-blueGray-600 text-sm font-bold mb-2" htmlfor="grid-password">
                                     Jenis Kelamin
                                 </label>
-                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="Laki - Laki" disabled readonly>
+                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ $profilUser->jk }}" disabled readonly>
                             </div>
                         </div>
                         <div class="w-full lg:w-6/12 px-4">
@@ -81,7 +87,7 @@
                                 <label class="block text-blueGray-600 text-sm font-bold mb-2" htmlfor="grid-password">
                                     Email
                                 </label>
-                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="anung@gmail.com" disabled readonly>
+                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ $profilUser->email }}" disabled readonly>
                             </div>
                         </div>
                         <div class="w-full lg:w-6/12 px-4">
@@ -89,7 +95,11 @@
                                 <label class="block text-blueGray-600 text-sm font-bold mb-2" htmlfor="grid-password">
                                     Posisi
                                 </label>
-                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="CEO" disabled readonly>
+                                @if($profilUser->posisi == NULL) 
+                                    <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="-" disabled readonly>
+                                @else 
+                                    <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ $profilUser->posisi }}" disabled readonly>
+                                @endif
                             </div>
                         </div>
                         <div class="w-full lg:w-6/12 px-4">
@@ -97,7 +107,11 @@
                                 <label class="block text-blueGray-600 text-sm font-bold mb-2" htmlfor="grid-password">
                                     Perusahaan
                                 </label>
-                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="PT Maju Jaya" disabled readonly>
+                                @if($profilUser->perusahaan == NULL) 
+                                    <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="-" disabled readonly>
+                                @else 
+                                    <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ $profilUser->perusahaan }}" disabled readonly>
+                                @endif
                             </div>
                         </div>
                     </div>

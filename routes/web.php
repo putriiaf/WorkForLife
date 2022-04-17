@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Post;
 
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UploadPostsController;
@@ -33,3 +34,13 @@ Route::get('/uploadpost', [UploadPostsController::class, 'index'])->middleware('
 Route::post('/uploadpost', [UploadPostsController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/profile/{username}', function ($username) {
+    $title = "My Profile";
+    $username = User::where('username', $username)->first()->username;
+    $id = User::where('username', $username)->first()->id;
+    $my_posts = Post::where('user_id', $id)->get();
+    return view('/user/profile', compact(['title', 'my_posts']));
+});
+
+Route::resource('/profile', UserController::class)->middleware('auth');
