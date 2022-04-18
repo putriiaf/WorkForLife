@@ -22,7 +22,9 @@ use App\Http\Controllers\UploadPostsController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $user_id = auth()->user()->id;
+    $profilUser = User::where('id', $user_id)->first();
+    return view('index', compact(['profilUser']));
 });
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -32,6 +34,10 @@ Route::get('/logout', function () {
 });
 Route::get('/uploadpost', [UploadPostsController::class, 'index'])->middleware('auth');
 Route::post('/uploadpost', [UploadPostsController::class, 'store']);
+Route::get('/posts/{post:id}/edit', [UploadPostsController::class, 'edit']);
+Route::put('/posts/{post:id}', [UploadPostsController::class, 'update']);
+Route::get('/report/{post:id}', [UploadPostsController::class, 'index']);
+Route::post('/report/{post:id}', [UploadPostsController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
