@@ -18,9 +18,11 @@ class CreateVacanciesTable extends Migration
             //$table->foreignId('company_id')->references('id')->on('companies');
             $table->foreignId('company_id')->constrained('companies');
             $table->string('posisi');
-            $table->string('jobdesc');
-            $table->string('kriteria');
+            $table->text('jobdesc');
+            $table->text('kriteria');
             $table->string('domisili');
+            $table->string('min_pengalaman')->nullable();
+            $table->string('insentif')->nullable();
             $table->string('link_pendaftaran');
             $table->timestamps();
         });

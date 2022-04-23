@@ -25,7 +25,8 @@ class CreateUsersTable extends Migration
             $table->string('foto_profil')->nullable();
             $table->string('perusahaan')->nullable();
             $table->string('posisi')->nullable();
-            $table->enum('is_admin', array('0', '1', '2'))->default('0');
+            $table->enum('role', array('0', '1', '2'))->default('0');
+            // default: 0 (user), 1 (perusahaan), 2 (admin)
             $table->rememberToken();
             $table->timestamps();
         });

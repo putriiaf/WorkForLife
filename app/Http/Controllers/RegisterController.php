@@ -25,7 +25,7 @@ class RegisterController extends Controller
             'no_telp' => 'required|numeric|digits_between:10,14',
             'jk' => 'required|max:1',
             'password' => 'required|min:5|max:255',
-            'is_admin' => 'required',
+            'role' => 'required',
         ]);
 
         // $validatedData['password'] = bcrypt($validatedData['password']);

@@ -16,15 +16,16 @@
 </section>
 
 <section class="">
-  <div class="flex justify-center">
+  @foreach($lokers as $loker)
+  <div class="flex justify-center pr-12">
    <div class="font-montserrat bg-white font-semibold rounded-xl border shadow-lg px-7 py-5 max-w-xs md:m-10">
     <span class="flex flex-rowreverse mr-4">
       <div class="pr-4">
         <img class="mb-3 w-16 h-16 rounded-lg" src="{{ asset('img/gojek.png') }}" alt="logo">
       </div>
       <div>
-        <p class="pt-2 pb-1 text-md font-bold"> Product Designer </p>
-        <p class="mb-3 text-sm text-dongker font-bold"> Gojek </p>
+        <p class="pt-2 pb-1 text-md font-bold">{{ $loker->posisi }}</p>
+        <p class="mb-3 text-sm text-dongker font-bold"> {{ $loker->company->nama_perusahaan }} </p>
       </div>
     </span>
     <div>
@@ -33,99 +34,29 @@
           <div class="pr-5 pt-0.5">
             <img class="w-5 h-5" src="{{ asset('img/map.png') }}" alt="">
           </div>
-          <p class="text-md">Jakarta</p>
+          <p class="text-md">{{ $loker->domisili }}</p>
         </li>
+        @if($loker->min_pengalaman != NULL)
         <li class="flex flex-row pl-5 pt-3">
           <div class="pr-5 pt-0.5">
             <img class="w-5 h-5" src="{{ asset('img/briefcase.png') }}" alt="">
           </div>
-          <p class="text-md">1 - 3 Tahun</p>
+          <p class="text-md">{{ $loker->min_pengalaman }}</p>
         </li>
+        @endif
+        @if($loker->insentif != NULL)
         <li class="flex flex-row pl-5 pt-3">
           <div class="pr-5 pt-0.5">
             <img class="w-5 h-5" src="{{ asset('img/duit.png') }}" alt="">
           </div>
-          <p class="text-md">50.000.000</p>
+          <p class="text-md">{{ $loker->insentif }}</p>
         </li>
-      </ul>
-    </div>
-    <div class="pt-9 px-12">
-      <a class="bg-[#E0FBFC] px-8 py-3 mt-8 rounded-xl font-semibold uppercase tracking-wide hover:bg-tipis/50" src="">APPLY</a>
-    </div>
-    </div>
-
-  <div class="flex justify-center">
-   <div class="font-montserrat bg-white font-semibold rounded-xl border shadow-lg px-7 py-5 max-w-xs md:m-10">
-    <span class="flex flex-rowreverse mr-4">
-      <div class="pr-4">
-        <img class="mb-3 w-16 h-16 rounded-lg" src="{{ asset('img/gojek.png') }}" alt="logo">
-      </div>
-      <div>
-        <p class="pt-2 pb-1 text-md font-bold"> Product Designer </p>
-        <p class="mb-3 text-sm text-dongker font-bold"> Gojek </p>
-      </div>
-    </span>
-    <div>
-      <ul>
-        <li class="flex flex-row pl-5 pt-3">
-          <div class="pr-5 pt-0.5">
-            <img class="w-5 h-5" src="{{ asset('img/map.png') }}" alt="">
-          </div>
-          <p class="text-md">Jakarta</p>
-        </li>
-        <li class="flex flex-row pl-5 pt-3">
-          <div class="pr-5 pt-0.5">
-            <img class="w-5 h-5" src="{{ asset('img/briefcase.png') }}" alt="">
-          </div>
-          <p class="text-md">1 - 3 Tahun</p>
-        </li>
-        <li class="flex flex-row pl-5 pt-3">
-          <div class="pr-5 pt-0.5">
-            <img class="w-5 h-5" src="{{ asset('img/duit.png') }}" alt="">
-          </div>
-          <p class="text-md">50.000.000</p>
-        </li>
+        @endif
       </ul>
     </div>
     <button class="bg-[#E0FBFC] px-8 py-2 mt-8 block rounded-xl font-semibold uppercase tracking-wide hover:bg-tipis/50">APPLY</button>
   </div>
-
-  <div class="flex justify-center">
-   <div class="font-montserrat bg-white font-semibold rounded-xl border shadow-lg px-7 py-5 max-w-xs md:m-10">
-    <span class="flex flex-rowreverse mr-4">
-      <div class="pr-4">
-        <img class="mb-3 w-16 h-16 rounded-lg" src="{{ asset('img/gojek.png') }}" alt="logo">
-      </div>
-      <div>
-        <p class="pt-2 pb-1 text-md font-bold"> Product Designer </p>
-        <p class="mb-3 text-sm text-dongker font-bold"> Gojek </p>
-      </div>
-    </span>
-    <div>
-      <ul>
-        <li class="flex flex-row pl-5 pt-3">
-          <div class="pr-5 pt-0.5">
-            <img class="w-5 h-5" src="{{ asset('img/map.png') }}" alt="">
-          </div>
-          <p class="text-md">Jakarta</p>
-        </li>
-        <li class="flex flex-row pl-5 pt-3">
-          <div class="pr-5 pt-0.5">
-            <img class="w-5 h-5" src="{{ asset('img/briefcase.png') }}" alt="">
-          </div>
-          <p class="text-md">1 - 3 Tahun</p>
-        </li>
-        <li class="flex flex-row pl-5 pt-3">
-          <div class="pr-5 pt-0.5">
-            <img class="w-5 h-5" src="{{ asset('img/duit.png') }}" alt="">
-          </div>
-          <p class="text-md">50.000.000</p>
-        </li>
-      </ul>
-    </div>
-    <button class="bg-[#E0FBFC] px-8 py-2 mt-8 block rounded-xl font-semibold uppercase tracking-wide hover:bg-tipis/50">APPLY</button>
-  </div>
-
+  @endforeach
 </section>
 
 <div class="flex py-7 items-center justify-center space-x-2">
