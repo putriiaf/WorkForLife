@@ -17,12 +17,10 @@ class CreateCompaniesTable extends Migration
             $table->id();
             //$table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('user_id')->constrained('users');
-            $table->string('email')->unique();
+            $table->string('nama_perusahaan');
             $table->string('namaCP');
             $table->string('noCP');
-            $table->string('alamat');
-            $table->string('nama_perusahaan');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

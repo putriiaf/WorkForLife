@@ -18,10 +18,10 @@
 			</a>
 			<ul class="items-stretch hidden space-x-3 lg:flex">
 				<li class="flex">
-					<a rel="noopener noreferrer" href="#" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Beranda</a>
+					<a rel="noopener noreferrer" href="/" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Beranda</a>
 				</li>
 				<li class="flex">
-					<a rel="noopener noreferrer" href="#" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Cari Loker</a>
+					<a rel="noopener noreferrer" href="/loker" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Cari Loker</a>
 				</li>
 				<li class="flex">
 					<a rel="noopener noreferrer" href="#" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Sharing</a>
@@ -51,8 +51,8 @@
       <button type="button" class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
                 <div class="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
                     <a href="/profile">
-                      @if($profilUser->foto_profil)
-                        <img src="{{ asset('storage/' . $profilUser->foto_profil) }}" class="object-cover w-full h-full" alt="avatar">
+                      @if(auth()->user()->foto_profil)
+                        <img src="{{ asset('storage/' . auth()->user()->foto_profil) }}" class="object-cover w-full h-full" alt="avatar">
                       @else
                         <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" class="object-cover w-full h-full" alt="avatar">
                       @endif
