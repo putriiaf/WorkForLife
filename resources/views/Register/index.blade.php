@@ -101,7 +101,7 @@
                       </div>
                       @enderror
                     </div>
-                    <input type="hidden" name="is_admin" id="is_admin" value="0" required>
+                    <input type="hidden" name="role" id="role" value="0" required>
 
                     <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">Register Account</button>
                     <small class="d-block text-center mt-3">Do you already have an account? <a href="/login">Log in</a> </small>
