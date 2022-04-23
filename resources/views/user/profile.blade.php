@@ -63,7 +63,7 @@
                                 <label class="block text-blueGray-600 text-sm font-bold mb-2" htmlfor="grid-password">
                                     Nama
                                 </label>
-                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 p-2.5" value="{{ $profilUser->nama }}" disabled readonly>
+                                <input type="text" id="disabled-input-2" class="bg-white border border-white text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" value="{{ $profilUser->nama }}" disabled readonly>
                             </div>
                         </div>
                         <div class="w-full lg:w-6/12 px-4">
