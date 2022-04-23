@@ -1003,6 +1003,9 @@ input:checked + .toggle-bg {
 .h-4 {
   height: 1rem;
 }
+.h-10 {
+  height: 2.5rem;
+}
 .max-h-7 {
   max-height: 1.75rem;
 }
@@ -1065,6 +1068,9 @@ input:checked + .toggle-bg {
 }
 .w-4 {
   width: 1rem;
+}
+.w-10 {
+  width: 2.5rem;
 }
 .min-w-0 {
   min-width: 0px;

@@ -49,12 +49,12 @@
       </form>
       
       <button type="button" class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
-                <div class="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
+                <div class="w-10 h-10 mx-10 overflow-hidden border-2 border-gray-400 rounded-full">
                     <a href="/profile">
                       @if(auth()->user()->foto_profil)
                         <img src="{{ asset('storage/' . auth()->user()->foto_profil) }}" class="object-cover w-full h-full" alt="avatar">
                       @else
-                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" class="object-cover w-full h-full" alt="avatar">
+                        <img src="{{ asset('img/avatar.png') }}" class="object-cover w-full h-full" alt="avatar">
                       @endif
                     </a>
                 </div>
