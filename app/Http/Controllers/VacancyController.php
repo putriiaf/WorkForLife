@@ -16,14 +16,11 @@ class VacancyController extends Controller
     {
         $title = 'Lowongan Kerja';
         if (request('category')) {
-            // $category = Category::firstWhere('nama_kategori', request('category'));
-            // $title = ' in ' . $category->nama_kategori;
             $title = "Semua Lowongan Kerja";
         }
         return view('loker.loker', [
             'title' => 'All Events' . $title,
             'active' => 'events',
-            // 'categories' => Category::all(),
             'lokers' => Vacancy::latest()->paginate(6)->withQueryString()
         ]);
     }
@@ -57,7 +54,11 @@ class VacancyController extends Controller
      */
     public function show(Vacancy $vacancy)
     {
-        //
+        return view('loker.view', [
+            'title' => 'Detail Lowongan Kerja',
+            'active' => 'loker',
+            'loker' => $vacancy,
+        ]);
     }
 
     /**

@@ -50,3 +50,4 @@ Route::get('/profile/{username}', function ($username) {
 });
 
 Route::get('/loker', [VacancyController::class, 'index']);
+Route::get('/loker/{vacancy:id}', [VacancyController::class, 'show']);
