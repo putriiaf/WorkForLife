@@ -34,6 +34,10 @@ Route::get('/logout', function () {
 });
 Route::get('/uploadpost', [UploadPostsController::class, 'index'])->middleware('auth');
 Route::post('/uploadpost', [UploadPostsController::class, 'store']);
+Route::get('/posts/{post:id}/edit', [UploadPostsController::class, 'edit']);
+Route::put('/posts/{post:id}', [UploadPostsController::class, 'update']);
+Route::get('/report/{post:id}', [UploadPostsController::class, 'index']);
+Route::post('/report/{post:id}', [UploadPostsController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
@@ -46,3 +50,7 @@ Route::get('/profile/{username}', function ($username) {
 });
 
 Route::resource('/profile', UserController::class)->middleware('auth');
+
+Route::get('/lihatloker', function() {
+    return view('Loker/loker');
+});

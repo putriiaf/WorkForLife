@@ -19,6 +19,9 @@ class ModifyPostsTable extends Migration
             $table->renameColumn('testimoni', 'deskripsi');
             $table->text('testimoni')->change();
         });
+        Schema::create('reports', function (Blueprint $table) {
+            $table->timestamps();
+        });
     }
     /**
      * Reverse the migrations.

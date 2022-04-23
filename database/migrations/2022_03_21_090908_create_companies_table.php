@@ -22,7 +22,7 @@ class CreateCompaniesTable extends Migration
             $table->string('noCP');
             $table->string('alamat');
             $table->string('nama_perusahaan');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

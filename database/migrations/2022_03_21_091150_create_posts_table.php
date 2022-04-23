@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             //$table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('user_id')->constrained('users');
             $table->string('testimoni');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 

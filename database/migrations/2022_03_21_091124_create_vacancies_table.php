@@ -22,7 +22,7 @@ class CreateVacanciesTable extends Migration
             $table->string('kriteria');
             $table->string('domisili');
             $table->string('link_pendaftaran');
-            //$table->timestamps();
+            $table->timestamps();
         });
     }
 
