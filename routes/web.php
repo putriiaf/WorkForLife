@@ -48,3 +48,7 @@ Route::resource('/profile', UserController::class)->middleware('auth');
 Route::get('/lihatloker', function() {
     return view('Loker/loker');
 });
+
+Route::get('/post', function() {
+    return view('Posts/view');
+});
