@@ -22,7 +22,9 @@ use App\Http\Controllers\UploadPostsController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $user_id = auth()->user()->id;
+    $profilUser = User::where('id', $user_id)->first();
+    return view('index', compact(['profilUser']));
 });
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
