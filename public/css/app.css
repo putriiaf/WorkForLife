@@ -819,6 +819,9 @@ input:checked + .toggle-bg {
 .z-40 {
   z-index: 40;
 }
+.m-10 {
+  margin: 2.5rem;
+}
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -831,25 +834,29 @@ input:checked + .toggle-bg {
   margin-left: 2rem;
   margin-right: 2rem;
 }
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
-.mx-10 {
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
+.mx-16 {
+  margin-left: 4rem;
+  margin-right: 4rem;
 }
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
-.mx-20 {
-  margin-left: 5rem;
-  margin-right: 5rem;
-}
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
+}
+.mx-20 {
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 .my-20 {
   margin-top: 5rem;
@@ -858,6 +865,10 @@ input:checked + .toggle-bg {
 .mx-32 {
   margin-left: 8rem;
   margin-right: 8rem;
+}
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .mb-7 {
   margin-bottom: 1.75rem;
@@ -985,6 +996,9 @@ input:checked + .toggle-bg {
 .h-48 {
   height: 12rem;
 }
+.h-10 {
+  height: 2.5rem;
+}
 .h-full {
   height: 100%;
 }
@@ -997,14 +1011,17 @@ input:checked + .toggle-bg {
 .h-12 {
   height: 3rem;
 }
+.h-14 {
+  height: 3.5rem;
+}
 .h-44 {
   height: 11rem;
 }
 .h-4 {
   height: 1rem;
 }
-.h-10 {
-  height: 2.5rem;
+.h-40 {
+  height: 10rem;
 }
 .max-h-7 {
   max-height: 1.75rem;
@@ -1036,6 +1053,9 @@ input:checked + .toggle-bg {
 .w-48 {
   width: 12rem;
 }
+.w-10 {
+  width: 2.5rem;
+}
 .w-full {
   width: 100%;
 }
@@ -1057,6 +1077,9 @@ input:checked + .toggle-bg {
 .w-20 {
   width: 5rem;
 }
+.w-14 {
+  width: 3.5rem;
+}
 .w-16 {
   width: 4rem;
 }
@@ -1068,9 +1091,6 @@ input:checked + .toggle-bg {
 }
 .w-4 {
   width: 1rem;
-}
-.w-10 {
-  width: 2.5rem;
 }
 .min-w-0 {
   min-width: 0px;
@@ -1089,6 +1109,15 @@ input:checked + .toggle-bg {
 }
 .max-w-md {
   max-width: 28rem;
+}
+.max-w-full {
+  max-width: 100%;
+}
+.max-w-5xl {
+  max-width: 64rem;
+}
+.max-w-7xl {
+  max-width: 80rem;
 }
 .flex-auto {
   flex: 1 1 auto;
@@ -1136,14 +1165,52 @@ input:checked + .toggle-bg {
 .list-none {
   list-style-type: none;
 }
+.columns-3 {
+  -moz-columns: 3;
+       columns: 3;
+}
+.columns-3xs {
+  -moz-columns: 16rem;
+       columns: 16rem;
+}
+.break-before-column {
+  -moz-column-break-before: column;
+       break-before: column;
+}
+.break-after-column {
+  -moz-column-break-after: column;
+       break-after: column;
+}
+.auto-cols-max {
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+}
+.grid-flow-row {
+  grid-auto-flow: row;
+}
+.grid-flow-col {
+  grid-auto-flow: column;
+}
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .grid-cols-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .grid-cols-7 {
   grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-rows-2 {
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+.grid-rows-3 {
+  grid-template-rows: repeat(3, minmax(0, 1fr));
 }
 .flex-row {
   flex-direction: row;
@@ -1186,6 +1253,9 @@ input:checked + .toggle-bg {
 }
 .gap-\[300px\] {
   gap: 300px;
+}
+.gap-4 {
+  gap: 1rem;
 }
 .space-x-3 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -1389,6 +1459,9 @@ input:checked + .toggle-bg {
 .p-1 {
   padding: 0.25rem;
 }
+.p-7 {
+  padding: 1.75rem;
+}
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1437,17 +1510,13 @@ input:checked + .toggle-bg {
   padding-left: 1.75rem;
   padding-right: 1.75rem;
 }
-.px-12 {
-  padding-left: 3rem;
-  padding-right: 3rem;
+.py-7 {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
 }
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-}
-.py-7 {
-  padding-top: 1.75rem;
-  padding-bottom: 1.75rem;
 }
 .px-3 {
   padding-left: 0.75rem;
@@ -1464,6 +1533,10 @@ input:checked + .toggle-bg {
 .py-2\.5 {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
+}
+.px-9 {
+  padding-left: 2.25rem;
+  padding-right: 2.25rem;
 }
 .pt-10 {
   padding-top: 2.5rem;
@@ -1501,14 +1574,14 @@ input:checked + .toggle-bg {
 .pl-3 {
   padding-left: 0.75rem;
 }
+.pl-5 {
+  padding-left: 1.25rem;
+}
 .pr-4 {
   padding-right: 1rem;
 }
 .pb-1 {
   padding-bottom: 0.25rem;
-}
-.pl-5 {
-  padding-left: 1.25rem;
 }
 .pr-5 {
   padding-right: 1.25rem;
@@ -1534,8 +1607,14 @@ input:checked + .toggle-bg {
 .pb-4 {
   padding-bottom: 1rem;
 }
+.pt-4 {
+  padding-top: 1rem;
+}
 .text-center {
   text-align: center;
+}
+.text-justify {
+  text-align: justify;
 }
 .font-montserrat {
   font-family: Montserrat;
@@ -1689,6 +1768,11 @@ input:checked + .toggle-bg {
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 .outline {
   outline-style: solid;
 }
@@ -1815,6 +1899,10 @@ input:checked + .toggle-bg {
   --tw-border-opacity: 1;
   border-color: rgb(63 131 248 / var(--tw-border-opacity));
 }
+.focus\:border-indigo-500:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(104 117 245 / var(--tw-border-opacity));
+}
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -1840,6 +1928,10 @@ input:checked + .toggle-bg {
 .focus\:ring-blue-300:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(164 202 254 / var(--tw-ring-opacity));
+}
+.focus\:ring-indigo-500:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(104 117 245 / var(--tw-ring-opacity));
 }
 .dark .dark\:border-gray-700 {
   --tw-border-opacity: 1;
@@ -1970,6 +2062,10 @@ input:checked + .toggle-bg {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .sm\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
   .sm\:items-center {
     align-items: center;
   }
@@ -2011,6 +2107,11 @@ input:checked + .toggle-bg {
   .sm\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .sm\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }
 @media (min-width: 768px) {
