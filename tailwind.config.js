@@ -18,7 +18,8 @@ module.exports = {
       backgroundColor:{
         'pingki':'#E84A5F',
         'dongker':'#123C69',
-        'tipis':'#F2F6FB'
+        'tipis':'#F2F6FB',
+        'abu':'#F6F6F6'
       }
     },
   },

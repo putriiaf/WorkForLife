@@ -15,7 +15,8 @@
 
     <div class="mx-20 font-montserrat">
         <h1 class="text-2xl text-dongker font-extrabold pb-6">Postingan Terbaru</h1>
-        <div class="flex bg-white border-gray-100 border-2 shadow-lg rounded-xl max-w-md md:max-w-2xl">
+        <div class="flex bg-white border-gray-100 border-2 shadow-lg rounded-xl max-w-2xl">
+        <a href="">
                 <div class="flex items-start px-4 py-6">
                     <img class="w-12 h-12 rounded-full object-cover mr-4 shadow" src="{{ asset('img/avatar.png') }}" alt="avatar">
                         <div class="">
@@ -33,6 +34,7 @@
                             </button>
                         </div>
                 </div>
-            </div>
+        </a>
+        </div>
     </div>
 @endsection

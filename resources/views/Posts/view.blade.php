@@ -4,29 +4,64 @@
 
 <script src="{{ asset('js/dropdown,js') }}"></script>
 
-<div class="ml-16 mr-10 mt-7 font-montserrat">
+<div class="flex mt-7 space-x-8 font-montserrat">
+<div class="ml-16 mr-20 max-w-3xl">
     <div class="flex">
-        <h1 class="text-4xl font-extrabold text-dongker">Judul</h1>
+        <h1 class="text-4xl font-extrabold text-dongker pr-10">Judul</h1>
+        <div class="mx-[600px] pt-1">
+        <div>
         <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="" type="button">
-            <img src="{{ asset('img/more.png') }}" alt="">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+            </svg>
         </button>
+        </div>
+        </div>
         <!-- Dropdown menu -->
         <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                 <li>
-                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Option 1</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                </li>
-                <li>
-                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                </li>
-                <li>
-                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Option 2</a>
                 </li>
             </ul>
         </div>
     </div>
+
+    <div class="flex items-start px-2 py-6">
+        <img class="w-16 h-16 rounded-full object-cover mr-4 shadow" src="{{ asset('img/avatar.png') }}" alt="avatar">
+        <div class="pt-1">
+            <div class="flex items-center justify-between">
+                <h2 class="text-lg font-semibold text-gray-900 mt-1">Brad Adams </h2>
+            </div>
+            <p class="text-gray-700">12 April 2022</p>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae tempora qui consequatur ad numquam nisi quasi deserunt, laboriosam quidem cumque, ipsa accusantium non maiores illum rem pariatur. Tempore, libero odio.</p>
+    </div>
+
+    <div class="flex space-x-4">
+        <button class="flex pt-5 space-x-2">
+            <img src="{{ asset('img/like.png') }}" alt="">
+            <p>1 Juta</p>
+        </button>
+        <button class="flex pt-5 space-x-2">
+            <img src="{{ asset('img/report.png') }}" alt="">
+            <p>Report</p>
+        </button>
+    </div>
+</div>
+
+<div class="mr-10">
+    <h4 class="text-2xl font-extrabold text-dongker pb-5">Postingan Terbaru</h1>
+    <div class="shadow-md rounded-lg h-5/6 w-[325px]">
+        <a href="#" class="text-dongker text-lg font-bold">Judul</a>
+        <p class="">Lorem Ipsum</p>
+    </div>
+</div>
 </div>
 @endsection
