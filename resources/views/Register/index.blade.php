@@ -7,20 +7,18 @@
                   <div class="flex flex-wrap">
                     <div class="w-full lg:w-6/12 px-4 relative w-full mb-3"> 
                       @csrf
-                      <h6 class="disable">NAMA DEPAN</h6>
-                      <input type="text" name="nama" class=" @error('nama') is-invalid @enderror" id="nama" placeholder="Nama Depan" required value="{{ old('nama') }}">
-                      {{-- <label for="nama">Name</label> --}}
-                      @error('name')
+                      <h6 class="disable">NAMA</h6>
+                      <input type="text" name="nama" class=" @error('nama') is-invalid @enderror" id="nama" placeholder="Nama" required value="{{ old('nama') }}">
+                      @error('nama')
                           <div class="invalid-feedback">
                               {{ $message }}
                           </div>
                       @enderror
                     </div>
                     <div class="w-full lg:w-6/12 px-4 relative w-full mb-3">
-                    <h6 class="disable">NAMA BELAKANG </h6>
-                      <input type="text" name="namab" class= " @error('namab') is-invalid @enderror" id="namab" placeholder="Nama Belakang" required value="{{ old('namab') }}">
-                      {{-- <label for="namab">Name</label> --}}
-                      @error('name')
+                    <h6 class="disable">USERNAME</h6>
+                      <input type="text" name="username" class= " @error('username') is-invalid @enderror" id="username" placeholder="Username" required value="{{ old('username') }}">
+                      @error('username')
                           <div class="invalid-feedback">
                               {{ $message }}
                           </div>
@@ -28,8 +26,7 @@
                     </div>
                     <div class="w-full lg:w-6/12 px-4 relative w-full mb-3">
                       <h6 class="disable">NOMOR HANDPHONE</h6>
-                      <input type="tel" name="no_telp" class= " @error('no_telp') is-invalid @enderror" id="no_telp" placeholder="Masukkan Nomor Handphone" required value="{{ old('no_telp') }}">
-                      {{-- <label for="no_telp">Nomor Telepon</label> --}}
+                      <input type="tel" name="no_telp" class= "@error('no_telp') is-invalid @enderror" id="no_telp" placeholder="Masukkan Nomor Handphone" required value="{{ old('no_telp') }}">
                       @error('no_telp')
                       <div class="invalid-feedback">
                           {{ $message }}
@@ -40,15 +37,9 @@
                       <h6 class="disable">JENIS KELAMIN</h6>
                       <div class="form-check">
                         <input class="form-check-input @error('jk') is-invalid @enderror" type="radio" name="jk" id="jk" required value="L" {{ old('jk') == 'L' ? 'checked' : '' }}>L
-                        {{-- <input class="form-check-input @error('jk') is-invalid @enderror" type="radio" name="jk" id="jk" required value="P" {{ old('jk') == 'P' ? 'checked' : '' }}>P --}}
-                        {{-- <label class="form-check-label" for="jk">
-                        </label> --}}
                       </div>
                       <div class="form-check">
                         <input class="form-check-input @error('jk') is-invalid @enderror" type="radio" name="jk" id="jk" required value="P" {{ old('jk') == 'P' ? 'checked' : '' }}>P
-                        {{-- <label class="form-check-label" for="jk">
-                          P
-                        </label> --}}
                       </div>
                       @error('jk')
                       <div class="invalid-feedback">
@@ -59,7 +50,6 @@
                     <div class="w-full lg:w-6/12 px-4 relative w-full mb-3">
                       <h6 class="disable">EMAIL</h6>
                       <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Enter email address" required value="{{ old('email') }}">
-                      {{-- <label for="email">Email address</label> --}}
                       @error('email')
                       <div class="invalid-feedback">
                           {{ $message }}
@@ -67,9 +57,8 @@
                       @enderror
                     </div>
                     <div class="w-full lg:w-6/12 px-4 relative w-full mb-3">
-                      <h6 class="disable">TANGGAL LAHIR</h6>
+                      <h6 class="disable">NOMOR TELEPON</h6>
                       <input type="tel" name="no_telp" class= " @error('no_telp') is-invalid @enderror" id="no_telp" placeholder="Masukkan Tanggal Lahir" required value="{{ old('no_telp') }}">
-                      {{-- <label for="no_telp">Nomor Telepon</label> --}}
                       @error('no_telp')
                       <div class="invalid-feedback">
                           {{ $message }}
@@ -79,7 +68,6 @@
                     <div class="w-full lg:w-6/12 px-4 relative w-full mb-3">
                       <h6 class="disable">PASSWORD</h6>
                       <input type="password" name="password" class="form-control rounded-bottom @error('password') is-invalid @enderror" id="password" placeholder="Password" required>
-                      {{-- <label for="password">Password</label> --}}
                       @error('password')
                       <div class="invalid-feedback">
                           {{ $message }}
@@ -89,7 +77,6 @@
                     <div class="w-full lg:w-6/12 px-4 relative w-full mb-3">
                       <h6 class="disable">Konfirmasi Password</h6>
                       <input type="password" name="password" class="form-control rounded-bottom @error('password') is-invalid @enderror" id="password" placeholder="Password" required>
-                      {{-- <label for="password">Password</label> --}}
                       @error('password')
                       <div class="invalid-feedback">
                           {{ $message }}
@@ -106,6 +93,5 @@
                   </div>
           </div>
     </div>
-
-    @endsection
+@endsection
     
