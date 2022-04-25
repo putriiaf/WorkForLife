@@ -6,12 +6,13 @@ use App\Models\User;
 use App\Models\Post;
 
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\UploadPostsController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\VacancyController;
 use App\Models\Vacancy;
 
@@ -33,12 +34,14 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/logout', function () {
     return view('logout');
 });
-Route::get('/uploadpost', [UploadPostsController::class, 'index'])->middleware('auth');
-Route::post('/uploadpost', [UploadPostsController::class, 'store']);
-Route::get('/posts/{post:id}/edit', [UploadPostsController::class, 'edit']);
-Route::put('/posts/{post:id}', [UploadPostsController::class, 'update']);
-Route::get('/report/{post:id}', [UploadPostsController::class, 'index']);
-Route::post('/report/{post:id}', [UploadPostsController::class, 'store']);
+Route::get('/uploadpost', [PostController::class, 'create'])->middleware('auth');
+Route::post('/uploadpost', [PostController::class, 'store']);
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/{post:id}', [PostController::class, 'show']);
+Route::get('/posts/{post:id}/edit', [PostController::class, 'edit']);
+Route::put('/posts/{post:id}', [PostController::class, 'update']);
+Route::get('/report/{post:id}', [ReportController::class, 'index']);
+Route::post('/report', [ReportController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 Route::resource('/profile', UserController::class)->middleware('auth');
@@ -53,8 +56,10 @@ Route::get('/profile/{username}', function ($username) {
 Route::get('/loker', [VacancyController::class, 'index']);
 Route::get('/loker/{vacancy:id}', [VacancyController::class, 'show']);
 
-Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/{post:id}', [PostController::class, 'show']);
+
 Route::get('/form', function () {
     return view('formloker');
 });
+
+Route::get('/company', [CompanyController::class, 'index']);
+Route::post('/company/verify', [CompanyController::class, 'store']);

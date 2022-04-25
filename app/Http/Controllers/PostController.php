@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -16,10 +17,9 @@ class PostController extends Controller
     {
         return view('Posts.posts', [
             "title" => "Sharing",
-            'posts' => Post::latest()->paginate(10)->withQueryString(),
+            'posts' => Post::latest()->filter(request(['search']))->paginate(10)->withQueryString()
         ]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +27,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.upload', [
+            "title" => "Upload Posts",
+            'message' => NULL
+        ]);
     }
 
     /**
@@ -38,7 +41,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            Post::create([
+                'judul' => request('judul'),
+                'deskripsi' => request('deskripsi'),
+                'user_id' => request('user_id')
+                //'slug' => Str::replace(' ', '-', Str::lower(request('nama_event')))
+            ]);
+
+            return redirect('/uploadpost')->with('success', 'Postingan diunggah.');
     }
 
     /**
@@ -65,7 +75,11 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('posts.editPost', [
+            'title' => 'Edit Post',
+            'posts' => Post::where('id', $id)->first()
+            // 'posts' => $posts
+        ]);
     }
 
     /**
@@ -75,9 +89,18 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $rules = [
+            'judul' => 'required|max:255',
+            'deskripsi' => 'required',
+            'user_id' => 'required'
+        ];
+        $validatedData = $request->validate($rules);
+        $validatedData["user_id"] = auth()->user()->id;
+
+        Post::where('id', $post->id)->update($validatedData);
+        return redirect('/profile');
     }
 
     /**

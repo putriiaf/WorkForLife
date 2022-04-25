@@ -6,10 +6,12 @@
     <h1 class="font-montserrat font-extrabold text-3xl">Semua Pekerjaan</h1>
     <div class="pt-8">
         <span>
-            <input type="search" id="search" class="h-12 w-1/2 p-3 rounded-lg shadow-md border-2">
+          <form action="/loker">
+            <input type="text" id="search" class="h-12 w-1/2 p-3 rounded-lg shadow-md border-2" name="search" value="{{ request('search') }}">
             <span class="pl-3">
-              <button class="w-20 h-12 text-center rounded-lg bg-dongker text-white text-base hover:bg-dongker/50">Cari</button>
+              <button type="submit" class="w-20 h-12 text-center rounded-lg bg-dongker text-white text-base hover:bg-dongker/50">Cari</button>
             </span>
+            </form>
             <span class="pl-5">
               <button class="w-10 h-10">
                 <img src="{{ asset('img/plus.png') }}" alt="">

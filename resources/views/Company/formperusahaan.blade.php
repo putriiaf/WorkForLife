@@ -5,8 +5,24 @@
     <div class="flex justify-center item-center mt-8">
         <h1 class="text-2xl font-bold">Form Verifikasi Perusahaan</h1>
     </div>
+
+    @if(session()->has('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
+    @if(session()->has('loginError'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('loginError') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
     <div class="flex justify-center item-center">
-        <form action="get" class="w-6/12">
+        <form method="POST" action="/company/verify" class="w-6/12" enctype="multipart/form-data">
+        @csrf
         <div class="bg-abu rounded-lg">
         <div class="m-10 py-10">
             <div class="flex flex-col md:flex-row pb-4 mb-4">
@@ -14,7 +30,12 @@
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input class="p-1 px-2 w-full">
+                            <input type="text" class="p-1 px-2 w-full @error('nama_perusahaan') is-invalid @enderror" name="nama_perusahaan" value="{{ old('nama_perusahaan') }}">
+                            @error('nama_perusahaan')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -24,7 +45,12 @@
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input class="p-1 px-2 py-10 w-full">
+                            <input type="text" class="p-1 px-2 py-10 w-full @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}">
+                            @error('alamat')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -34,7 +60,12 @@
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input class="p-1 px-2 w-full">
+                            <input type="text" class="p-1 px-2 w-full @error('namaCP') is-invalid @enderror" name="namaCP" value="{{ old('namaCP') }}">
+                            @error('namaCP')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -44,7 +75,12 @@
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input class="p-1 px-2 w-full">
+                            <input type="text" class="p-1 px-2 w-full @error('noCP') is-invalid @enderror" name="noCP" value="{{ old('noCP') }}">
+                            @error('noCP')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -54,11 +90,17 @@
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input class="p-1 px-2 w-full">
+                            <input type="text" class="p-1 px-2 w-full @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+                            @error('email')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                     </div>
                 </div>
             </div>
+            <input type="hidden" class="p-1 px-2 w-full" name="user_id" value="1">
         </div>
         </div>
         <div class="flex justify-center item-center pb-4">

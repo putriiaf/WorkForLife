@@ -20,6 +20,8 @@ class CreateCompaniesTable extends Migration
             $table->string('nama_perusahaan');
             $table->string('namaCP');
             $table->string('noCP');
+            $table->string('alamat');
+            $table->string('email')->unique();
             $table->timestamps();
         });
     }

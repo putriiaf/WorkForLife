@@ -47,14 +47,16 @@
     </div>
 
     <div class="flex space-x-4">
-        <button class="flex pt-5 space-x-2">
+        {{-- <button class="flex pt-5 space-x-2">
             <img src="{{ asset('img/like.png') }}" alt="">
             <p>1 Juta</p>
-        </button>
+        </button>--}}
+        <a href="/report/{{ $post->id }}">
         <button class="flex pt-5 space-x-2">
             <img src="{{ asset('img/report.png') }}" alt="">
             <p>Report</p>
         </button>
+        </a>
     </div>
 </div>
 
