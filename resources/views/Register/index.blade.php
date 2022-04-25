@@ -8,7 +8,7 @@
                     <div class="w-full lg:w-6/12 px-4 relative w-full mb-3"> 
                       @csrf
                       <h6 class="disable">NAMA DEPAN</h6>
-                      <input type="text" name="nama" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm sm:text-sm border-gray-300 rounded-md @error('nama') is-invalid @enderror" id="nama" placeholder="Nama Depan" required value="{{ old('nama') }}">
+                      <input type="text" name="nama" class=" @error('nama') is-invalid @enderror" id="nama" placeholder="Nama Depan" required value="{{ old('nama') }}">
                       {{-- <label for="nama">Name</label> --}}
                       @error('name')
                           <div class="invalid-feedback">
@@ -18,7 +18,7 @@
                     </div>
                     <div class="w-full lg:w-6/12 px-4 relative w-full mb-3">
                     <h6 class="disable">NAMA BELAKANG </h6>
-                      <input type="text" name="namab" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm sm:text-sm border-gray-300 rounded-md @error('namab') is-invalid @enderror" id="namab" placeholder="Nama Belakang" required value="{{ old('namab') }}">
+                      <input type="text" name="namab" class= " @error('namab') is-invalid @enderror" id="namab" placeholder="Nama Belakang" required value="{{ old('namab') }}">
                       {{-- <label for="namab">Name</label> --}}
                       @error('name')
                           <div class="invalid-feedback">
@@ -28,7 +28,7 @@
                     </div>
                     <div class="w-full lg:w-6/12 px-4 relative w-full mb-3">
                       <h6 class="disable">NOMOR HANDPHONE</h6>
-                      <input type="tel" name="no_telp" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm sm:text-sm border-gray-300 rounded-md @error('no_telp') is-invalid @enderror" id="no_telp" placeholder="Masukkan Nomor Handphone" required value="{{ old('no_telp') }}">
+                      <input type="tel" name="no_telp" class= " @error('no_telp') is-invalid @enderror" id="no_telp" placeholder="Masukkan Nomor Handphone" required value="{{ old('no_telp') }}">
                       {{-- <label for="no_telp">Nomor Telepon</label> --}}
                       @error('no_telp')
                       <div class="invalid-feedback">
@@ -68,7 +68,7 @@
                     </div>
                     <div class="w-full lg:w-6/12 px-4 relative w-full mb-3">
                       <h6 class="disable">TANGGAL LAHIR</h6>
-                      <input type="tel" name="no_telp" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm sm:text-sm border-gray-300 rounded-md @error('no_telp') is-invalid @enderror" id="no_telp" placeholder="Masukkan Tanggal Lahir" required value="{{ old('no_telp') }}">
+                      <input type="tel" name="no_telp" class= " @error('no_telp') is-invalid @enderror" id="no_telp" placeholder="Masukkan Tanggal Lahir" required value="{{ old('no_telp') }}">
                       {{-- <label for="no_telp">Nomor Telepon</label> --}}
                       @error('no_telp')
                       <div class="invalid-feedback">
