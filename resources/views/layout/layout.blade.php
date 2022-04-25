@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkForLife</title>
+    <link rel="icon" href="{{ asset('img/logo1.png') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <script src="https://unpkg.com/flowbite@1.4.2/dist/flowbite.js"></script>
@@ -13,18 +15,18 @@
     <header class="p-4 bg-coolGray-100 text-coolGray-800">
 	<div class="container flex justify-between h-16 mx-auto">
 		<div class="flex">
-			<a rel="noopener noreferrer" href="{{ url('/index') }}" aria-label="Back to homepage" class="flex items-center pb-32 pt-2 px-5 w-48 h-48 ">
+			<a rel="noopener noreferrer" href="{{ url('/') }}" aria-label="Back to homepage" class="flex items-center pb-32 pt-2 px-5 w-48 h-48 ">
 				<img src="{{ asset('img/logo.png') }}" alt="">
 			</a>
 			<ul class="items-stretch hidden space-x-3 lg:flex">
 				<li class="flex">
-					<a rel="noopener noreferrer" href="/" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Beranda</a>
+					<a rel="noopener noreferrer" href="{{ url('/') }}" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Beranda</a>
 				</li>
 				<li class="flex">
 					<a rel="noopener noreferrer" href="/loker" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Cari Loker</a>
 				</li>
 				<li class="flex">
-					<a rel="noopener noreferrer" href="#" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Sharing</a>
+					<a rel="noopener noreferrer" href="/posts" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Sharing</a>
 				</li>
 			</ul>
 		</div>
@@ -49,12 +51,12 @@
       </form>
       
       <button type="button" class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
-                <div class="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
+                <div class="w-10 h-10 mx-10 overflow-hidden border-2 border-gray-400 rounded-full">
                     <a href="/profile">
                       @if(auth()->user()->foto_profil)
                         <img src="{{ asset('storage/' . auth()->user()->foto_profil) }}" class="object-cover w-full h-full" alt="avatar">
                       @else
-                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" class="object-cover w-full h-full" alt="avatar">
+                        <img src="{{ asset('img/avatar.png') }}" class="object-cover w-full h-full" alt="avatar">
                       @endif
                     </a>
                 </div>
