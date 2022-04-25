@@ -17,17 +17,17 @@
         <h1 class="text-2xl text-dongker font-extrabold pb-6">Postingan Terbaru</h1>
         <div class="flex bg-white border-gray-100 border-2 shadow-lg rounded-xl max-w-2xl">
         <a href="">
-                <div class="flex items-start px-4 py-6">
+                <div class="flex items-start px-4 py-6 max-w-full">
                     <img class="w-12 h-12 rounded-full object-cover mr-4 shadow" src="{{ asset('img/avatar.png') }}" alt="avatar">
                         <div class="">
                             <div class="flex items-center justify-between">
                                 <h2 class="text-lg font-semibold text-gray-900 -mt-1">Brad Adams </h2>
                             </div>
                             <p class="text-gray-700">12 April 2022</p>
-                            <h6 class="mt-3 font-extrabold">Judul</h6>
-                            <p class="mt-1 text-gray-700 text-sm">
-                                Lorem ipsum, dolor sit amet conse. Saepe optio minus rem dolor sit amet!
-                            </p>
+                            <h6 class="mt-3 font-extrabold block w-[560px] line-clamp-1">Judul</h6>
+                            <span class="mt-1 text-sm block w-[560px] line-clamp-2">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam impedit, et commodi nam unde quia illo deleniti eveniet modi molestias doloribus repudiandae iusto reprehenderit temporibus vitae mollitia ducimus labore dolores!
+                            </span>
                             <button class="flex pt-5 space-x-2">
                                 <img src="{{ asset('img/report.png') }}" alt="">
                                 <p>Report</p>
