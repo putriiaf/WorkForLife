@@ -11,6 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UploadPostsController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\VacancyController;
 use App\Models\Vacancy;
 
@@ -52,10 +53,8 @@ Route::get('/profile/{username}', function ($username) {
 Route::get('/loker', [VacancyController::class, 'index']);
 Route::get('/loker/{vacancy:id}', [VacancyController::class, 'show']);
 
-Route::get('/post', function () {
-    return view('/posts/post');
-});
-
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/{post:id}', [PostController::class, 'show']);
 Route::get('/form', function () {
     return view('formloker');
 });

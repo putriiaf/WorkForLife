@@ -7,7 +7,7 @@
 <div class="flex mt-7 space-x-8 font-montserrat">
 <div class="ml-16 mr-20 max-w-3xl">
     <div class="flex">
-        <h1 class="text-4xl font-extrabold text-dongker pr-10">Judul</h1>
+        <h1 class="text-4xl font-extrabold text-dongker pr-10">{{ $post->judul }}</h1>
         <div class="mx-[600px] pt-1">
         <div>
         <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="" type="button">
@@ -31,17 +31,21 @@
     </div>
 
     <div class="flex items-start px-2 py-6">
-        <img class="w-16 h-16 rounded-full object-cover mr-4 shadow" src="{{ asset('img/avatar.png') }}" alt="avatar">
+        @if($post->user->foto_profil)
+        <img src="{{ asset('storage/' . $post->user->foto_profil) }}" class="w-16 h-16 rounded-full object-cover mr-4 shadow" alt="avatar">
+        @else
+        <img src="{{ asset('img/avatar.png') }}" class="w-16 h-16 rounded-full object-cover mr-4 shadow" alt="avatar">
+        @endif
         <div class="pt-1">
             <div class="flex items-center justify-between">
-                <h2 class="text-lg font-semibold text-gray-900 mt-1">Brad Adams </h2>
+                <h2 class="text-lg font-semibold text-gray-900 mt-1">{{ $post->user->nama }}</h2>
             </div>
-            <p class="text-gray-700">12 April 2022</p>
+            <p class="text-gray-700">{{ $post->created_at }}2</p>
         </div>
     </div>
 
     <div class="mt-5">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae tempora qui consequatur ad numquam nisi quasi deserunt, laboriosam quidem cumque, ipsa accusantium non maiores illum rem pariatur. Tempore, libero odio.</p>
+        <p>{{ $post->deskripsi }}</p>
     </div>
 
     <div class="flex space-x-4">
@@ -58,10 +62,12 @@
 
 <div class="mr-10">
     <h4 class="text-2xl font-extrabold text-dongker pb-5">Postingan Terbaru</h1>
+    @foreach($latest_post as $new_post)
     <div class="shadow-md rounded-lg h-5/6 w-[325px]">
-        <a href="#" class="text-dongker text-lg font-bold">Judul</a>
-        <p class="">Lorem Ipsum</p>
+        <a href="#" class="text-dongker text-lg font-bold">{{ $new_post->judul }}</a>
+        <p class="">{{ $new_post->deskripsi }}</p>
     </div>
+    @endforeach
 </div>
 </div>
 @endsection

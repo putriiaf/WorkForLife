@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Company;
 use App\Models\User;
+use App\Models\Post;
 use App\Models\Vacancy;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -132,6 +133,78 @@ class DatabaseSeeder extends Seeder
             'domisili' => 'jakarta',
             'min_pengalaman' => '6 bulan',
             'link_pendaftaran' => 'https://google.com',
+        ]);
+
+        Post::create([
+            'user_id' => '2',
+            'judul' => 'Cara mendapatkan kerja yang sesuai dengan passion',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae vitae quibusdam architecto ratione sint obcaecati, numquam officiis natus hic nobis nihil blanditiis minus possimus odit, dignissimos quidem tenetur eaque laboriosam quasi esse? A, similique mollitia! Vel, perferendis! Nostrum, rem similique. Necessitatibus est consequuntur reprehenderit explicabo similique repudiandae ad quidem ea quis quisquam deleniti temporibus odio facere iusto ipsam excepturi cumque voluptate sunt quibusdam, consectetur dicta amet doloremque nesciunt? Velit aliquam optio odit quidem delectus facere quaerat saepe, consequatur ullam, qui temporibus nemo sit, alias provident corporis harum ipsa voluptates quae blanditiis? Aliquam doloremque deserunt recusandae porro facilis quasi saepe dolore.',
+        ]);
+
+        Post::create([
+            'user_id' => '1',
+            'judul' => 'Susah dapat kerja',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae vitae quibusdam architecto ratione sint obcaecati, numquam officiis natus hic nobis nihil blanditiis minus possimus odit, dignissimos quidem tenetur eaque laboriosam quasi esse? A, similique mollitia! Vel, perferendis! Nostrum, rem similique. Necessitatibus est consequuntur reprehenderit explicabo similique repudiandae ad quidem ea quis quisquam deleniti temporibus odio facere iusto ipsam excepturi cumque voluptate sunt quibusdam, consectetur dicta amet doloremque nesciunt? Velit aliquam optio odit quidem delectus facere quaerat saepe, consequatur ullam, qui temporibus nemo sit, alias provident corporis harum ipsa voluptates quae blanditiis? Aliquam doloremque deserunt recusandae porro facilis quasi saepe dolore.',
+        ]);
+
+        Post::create([
+            'user_id' => '1',
+            'judul' => 'CV salah',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae vitae quibusdam architecto ratione sint obcaecati, numquam officiis natus hic nobis nihil blanditiis minus possimus odit, dignissimos quidem tenetur eaque laboriosam quasi esse? A, similique mollitia! Vel, perferendis! Nostrum, rem similique. Necessitatibus est consequuntur reprehenderit explicabo similique repudiandae ad quidem ea quis quisquam deleniti temporibus odio facere iusto ipsam excepturi cumque voluptate sunt quibusdam, consectetur dicta amet doloremque nesciunt? Velit aliquam optio odit quidem delectus facere quaerat saepe, consequatur ullam, qui temporibus nemo sit, alias provident corporis harum ipsa voluptates quae blanditiis? Aliquam doloremque deserunt recusandae porro facilis quasi saepe dolore.',
+        ]);
+
+        Post::create([
+            'user_id' => '3',
+            'judul' => 'Resign setelah 3 tahun bekerja',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae vitae quibusdam architecto ratione sint obcaecati, numquam officiis natus hic nobis nihil blanditiis minus possimus odit, dignissimos quidem tenetur eaque laboriosam quasi esse? A, similique mollitia! Vel, perferendis! Nostrum, rem similique. Necessitatibus est consequuntur reprehenderit explicabo similique repudiandae ad quidem ea quis quisquam deleniti temporibus odio facere iusto ipsam excepturi cumque voluptate sunt quibusdam, consectetur dicta amet doloremque nesciunt? Velit aliquam optio odit quidem delectus facere quaerat saepe, consequatur ullam, qui temporibus nemo sit, alias provident corporis harum ipsa voluptates quae blanditiis? Aliquam doloremque deserunt recusandae porro facilis quasi saepe dolore.',
+        ]);
+
+        Post::create([
+            'user_id' => '2',
+            'judul' => 'Cara mendapatkan kerja yang sesuai dengan passion',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae vitae quibusdam architecto ratione sint obcaecati, numquam officiis natus hic nobis nihil blanditiis minus possimus odit, dignissimos quidem tenetur eaque laboriosam quasi esse? A, similique mollitia! Vel, perferendis! Nostrum, rem similique. Necessitatibus est consequuntur reprehenderit explicabo similique repudiandae ad quidem ea quis quisquam deleniti temporibus odio facere iusto ipsam excepturi cumque voluptate sunt quibusdam, consectetur dicta amet doloremque nesciunt? Velit aliquam optio odit quidem delectus facere quaerat saepe, consequatur ullam, qui temporibus nemo sit, alias provident corporis harum ipsa voluptates quae blanditiis? Aliquam doloremque deserunt recusandae porro facilis quasi saepe dolore.',
+        ]);
+
+        Post::create([
+            'user_id' => '1',
+            'judul' => 'Susah dapat kerja',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae vitae quibusdam architecto ratione sint obcaecati, numquam officiis natus hic nobis nihil blanditiis minus possimus odit, dignissimos quidem tenetur eaque laboriosam quasi esse? A, similique mollitia! Vel, perferendis! Nostrum, rem similique. Necessitatibus est consequuntur reprehenderit explicabo similique repudiandae ad quidem ea quis quisquam deleniti temporibus odio facere iusto ipsam excepturi cumque voluptate sunt quibusdam, consectetur dicta amet doloremque nesciunt? Velit aliquam optio odit quidem delectus facere quaerat saepe, consequatur ullam, qui temporibus nemo sit, alias provident corporis harum ipsa voluptates quae blanditiis? Aliquam doloremque deserunt recusandae porro facilis quasi saepe dolore.',
+        ]);
+
+        Post::create([
+            'user_id' => '1',
+            'judul' => 'CV salah',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae vitae quibusdam architecto ratione sint obcaecati, numquam officiis natus hic nobis nihil blanditiis minus possimus odit, dignissimos quidem tenetur eaque laboriosam quasi esse? A, similique mollitia! Vel, perferendis! Nostrum, rem similique. Necessitatibus est consequuntur reprehenderit explicabo similique repudiandae ad quidem ea quis quisquam deleniti temporibus odio facere iusto ipsam excepturi cumque voluptate sunt quibusdam, consectetur dicta amet doloremque nesciunt? Velit aliquam optio odit quidem delectus facere quaerat saepe, consequatur ullam, qui temporibus nemo sit, alias provident corporis harum ipsa voluptates quae blanditiis? Aliquam doloremque deserunt recusandae porro facilis quasi saepe dolore.',
+        ]);
+
+        Post::create([
+            'user_id' => '3',
+            'judul' => 'Resign setelah 3 tahun bekerja',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae vitae quibusdam architecto ratione sint obcaecati, numquam officiis natus hic nobis nihil blanditiis minus possimus odit, dignissimos quidem tenetur eaque laboriosam quasi esse? A, similique mollitia! Vel, perferendis! Nostrum, rem similique. Necessitatibus est consequuntur reprehenderit explicabo similique repudiandae ad quidem ea quis quisquam deleniti temporibus odio facere iusto ipsam excepturi cumque voluptate sunt quibusdam, consectetur dicta amet doloremque nesciunt? Velit aliquam optio odit quidem delectus facere quaerat saepe, consequatur ullam, qui temporibus nemo sit, alias provident corporis harum ipsa voluptates quae blanditiis? Aliquam doloremque deserunt recusandae porro facilis quasi saepe dolore.',
+        ]);
+
+        Post::create([
+            'user_id' => '2',
+            'judul' => 'Cara mendapatkan kerja yang sesuai dengan passion',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae vitae quibusdam architecto ratione sint obcaecati, numquam officiis natus hic nobis nihil blanditiis minus possimus odit, dignissimos quidem tenetur eaque laboriosam quasi esse? A, similique mollitia! Vel, perferendis! Nostrum, rem similique. Necessitatibus est consequuntur reprehenderit explicabo similique repudiandae ad quidem ea quis quisquam deleniti temporibus odio facere iusto ipsam excepturi cumque voluptate sunt quibusdam, consectetur dicta amet doloremque nesciunt? Velit aliquam optio odit quidem delectus facere quaerat saepe, consequatur ullam, qui temporibus nemo sit, alias provident corporis harum ipsa voluptates quae blanditiis? Aliquam doloremque deserunt recusandae porro facilis quasi saepe dolore.',
+        ]);
+
+        Post::create([
+            'user_id' => '1',
+            'judul' => 'Susah dapat kerja',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae vitae quibusdam architecto ratione sint obcaecati, numquam officiis natus hic nobis nihil blanditiis minus possimus odit, dignissimos quidem tenetur eaque laboriosam quasi esse? A, similique mollitia! Vel, perferendis! Nostrum, rem similique. Necessitatibus est consequuntur reprehenderit explicabo similique repudiandae ad quidem ea quis quisquam deleniti temporibus odio facere iusto ipsam excepturi cumque voluptate sunt quibusdam, consectetur dicta amet doloremque nesciunt? Velit aliquam optio odit quidem delectus facere quaerat saepe, consequatur ullam, qui temporibus nemo sit, alias provident corporis harum ipsa voluptates quae blanditiis? Aliquam doloremque deserunt recusandae porro facilis quasi saepe dolore.',
+        ]);
+
+        Post::create([
+            'user_id' => '1',
+            'judul' => 'CV salah',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae vitae quibusdam architecto ratione sint obcaecati, numquam officiis natus hic nobis nihil blanditiis minus possimus odit, dignissimos quidem tenetur eaque laboriosam quasi esse? A, similique mollitia! Vel, perferendis! Nostrum, rem similique. Necessitatibus est consequuntur reprehenderit explicabo similique repudiandae ad quidem ea quis quisquam deleniti temporibus odio facere iusto ipsam excepturi cumque voluptate sunt quibusdam, consectetur dicta amet doloremque nesciunt? Velit aliquam optio odit quidem delectus facere quaerat saepe, consequatur ullam, qui temporibus nemo sit, alias provident corporis harum ipsa voluptates quae blanditiis? Aliquam doloremque deserunt recusandae porro facilis quasi saepe dolore.',
+        ]);
+
+        Post::create([
+            'user_id' => '3',
+            'judul' => 'Resign setelah 3 tahun bekerja',
+            'deskripsi' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae vitae quibusdam architecto ratione sint obcaecati, numquam officiis natus hic nobis nihil blanditiis minus possimus odit, dignissimos quidem tenetur eaque laboriosam quasi esse? A, similique mollitia! Vel, perferendis! Nostrum, rem similique. Necessitatibus est consequuntur reprehenderit explicabo similique repudiandae ad quidem ea quis quisquam deleniti temporibus odio facere iusto ipsam excepturi cumque voluptate sunt quibusdam, consectetur dicta amet doloremque nesciunt? Velit aliquam optio odit quidem delectus facere quaerat saepe, consequatur ullam, qui temporibus nemo sit, alias provident corporis harum ipsa voluptates quae blanditiis? Aliquam doloremque deserunt recusandae porro facilis quasi saepe dolore.',
         ]);
     }
 }
