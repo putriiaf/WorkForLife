@@ -15,12 +15,12 @@
     <header class="p-4 bg-coolGray-100 text-coolGray-800">
 	<div class="container flex justify-between h-16 mx-auto">
 		<div class="flex">
-			<a rel="noopener noreferrer" href="{{ url('/index') }}" aria-label="Back to homepage" class="flex items-center pb-32 pt-2 px-5 w-48 h-48 ">
+			<a rel="noopener noreferrer" href="{{ url('/') }}" aria-label="Back to homepage" class="flex items-center pb-32 pt-2 px-5 w-48 h-48 ">
 				<img src="{{ asset('img/logo.png') }}" alt="">
 			</a>
 			<ul class="items-stretch hidden space-x-3 lg:flex">
 				<li class="flex">
-					<a rel="noopener noreferrer" href="/" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Beranda</a>
+					<a rel="noopener noreferrer" href="{{ url('/') }}" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Beranda</a>
 				</li>
 				<li class="flex">
 					<a rel="noopener noreferrer" href="/loker" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Cari Loker</a>
