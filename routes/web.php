@@ -51,3 +51,11 @@ Route::get('/profile/{username}', function ($username) {
 
 Route::get('/loker', [VacancyController::class, 'index']);
 Route::get('/loker/{vacancy:id}', [VacancyController::class, 'show']);
+
+Route::get('/post', function () {
+    return view('/posts/post');
+});
+
+Route::get('/form', function () {
+    return view('formloker');
+});
