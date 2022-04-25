@@ -24,7 +24,7 @@
                           </div>
                       @enderror
                     </div>
-                    <div class="w-full lg:w-6/12 px-4 relative w-full mb-3">
+                    <!-- <div class="w-full lg:w-6/12 px-4 relative w-full mb-3">
                       <h6 class="disable">NOMOR HANDPHONE</h6>
                       <input type="tel" name="no_telp" class= "@error('no_telp') is-invalid @enderror" id="no_telp" placeholder="Masukkan Nomor Handphone" required value="{{ old('no_telp') }}">
                       @error('no_telp')
@@ -32,7 +32,7 @@
                           {{ $message }}
                       </div>
                       @enderror
-                    </div>
+                    </div> -->
                     <div class="w-full lg:w-6/12 px-4 relative w-full mb-3">
                       <h6 class="disable">JENIS KELAMIN</h6>
                       <div class="form-check">
@@ -83,7 +83,7 @@
                       </div>
                       @enderror
                     </div>
-                    <input type="hidden" name="is_admin" id="is_admin" value="0" required>
+                    <input type="hidden" name="role" id="role" value="0" required>
                     </div>
                     <div class="center">
                       <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40 text-justify" type="submit">Daftar Sekarang</button> <br>
