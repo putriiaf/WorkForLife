@@ -34,8 +34,10 @@
 		@guest
 		<div class="pt-2 items-center flex-shrink-0 hidden lg:flex">
 			@if (Route::has('login'))
-			<button class="mx-8 px-8 py-2 font-semibold rounded-lg bg-white border-2 border-gray-500 text-dongker hover:bg-white/30 hover:border-gray-500/30" href="">Rekrut Sekarang</button>
-			@endif
+      <form action="/company">
+			<button class="mx-8 px-8 py-2 font-semibold rounded-lg bg-white border-2 border-gray-500 text-dongker hover:bg-white/30 hover:border-gray-500/30">Rekrut Sekarang</button>
+      </form>
+      @endif
 			@if (Route::has('login'))
       <form action="/login">
 			<button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">Masuk</button>

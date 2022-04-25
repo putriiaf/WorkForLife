@@ -14,7 +14,10 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        return view('Company.formperusahaan', [
+            "title" => "Verifikasi Perusahaan",
+            'active' => 'company',
+        ]);
     }
 
     /**
@@ -35,7 +38,18 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'user_id' => 'required',
+            'nama_perusahaan' => 'required|max:255',
+            'namaCP' => 'required|max:50',
+            'noCP' => 'required|numeric|digits_between:10,14',
+            'email' => 'required|email:dns|unique:companies',
+            'alamat' => 'required|max:255',
+        ]);
+
+        Company::create($validatedData);
+        // $request->session()->flash('success', 'Registration successful, please login!');
+        return redirect('/company')->with('success', 'Company Verification submitted, please wait for further info!');
     }
 
     /**

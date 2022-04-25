@@ -120,7 +120,7 @@
         <div class="hidden" id="tab-settings">
             <!-- component -->
             @foreach ($my_posts as $post)
-            <div class="flex bg-white shadow-lg rounded-xl mx-4 md:mx-auto max-w-md md:max-w-2xl "><!--horizantil margin is just for display-->
+            <div class="flex bg-white shadow-lg rounded-xl mx-4 md:mx-auto max-w-md md:max-w-2xl mb-5"><!--horizantil margin is just for display-->
                 <div class="flex items-start px-4 py-6">
                     <img class="w-12 h-12 rounded-full object-cover mr-4 shadow" src="{{ asset('img/avatar.png') }}" alt="avatar">
                         <div class="">
@@ -128,8 +128,8 @@
                                 <h2 class="text-lg font-semibold text-gray-900 -mt-1">{{ $profilUser->nama }}</h2>
                             </div>
                             <p class="text-gray-700">{{ $post->created_at }}</p>
-                            <h6 class="mt-3 font-extrabold">{{ $post->judul }}</h6>
-                            <p class="mt-1 text-gray-700 text-sm">
+                            <h6 class="mt-3 font-extrabold block n-2 line-clamp-2">{{ $post->judul }}</h6>
+                            <p class="mt-1 text-gray-700 text-sm block n-2 line-clamp-2">
                                 {{ $post->deskripsi  }}
                             </p>
                             <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary tombol2">Edit</a>
