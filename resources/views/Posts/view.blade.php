@@ -6,17 +6,15 @@
 
 <div class="flex mt-7 space-x-8 font-montserrat">
 <div class="ml-16 mr-20 max-w-3xl">
-    <div class="flex">
-        <h1 class="text-4xl font-extrabold text-dongker pr-10">{{ $post->judul }}</h1>
-        <div class="mx-[600px] pt-1">
-        <div>
-        <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="" type="button">
+    <div class="">
+        <span class="flex max-w-44">
+            <h1 class="text-4xl font-extrabold text-dongker line-clamp-2">{{ $post->judul }}</h1>
+            <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
             </svg>
         </button>
-        </div>
-        </div>
+        </span>
         <!-- Dropdown menu -->
         <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
@@ -44,7 +42,7 @@
         </div>
     </div>
 
-    <div class="mt-5">
+    <div class="mt-5 text-justify">
         <p>{{ $post->deskripsi }}</p>
     </div>
 
@@ -62,12 +60,14 @@
 
 <div class="mr-10">
     <h4 class="text-2xl font-extrabold text-dongker pb-5">Postingan Terbaru</h1>
-    @foreach($latest_post as $new_post)
-    <div class="shadow-md rounded-lg h-5/6 w-[325px]">
-        <a href="#" class="text-dongker text-lg font-bold">{{ $new_post->judul }}</a>
-        <p class="">{{ $new_post->deskripsi }}</p>
+    <div class="shadow-md rounded-lg h-5/6 w-[325px] pb-3">
+        @foreach($latest_post as $new_post)
+        <div class="pt-2">
+            <a href="#" class="text-dongker text-lg font-bold">{{ $new_post->judul }}</a>
+        </div>
+        <p class="line-clamp-3 pt-1">{{ $new_post->deskripsi }}</p>
+        @endforeach
     </div>
-    @endforeach
 </div>
 </div>
 @endsection

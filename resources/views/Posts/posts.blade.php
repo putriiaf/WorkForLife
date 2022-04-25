@@ -39,7 +39,7 @@
                             </button>
                         </div>
                 </div>
-        </a>
+         </a>
         </div>
         @endforeach
     </div>
