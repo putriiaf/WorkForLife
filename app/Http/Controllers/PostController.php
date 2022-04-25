@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -16,10 +17,9 @@ class PostController extends Controller
     {
         return view('Posts.posts', [
             "title" => "Sharing",
-            'posts' => Post::latest()->paginate(10)->withQueryString(),
+            'posts' => Post::latest()->filter(request(['search', 'category']))->paginate(10)->withQueryString()
         ]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
