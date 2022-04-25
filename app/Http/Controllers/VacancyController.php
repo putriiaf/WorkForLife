@@ -21,7 +21,7 @@ class VacancyController extends Controller
         return view('loker.loker', [
             'title' => 'All Events' . $title,
             'active' => 'events',
-            'lokers' => Vacancy::latest()->paginate(6)->withQueryString()
+            'lokers' => Vacancy::latest()->filter(request(['search']))->paginate(6)->withQueryString()
         ]);
     }
 

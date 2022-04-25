@@ -17,7 +17,7 @@ class PostController extends Controller
     {
         return view('Posts.posts', [
             "title" => "Sharing",
-            'posts' => Post::latest()->filter(request(['search', 'category']))->paginate(10)->withQueryString()
+            'posts' => Post::latest()->filter(request(['search']))->paginate(10)->withQueryString()
         ]);
     }
     /**
