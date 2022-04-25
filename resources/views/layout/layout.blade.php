@@ -26,7 +26,7 @@
 					<a rel="noopener noreferrer" href="/loker" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Cari Loker</a>
 				</li>
 				<li class="flex">
-					<a rel="noopener noreferrer" href="#" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Sharing</a>
+					<a rel="noopener noreferrer" href="/posts" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Sharing</a>
 				</li>
 			</ul>
 		</div>
