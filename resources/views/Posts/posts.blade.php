@@ -18,7 +18,7 @@
     <div class="mx-20 font-montserrat">
         <h1 class="text-2xl text-dongker font-extrabold pb-6">Postingan Terbaru</h1>
         @foreach($posts as $post)
-        <div class="flex bg-white border-gray-100 border-2 shadow-lg rounded-xl max-w-2xl">
+        <div class="flex bg-white border-gray-100 border-2 shadow-lg rounded-xl max-w-2xl mb-5">
         <a href="/posts/{{ $post->id }}">
                 <div class="flex items-start px-4 py-6">
                     @if($post->user->foto_profil)

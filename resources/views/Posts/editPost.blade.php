@@ -20,7 +20,7 @@
             </div>
             <div class="font-bold">
                 <label for="deskripsi" class="text-blueGray-600 text-sm font-bold">Deskripsi</label>
-                <textarea id="deskripsi" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 h-48" type="text" name="deskripsi" value="{{ old('judul', $posts->deskripsi) }}"></textarea>
+                <textarea id="deskripsi" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 h-48" type="text" name="deskripsi" value="{{ old('deskripsi', $posts->deskripsi) }}"></textarea>
             </div>
             @auth
             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">

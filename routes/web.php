@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Post;
 
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
@@ -59,3 +60,6 @@ Route::get('/loker/{vacancy:id}', [VacancyController::class, 'show']);
 Route::get('/form', function () {
     return view('formloker');
 });
+
+Route::get('/company', [CompanyController::class, 'index']);
+Route::post('/company/verify', [CompanyController::class, 'store']);

@@ -53,6 +53,8 @@ class DatabaseSeeder extends Seeder
             'nama_perusahaan' => 'PT Company Indonesia',
             'namaCP' => 'Putra',
             'noCP' => '0823425252',
+            'alamat' => 'Tangerang',
+            'email' => 'company@gmail.com',
         ]);
 
         Vacancy::create([
