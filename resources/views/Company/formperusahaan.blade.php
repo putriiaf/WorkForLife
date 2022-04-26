@@ -3,9 +3,6 @@
 @section('content')
 <div class="font-montserrat my-10">
     <div class="flex justify-center item-center mt-8">
-        <h1 class="text-2xl font-bold">Form Verifikasi Perusahaan</h1>
-    </div>
-
     @if(session()->has('success'))
       <div id="alert-3" class="flex p-4 mb-4 bg-green-100 rounded-lg " role="alert">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -35,6 +32,11 @@
         </button>
       </div>
       @endif
+    </div>
+
+    <div class="flex justify-center item-center mt-8">
+        <h1 class="text-2xl font-bold">Form Verifikasi Perusahaan</h1>
+    </div>
 
     <div class="flex justify-center item-center">
         <form method="POST" action="/company/verify" class="w-6/12" enctype="multipart/form-data">
@@ -43,77 +45,67 @@
         <div class="m-10 py-10">
             <div class="flex flex-col md:flex-row pb-4 mb-4">
                 <div class="w-44 font-bold h-6 mx-2 mt-3">Nama Perusahaan</div>
-                <div class="flex-1 flex flex-col md:flex-row">
-                    <div class="w-full flex-1 mx-2">
-                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="text" class="p-1 px-2 w-full @error('nama_perusahaan') is-invalid @enderror" name="nama_perusahaan" value="{{ old('nama_perusahaan') }}">
-                            @error('nama_perusahaan')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
+                <div>
+                    <div class="flex flex-col md:flex-row w-max">
+                        <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
+                            <input type="text" class="p-1 px-2 w-96 @error('nama_perusahaan') is-invalid @enderror" name="nama_perusahaan" value="{{ old('nama_perusahaan') }}">
                         </div>
                     </div>
+                    @error('nama_perusahaan')
+                        <p class="ml-1 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+                    @enderror
                 </div>
             </div>
             <div class="flex flex-col md:flex-row pb-4 mb-4">
                 <div class="w-44 font-bold h-6 mx-2 mt-3">Alamat</div>
-                <div class="flex-1 flex flex-col md:flex-row">
-                    <div class="w-full flex-1 mx-2">
-                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="text" class="p-1 px-2 py-10 w-full @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}">
-                            @error('alamat')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
+                <div>
+                    <div class="flex flex-col md:flex-row w-max">
+                        <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
+                            <input type="text" class="p-1 px-2 py-10 w-96 @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}">
                         </div>
                     </div>
+                    @error('alamat')
+                        <p class="ml-1 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+                    @enderror
                 </div>
             </div>
             <div class="flex flex-col md:flex-row pb-4 mb-4">
                 <div class="w-44 font-bold h-6 mx-2 mt-3">Nama Contact Perusahaan</div>
-                <div class="flex-1 flex flex-col md:flex-row">
-                    <div class="w-full flex-1 mx-2">
-                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="text" class="p-1 px-2 w-full @error('namaCP') is-invalid @enderror" name="namaCP" value="{{ old('namaCP') }}">
-                            @error('namaCP')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
+                <div>
+                    <div class="flex flex-col md:flex-row w-max">
+                        <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
+                            <input type="text" class="p-1 px-2 w-96 @error('namaCP') is-invalid @enderror" name="alamat" value="{{ old('namaCP') }}">
                         </div>
                     </div>
+                    @error('namaCP')
+                        <p class="ml-1 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+                    @enderror
                 </div>
             </div>
             <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 font-bold h-6 mx-2 mt-3">Nama Telepon Contact Perusahaan</div>
-                <div class="flex-1 flex flex-col md:flex-row">
-                    <div class="w-full flex-1 mx-2">
-                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="text" class="p-1 px-2 w-full @error('noCP') is-invalid @enderror" name="noCP" value="{{ old('noCP') }}">
-                            @error('noCP')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
+                <div class="w-44 font-bold h-6 mx-2 mt-3">Nomor Telepon Contact Perusahaan</div>
+                <div>
+                    <div class="flex flex-col md:flex-row w-max">
+                        <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
+                            <input type="text" class="p-1 px-2 w-96 @error('noCP') is-invalid @enderror" name="alamat" value="{{ old('noCP') }}">
                         </div>
                     </div>
+                    @error('noCP')
+                        <p class="ml-1 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+                    @enderror
                 </div>
             </div>
             <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 text-base font-bold h-6 mx-2 mt-3">Email</div>
-                <div class="flex-1 flex flex-col md:flex-row">
-                    <div class="w-full flex-1 mx-2">
-                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="text" class="p-1 px-2 w-full @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
-                            @error('email')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
+                <div class="w-44 font-bold h-6 mx-2 mt-3">Email</div>
+                <div>
+                    <div class="flex flex-col md:flex-row w-max">
+                        <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
+                            <input type="text" class="p-1 px-2 w-96 @error('email') is-invalid @enderror" name="alamat" value="{{ old('email') }}">
                         </div>
                     </div>
+                    @error('email')
+                        <p class="ml-1 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}</span></p>
+                    @enderror
                 </div>
             </div>
             <input type="hidden" class="p-1 px-2 w-full" name="user_id" value="1">
