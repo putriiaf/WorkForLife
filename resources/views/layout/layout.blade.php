@@ -12,7 +12,6 @@
 </head>
 <body>
     <!-- Navbar -->
-    <!--
     <nav class="p-4 bg-coolGray-100 text-coolGray-800">
 	<div class="container flex justify-between h-16 mx-auto">
 		<div class="flex">
@@ -76,16 +75,16 @@
 		@endguest
 	</div>
 </nav>
--->
 
 
+<!--
 <nav class="border-gray-200 px-2 sm:px-4 py-6 font-montserrat">
   <div class="container flex flex-wrap justify-between items-center mx-auto">
   <a href="/" class="flex items-center pl-6">
       <img src="{{ asset('img/logo.png') }}" class="mr-3 w-26 h-12" alt="Flowbite Logo" />
   </a>
+  @guest
   <div class="flex md:order-2 space-x-5">
-    @guest
     @if (Route::has('login'))
     <form action="/company">
       <button type="button" class="flex text-dongker bg-white border-2 border-[#123C69] hover:bg-white/40 hover:border-[#123C69]/40 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 ">Rekrut Sekarang</button>
@@ -93,7 +92,7 @@
     @endif
     @if (Route::has('login'))
     <form action="/login">
-      <button type="button" class="flex text-white bg-dongker border-2 border-[#123C69] hover:bg-dongker/40 hover:border-[#123C69]/40 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Masuk</button>
+      <button href="/login" type="button" class="flex text-white bg-dongker border-2 border-[#123C69] hover:bg-dongker/40 hover:border-[#123C69]/40 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Masuk</button>
     </form>
     @endif
 
@@ -103,12 +102,12 @@
       <button type="button" class="text-white bg-dongker border-2 border-[#123C69] hover:bg-dongker/40 hover:border-[#123C69]/40 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Keluar</button>
     </form>
 
-    <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" type="button" data-dropdown-toggle="dropdown">
+    <button type="button" class="flex mr-3 text-sm rounded-full md:mr-0" id="user-menu-button" aria-expanded="false" type="button" data-dropdown-toggle="dropdown">
       <a href="/profile">
       @if(auth()->user()->foto_profil)
-        <img class="w-8 h-8 rounded-full" src="{{ asset('storage/' . auth()->user()->foto_profil) }}" alt="user photo">
+        <img class="w-10 h-10 rounded-full" src="{{ asset('storage/' . auth()->user()->foto_profil) }}" alt="user photo">
       @else
-      <img class="w-8 h-8 rounded-full" src="{{ asset('img/avatar.png') }}" alt="user photo">
+      <img class="w-10 h-10 rounded-full" src="{{ asset('img/avatar.png') }}" alt="user photo">
       @endif
       </a>
     </button>
@@ -139,7 +138,7 @@
   </div>
   </div>
 </nav>
-
+-->
 
 	<!-- START MAIN -->
   <div class="py-4">

@@ -1067,6 +1067,9 @@ input:checked + .toggle-bg {
 .h-36 {
   height: 9rem;
 }
+.h-28 {
+  height: 7rem;
+}
 .max-h-7 {
   max-height: 1.75rem;
 }
@@ -1161,6 +1164,9 @@ input:checked + .toggle-bg {
 }
 .w-28 {
   width: 7rem;
+}
+.w-24 {
+  width: 6rem;
 }
 .min-w-0 {
   min-width: 0px;
@@ -2307,6 +2313,10 @@ input:checked + .toggle-bg {
     height: 1.25rem;
   }
 
+  .sm\:h-10 {
+    height: 2.5rem;
+  }
+
   .sm\:w-2\/3 {
     width: 66.666667%;
   }
@@ -2616,6 +2626,10 @@ input:checked + .toggle-bg {
 
   .xl\:mt-12 {
     margin-top: 3rem;
+  }
+
+  .xl\:h-28 {
+    height: 7rem;
   }
 
   .xl\:gap-12 {
