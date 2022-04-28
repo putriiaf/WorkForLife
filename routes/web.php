@@ -63,3 +63,7 @@ Route::get('/form', function () {
 
 Route::get('/company', [CompanyController::class, 'index']);
 Route::post('/company/verify', [CompanyController::class, 'store']);
+
+Route::get('/admin',function(){
+    return view('admin/rekap');
+});
