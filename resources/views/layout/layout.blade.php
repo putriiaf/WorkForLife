@@ -12,12 +12,20 @@
 </head>
 <body>
     <!-- Navbar -->
-    <header class="p-4 bg-coolGray-100 text-coolGray-800">
+    <!--
+    <nav class="p-4 bg-coolGray-100 text-coolGray-800">
 	<div class="container flex justify-between h-16 mx-auto">
 		<div class="flex">
 			<a rel="noopener noreferrer" href="{{ url('/') }}" aria-label="Back to homepage" class="flex items-center pb-32 pt-2 px-5 w-48 h-48 ">
 				<img src="{{ asset('img/logo.png') }}" alt="">
 			</a>
+      <div class="flex md:order-2">
+          <button data-collapse-toggle="mobile-menu-4" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-4" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </button>
+      </div>
 			<ul class="items-stretch hidden space-x-3 lg:flex">
 				<li class="flex">
 					<a rel="noopener noreferrer" href="{{ url('/') }}" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Beranda</a>
@@ -67,7 +75,71 @@
 		</div>
 		@endguest
 	</div>
-    </header>
+</nav>
+-->
+
+
+<nav class="border-gray-200 px-2 sm:px-4 py-6 font-montserrat">
+  <div class="container flex flex-wrap justify-between items-center mx-auto">
+  <a href="/" class="flex items-center pl-6">
+      <img src="{{ asset('img/logo.png') }}" class="mr-3 w-26 h-12" alt="Flowbite Logo" />
+  </a>
+  <div class="flex md:order-2 space-x-5">
+    @guest
+    @if (Route::has('login'))
+    <form action="/company">
+      <button type="button" class="flex text-dongker bg-white border-2 border-[#123C69] hover:bg-white/40 hover:border-[#123C69]/40 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 ">Rekrut Sekarang</button>
+    </form>
+    @endif
+    @if (Route::has('login'))
+    <form action="/login">
+      <button type="button" class="flex text-white bg-dongker border-2 border-[#123C69] hover:bg-dongker/40 hover:border-[#123C69]/40 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Masuk</button>
+    </form>
+    @endif
+
+    @else
+    <form action="/logout" method="post">
+      @csrf
+      <button type="button" class="text-white bg-dongker border-2 border-[#123C69] hover:bg-dongker/40 hover:border-[#123C69]/40 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Keluar</button>
+    </form>
+
+    <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" type="button" data-dropdown-toggle="dropdown">
+      <a href="/profile">
+      @if(auth()->user()->foto_profil)
+        <img class="w-8 h-8 rounded-full" src="{{ asset('storage/' . auth()->user()->foto_profil) }}" alt="user photo">
+      @else
+      <img class="w-8 h-8 rounded-full" src="{{ asset('img/avatar.png') }}" alt="user photo">
+      @endif
+      </a>
+    </button>
+
+    @endguest
+
+      <button data-collapse-toggle="mobile-menu-4" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-4" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+      <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+    </button>
+  </div>
+  <div class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-4">
+  <ul class="flex flex-col mt-4 md:flex-row md:space-x-10 md:mt-0 md:text-md md:font-medium">
+      <li>
+        <a href="/" class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-dongker md:p-0">Beranda</a>
+      </li>
+      <li>
+        <a href="/loker" class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-dongker md:p-0">Cari Loker</a>
+      </li>
+      <li>
+        <a href="/posts" class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-dongker md:p-0">Sharing</a>
+      </li>
+      <li>
+        <a href="/admin" class="block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-dongker md:p-0">Admin</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
 
 	<!-- START MAIN -->
   <div class="py-4">
