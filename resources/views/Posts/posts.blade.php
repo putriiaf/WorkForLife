@@ -9,6 +9,9 @@
                 <input type="text" id="search" class="h-12 w-1/2 p-3 rounded-lg shadow-md border-2" name="search" value="{{ request('search') }}">
                 <span class="pl-3">
                     <button class="w-20 h-12 text-center rounded-lg bg-dongker text-white text-base hover:bg-dongker/50" type="submit">Cari</button>
+                    <button type="button" class="w-32 h-12 text-center rounded-lg bg-dongker text-white text-base hover:bg-dongker/50">
+                        Tambah Loker
+                    </button>
                 </span>
              </form>
             </span>
