@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 use App\Models\Report;
 use App\Models\Vacancy;
 
@@ -20,9 +21,9 @@ class AdminController extends Controller
         return view('admin.rekap', [
             'title' => "Halaman Admin",
             'posts' => Post::latest()->get(),
-            'loker' => Vacancy::latest()->get(),
-            'report' => Report::latest()->get(),
-            'company' => Company::latest()->get(),
+            'lokers' => Vacancy::latest()->get(),
+            'reports' => Report::latest()->get(),
+            'companies' => User::orderBy('id')->where('role', '1')->get(),
         ]);
     }
 

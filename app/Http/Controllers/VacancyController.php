@@ -32,7 +32,10 @@ class VacancyController extends Controller
      */
     public function create()
     {
-        //
+        return view('loker.formloker', [
+            'title' => 'Upload Lowongan Kerja',
+            'message' => NULL
+        ]);
     }
 
     /**
@@ -43,7 +46,17 @@ class VacancyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Vacancy::create([
+            'company' => request('company_id'),
+            'posisi' => request('posisi'),
+            'jobdesc' => request('kriteria'),
+            'domisili' => request('domisili'),
+            'min_pengalaman' => request('min_pengalaman'),
+            'insentif' => request('insentif'),
+            'link_pendaftaran' => request('link_pendaftaran'),
+        ]);
+
+        return redirect('/company/verify')->with('success', 'Loker berhasil diunggah.');
     }
 
     /**

@@ -56,7 +56,8 @@ Route::get('/profile/{username}', function ($username) {
 
 Route::get('/loker', [VacancyController::class, 'index']);
 Route::get('/loker/{vacancy:id}', [VacancyController::class, 'show']);
-
+Route::get('/loker/upload', [VacancyController::class, 'create'])->middleware('auth');
+Route::post('/loker/upload', [VacancyController::class, 'store']);
 
 Route::get('/form', function () {
     return view('formloker');
