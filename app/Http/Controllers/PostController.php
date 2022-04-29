@@ -41,14 +41,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-            Post::create([
-                'judul' => request('judul'),
-                'deskripsi' => request('deskripsi'),
-                'user_id' => request('user_id')
-                //'slug' => Str::replace(' ', '-', Str::lower(request('nama_event')))
-            ]);
+        Post::create([
+            'judul' => request('judul'),
+            'deskripsi' => request('deskripsi'),
+            'user_id' => request('user_id')
+        ]);
 
-            return redirect('/uploadpost')->with('success', 'Postingan diunggah.');
+        return redirect('/uploadpost')->with('success', 'Postingan diunggah.');
     }
 
     /**

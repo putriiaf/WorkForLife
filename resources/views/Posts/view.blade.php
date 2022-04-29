@@ -9,15 +9,20 @@
     <div class="">
         <span class="flex max-w-44">
             <h1 class="text-4xl font-extrabold text-dongker line-clamp-2">{{ $post->judul }}</h1>
+            @guest
+            @else
             @if($post->user_id == auth()->user()->id)
             <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
             </svg>
             @endif
+            @endguest
         </button>
         </span>
         <!-- Dropdown menu -->
+        @guest
+        @else
         @if($post->user_id == auth()->user()->id)
         <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
@@ -30,6 +35,7 @@
             </ul>
         </div>
         @endif
+        @endguest
     </div>
 
     <div class="flex items-start px-2 py-6">
