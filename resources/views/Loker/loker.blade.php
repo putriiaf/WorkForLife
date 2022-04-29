@@ -12,9 +12,11 @@
               <button type="submit" class="w-20 h-12 text-center rounded-lg bg-dongker text-white text-base hover:bg-dongker/50">
                 Cari
               </button>
+              @if(auth()->user()->role != 0)
               <button type="button" class="w-32 h-12 text-center rounded-lg bg-dongker text-white text-base hover:bg-dongker/50">
                 Tambah Loker
               </button>
+              @endif
             </span>
           </form>
     </div>
