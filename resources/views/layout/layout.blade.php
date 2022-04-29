@@ -28,9 +28,14 @@
 				<li class="flex">
 					<a rel="noopener noreferrer" href="/posts" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Sharing</a>
 				</li>
+        @guest
+        @else
+        @if(auth()->user()->role == 2)
         <li class="flex">
 					<a rel="noopener noreferrer" href="/admin" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Admin</a>
 				</li>
+        @endif
+        @endguest
 			</ul>
 		</div>
 
@@ -91,7 +96,12 @@
 					<li><a href="/" class="block text-sm px-2 py-4 bg-white hover:bg-dongker hover:text-white transition duration-300">Beranda</a></li>
 					<li><a href="/loker" class="block text-sm px-2 py-4 bg-white hover:bg-dongker hover:text-white transition duration-300">Cari Loker</a></li>
 					<li><a href="/posts" class="block text-sm px-2 py-4 bg-white hover:bg-dongker hover:text-white transition duration-300">Sharing</a></li>
+          @guest
+          @else
+          @if(auth()->user()->role == 2)
 					<li><a href="/admin" class="block text-sm px-2 py-4 bg-white hover:bg-dongker hover:text-white transition duration-300">Admin</a></li>
+          @endif
+          @endguest
 				</ul>
 			</div>
 	</div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -64,6 +65,4 @@ Route::get('/form', function () {
 Route::get('/company', [CompanyController::class, 'index']);
 Route::post('/company/verify', [CompanyController::class, 'store']);
 
-Route::get('/admin',function(){
-    return view('admin/rekap');
-});
+Route::get('/admin', [AdminController::class, 'index']);

@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
-            'nama' => 'PT Company Indoneisa',
+            'nama' => 'PT Company Indonesia',
             'username' => 'company1',
             'email' => 'company@mail.com',
             'password' => Hash::make('company123'),
