@@ -74,7 +74,7 @@
                 <div>
                     <div class="flex flex-col md:flex-row w-max">
                         <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="text" class="p-1 px-2 w-96 @error('namaCP') is-invalid @enderror" name="alamat" value="{{ old('namaCP') }}">
+                            <input type="text" class="p-1 px-2 w-96 @error('namaCP') is-invalid @enderror" name="namaCP" value="{{ old('namaCP') }}">
                         </div>
                     </div>
                     @error('namaCP')
@@ -87,7 +87,7 @@
                 <div>
                     <div class="flex flex-col md:flex-row w-max">
                         <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="text" class="p-1 px-2 w-96 @error('noCP') is-invalid @enderror" name="alamat" value="{{ old('noCP') }}">
+                            <input type="text" class="p-1 px-2 w-96 @error('noCP') is-invalid @enderror" name="noCP" value="{{ old('noCP') }}">
                         </div>
                     </div>
                     @error('noCP')
@@ -100,7 +100,7 @@
                 <div>
                     <div class="flex flex-col md:flex-row w-max">
                         <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="text" class="p-1 px-2 w-96 @error('email') is-invalid @enderror" name="alamat" value="{{ old('email') }}">
+                            <input type="email" class="p-1 px-2 w-96 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
                         </div>
                     </div>
                     @error('email')

@@ -49,12 +49,21 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Company::create([
-            'user_id' => '2',
+            'nama_perusahaan' => 'PT Cipta Karya Indonesia',
+            'namaCP' => 'Indah',
+            'noCP' => '0823425252',
+            'alamat' => 'Jakarta Selatan',
+            'email' => 'company1@gmail.com',
+            'is_approved' => '0',
+        ]);
+
+        Company::create([
             'nama_perusahaan' => 'PT Company Indonesia',
             'namaCP' => 'Putra',
             'noCP' => '0823425252',
             'alamat' => 'Tangerang',
             'email' => 'company@gmail.com',
+            'is_approved' => '1',
         ]);
 
         Vacancy::create([
