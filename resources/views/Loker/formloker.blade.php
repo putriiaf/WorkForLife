@@ -6,7 +6,7 @@
         <h1 class="text-2xl font-bold">Form Tambah Loker</h1>
     </div>
     <div class="flex justify-center item-center">
-        <form action="get" class="w-6/12">
+        <form method="POST" action="/loker/upload" enctype="multipart/form-data" class="w-6/12">
         <div class="bg-abu rounded-lg">
         <div class="m-10 py-10">
             <div class="flex flex-col md:flex-row pb-4 mb-4">
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 font-bold h-6 mx-2 mt-3">Berapa Duit</div>
+                <div class="w-44 font-bold h-6 mx-2 mt-3">Insentif</div>
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">

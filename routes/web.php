@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -37,6 +38,7 @@ Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post:id}', [PostController::class, 'show']);
 Route::get('/posts/{post:id}/edit', [PostController::class, 'edit']);
 Route::put('/posts/{post:id}', [PostController::class, 'update']);
+Route::delete('/posts/{post:id}', [PostController::class, 'destroy']);
 Route::get('/report/{post:id}', [ReportController::class, 'index']);
 Route::post('/report', [ReportController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
@@ -52,7 +54,11 @@ Route::get('/profile/{username}', function ($username) {
 
 Route::get('/loker', [VacancyController::class, 'index']);
 Route::get('/loker/{vacancy:id}', [VacancyController::class, 'show']);
-
+Route::get('/loker/upload', [VacancyController::class, 'create'])->middleware('auth');
+Route::post('/loker/upload', [VacancyController::class, 'store']);
+Route::get('/loker/{vacancy:id}/edit', [VacancyController::class, 'edit']);
+Route::put('/loker/{vacancy:id}', [VacancyController::class, 'update']);
+Route::delete('/loker/{vacancy:id}', [VacancyController::class, 'destroy']);
 
 Route::get('/form', function () {
     return view('formloker');
@@ -60,3 +66,8 @@ Route::get('/form', function () {
 
 Route::get('/company', [CompanyController::class, 'index']);
 Route::post('/company/verify', [CompanyController::class, 'store']);
+
+Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
+Route::get('/admin/company/{company:id}/detail', [AdminController::class, 'show']);
+Route::post('/admin/company/create', [AdminController::class, 'store'])->middleware('auth');
+Route::delete('/admin/company/delete', [AdminController::class, 'destroy'])->middleware('auth');

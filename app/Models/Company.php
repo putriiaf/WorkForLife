@@ -14,4 +14,9 @@ class Company extends Model
     {
         return $this->hasMany(Vacancy::class);
     }
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'company_id');
+    }
 }

@@ -41,14 +41,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-            Post::create([
-                'judul' => request('judul'),
-                'deskripsi' => request('deskripsi'),
-                'user_id' => request('user_id')
-                //'slug' => Str::replace(' ', '-', Str::lower(request('nama_event')))
-            ]);
+        Post::create([
+            'judul' => request('judul'),
+            'deskripsi' => request('deskripsi'),
+            'user_id' => request('user_id')
+        ]);
 
-            return redirect('/uploadpost')->with('success', 'Postingan diunggah.');
+        return redirect('/uploadpost')->with('success', 'Postingan diunggah.');
     }
 
     /**
@@ -100,7 +99,7 @@ class PostController extends Controller
         $validatedData["user_id"] = auth()->user()->id;
 
         Post::where('id', $post->id)->update($validatedData);
-        return redirect('/profile');
+        return redirect('/posts');
     }
 
     /**
@@ -109,8 +108,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        Post::destroy($post->id);
+        return redirect('/posts')->with('success', 'Post has been deleted!');
     }
 }

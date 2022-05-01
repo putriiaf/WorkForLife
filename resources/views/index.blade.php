@@ -111,7 +111,9 @@
       <div class="p-6">
         <div class="md:flex md:items-start md:-mx-4">
           <span class="inline-block px-2 py-5 rounded-xl md:mx-4">
-            <img class="w-32 h-20" src="{{ asset('img/trust.png') }}" alt="">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-28 w-24 pb-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
           </span>
 
           <div class="pt-3 mt-4 md:mx-4 md:mt-0">
@@ -127,7 +129,9 @@
       <div class="p-6">
         <div class="md:flex md:items-start md:-mx-4">
           <span class="inline-block px-2 py-5 rounded-xl md:mx-4">
-            <img class="w-32 h-20" src="{{ asset('img/loker.png') }}" alt="">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-28 w-24 pb-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
           </span>
 
           <div class="pt-3 mt-4 md:mx-4 md:mt-0">
@@ -143,7 +147,9 @@
       <div class="p-6">
         <div class="md:flex md:items-start md:-mx-4">
           <span class="inline-block px-2 py-5 rounded-xl md:mx-4">
-            <img class="w-32 h-20" src="{{ asset('img/update.png') }}" alt="">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-28 w-24 pb-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
           </span>
 
           <div class="pt-3 mt-4 md:mx-4 md:mt-0">
@@ -159,7 +165,13 @@
       <div class="p-6">
         <div class="md:flex md:items-start md:-mx-4">
           <span class="inline-block px-2 py-5 rounded-xl md:mx-4">
-            <img class="w-32 h-20" src="{{ asset('img/sharing.png') }}" alt="">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-28 w-24 pb-5" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"></path>
+            <path d="M12 7l-3.293 3.293a1 1 0 0 0 0 1.414l.543 .543c.69 .69 1.81 .69 2.5 0l1 -1a3.182 3.182 0 0 1 4.5 0l2.25 2.25"></path>
+            <path d="M12.5 16.5l2 2"></path>
+            <path d="M15 14l2 2"></path>
+          </svg>
           </span>
 
         <div class="pt-3 mt-4 md:mx-4 md:mt-0">
