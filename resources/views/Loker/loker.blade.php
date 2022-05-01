@@ -15,7 +15,7 @@
               @guest
               @else
               @if(auth()->user()->role != 0)
-              <form action="/loker/upload" method="get">
+              <form method="GET" action="/loker/upload">
                 @csrf
                 <button class="w-32 h-12 text-center rounded-lg bg-dongker text-white text-base hover:bg-dongker/50" type="submit">Tambah Loker</button>
             </form>
