@@ -57,10 +57,10 @@ Route::get('/profile/{username}', function ($username) {
 
 Route::get('/loker', [VacancyController::class, 'index']);
 Route::get('/loker/{vacancy:id}', [VacancyController::class, 'show']);
+Route::get('/loker/id}/edit', [VacancyController::class, 'edit']);
+Route::put('/loker/{vacancy:id}', [VacancyController::class, 'update']);
 Route::get('/loker/upload', [VacancyController::class, 'create'])->middleware('auth');
 Route::post('/loker/upload', [VacancyController::class, 'store']);
-Route::get('/loker/{vacancy:id}/edit', [VacancyController::class, 'edit']);
-Route::put('/loker/{vacancy:id}', [VacancyController::class, 'update']);
 Route::delete('/loker/{vacancy:id}', [VacancyController::class, 'destroy']);
 
 Route::get('/form', function () {
@@ -74,3 +74,7 @@ Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
 Route::get('/admin/company/{company:id}/detail', [AdminController::class, 'show']);
 Route::post('/admin/company/create', [AdminController::class, 'store'])->middleware('auth');
 Route::delete('/admin/company/delete', [AdminController::class, 'destroy'])->middleware('auth');
+
+Route::get('/admin/report/{report:id}/detail', [ReportController::class, 'edit']);
+Route::put('/admin/report/{report:id}', [ReportController::class, 'update']);
+Route::delete('/admin/report/{report:id}', [ReportController::class, 'destroy']);

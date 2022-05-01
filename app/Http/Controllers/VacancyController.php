@@ -99,11 +99,8 @@ class VacancyController extends Controller
     {
         $rules = [
             'posisi' => 'required|max:255',
-            'jobdesc' => 'required',
-            'company_id' => 'required'
         ];
         $validatedData = $request->validate($rules);
-        $validatedData["company_id"] = auth()->user()->id;
 
         Vacancy::where('id', $vacancy->id)->update($validatedData);
         return redirect('/loker');

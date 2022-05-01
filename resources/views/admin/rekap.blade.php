@@ -259,6 +259,9 @@
                                     Alasan
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    Status
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Aksi
                                 </th>
                             </tr>
@@ -278,9 +281,22 @@
                                 <td class="px-6 py-4">
                                     {{ $report->alasan }}
                                 </td>
+                                @if($report->is_approved == 0)
+                                <td class="px-6 py-4">
+                                    Belum diproses
+                                </td>
+                                @else
+                                <td class="px-6 py-4">
+                                    Sudah diproses
+                                </td>
+                                @endif
                                 <td class="px-5 py-4 text-right space-x-5">
-                                    <a href="#" class="font-medium text-dongker">Edit</a>
-                                    <a href="#" class="font-medium text-dongker">Hapus</a>
+                                    <a href="/admin/report/{{ $report->id }}/detail" class="font-medium text-dongker">Edit</a>
+                                    <form action="/admin/report/{{ $report->id }}" method="post">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="font-medium text-dongker" onclick="return confirm('Apakah Anda yakin ingin menghapus report?')">Hapus</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
