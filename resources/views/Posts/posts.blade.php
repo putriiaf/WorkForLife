@@ -51,7 +51,7 @@
         @endforeach
     </div>
 
-    <div class="d-flex justify-content-center">
-        {{ $posts->links() }}
+    <div class="mx-16 py-7">
+        {{$posts->links()}}
     </div>
 @endsection
