@@ -3,6 +3,11 @@
 @section('content')
 
 <div class="mx-10">
+    @if (session()->has('success'))
+        <div class="alert alert-success col-lg-6" role="alert">
+            {{ session('success') }}
+        </div>
+        @endif
     <div class="mb-4 border-b border-gray-200">
         <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
             <li class="mr-2" role="presentation">
@@ -37,16 +42,19 @@
                                     ID
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Nama Perusahaan
+                                    Nama Perusahaan [Terdaftar]
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Username
+                                    Nama Perusahaan
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Email
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Nomor Telepon
+                                    Nama CP
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Nomor Telepon CP
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Alamat
@@ -63,22 +71,27 @@
                                     {{ $company->id }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $company->nama }}
+                                    {{ !empty($company->user) ? $company->user->nama:'' }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $company->username }}
+                                    {{ $company->nama_perusahaan }}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $company->email }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $company->notelp }}
+                                    {{ $company->namaCP }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $company->noCP }}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $company->alamat }}
                                 </td>
-                                <td class="px-5 py-4 text-right space-x-5">
-                                    <a href="#" class="font-medium text-dongker">Edit</a>
+                                <td class="px-1 py-4">
+                                    @if($company->user == NULL)
+                                    <a href="/admin/company/{{ $company->id }}/detail" class="font-medium text-dongker">Detail</a>
+                                    @endif
                                     <a href="#" class="font-medium text-dongker">Hapus</a>
                                 </td>
                             </tr>
@@ -151,8 +164,12 @@
                                     {{ $loker->link_pendaftaran }}
                                 </td>
                                 <td class="px-5 py-4 text-right space-x-5">
-                                    <a href="#" class="font-medium text-dongker">Edit</a>
-                                    <a href="#" class="font-medium text-dongker">Hapus</a>
+                                    <a href="/loker/{{ $loker->id }}/edit" class="font-medium text-dongker">Edit</a>
+                                    <form action="/loker/{{ $loker->id }}" method="post">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="font-medium text-dongker" onclick="return confirm('Apakah Anda yakin ingin menghapus lowongan kerja ini?')">Hapus</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
@@ -206,8 +223,12 @@
                                     {{ $post->deskripsi }}
                                 </td>
                                 <td class="px-5 py-4 text-right space-x-5">
-                                    <a href="#" class="font-medium text-dongker">Edit</a>
-                                    <a href="#" class="font-medium text-dongker">Hapus</a>
+                                    <a href="/posts/{{ $post->id }}}/edit" class="font-medium text-dongker">Edit</a>
+                                    <form action="/posts/{{ $post->id }}" method="post">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="font-medium text-dongker" onclick="return confirm('Apakah Anda yakin ingin menghapus post?')">Hapus</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

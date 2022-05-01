@@ -30,7 +30,11 @@
                     <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Option 1</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Option 2</a>
+                    <form action="/posts/{{ $post->id }}" method="post">
+                        @method('delete')
+                        @csrf
+                        <button class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onclick="return confirm('Apakah Anda yakin ingin menghapus post?')">Hapus</button>
+                    </form>
                 </li>
             </ul>
         </div>

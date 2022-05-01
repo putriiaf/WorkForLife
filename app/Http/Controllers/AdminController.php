@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
+
 use App\Models\Company;
 use Illuminate\Http\Request;
 use App\Models\Post;
@@ -23,7 +25,7 @@ class AdminController extends Controller
             'posts' => Post::latest()->get(),
             'lokers' => Vacancy::latest()->get(),
             'reports' => Report::latest()->get(),
-            'companies' => User::orderBy('id')->where('role', '1')->get(),
+            'companies' => Company::orderBy('id')->get(),
         ]);
     }
 
@@ -45,18 +47,35 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+            'username' => ['required', 'min:3', 'max:255', 'unique:users'],
+            'email' => 'required|email:dns|unique:users',
+            'no_telp' => 'required|numeric|digits_between:10,14',
+            'password' => 'required|min:5|max:255',
+            'role' => 'required',
+            'company_id' => 'required'
+        ]);
+
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
+        User::create($validatedData);
+        return redirect('/admin')->with('success', 'Company account successfully made!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Company $company)
     {
-        //
+        return view('admin.detail-company', [
+            'title' => 'Detail Perusahaan',
+            'active' => 'perusahaan',
+            'company' => $company,
+        ]);
     }
 
     /**
@@ -77,7 +96,7 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Company $company)
     {
         //
     }

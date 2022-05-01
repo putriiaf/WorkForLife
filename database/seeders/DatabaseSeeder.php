@@ -28,26 +28,6 @@ class DatabaseSeeder extends Seeder
             'jk' => 'P',
         ]);
 
-        User::create([
-            'nama' => 'PT Company Indonesia',
-            'username' => 'company1',
-            'email' => 'company@mail.com',
-            'password' => Hash::make('company123'),
-            'role' => '1',
-            'no_telp' => '0892672872',
-            'jk' => 'L',
-        ]);
-
-        User::create([
-            'nama' => 'Putri',
-            'username' => 'putri',
-            'email' => 'putri@mail.com',
-            'password' => Hash::make('putri123'),
-            'role' => '0',
-            'no_telp' => '0892672872',
-            'jk' => 'P',
-        ]);
-
         Company::create([
             'nama_perusahaan' => 'PT Cipta Karya Indonesia',
             'namaCP' => 'Indah',
@@ -64,6 +44,38 @@ class DatabaseSeeder extends Seeder
             'alamat' => 'Tangerang',
             'email' => 'company@gmail.com',
             'is_approved' => '1',
+        ]);
+
+        User::create([
+            'nama' => 'PT Company Indonesia',
+            'username' => 'company1',
+            'email' => 'company@mail.com',
+            'password' => Hash::make('company123'),
+            'role' => '1',
+            'no_telp' => '0892672872',
+            'jk' => 'L',
+            'company_id' => 2,
+        ]);
+
+        User::create([
+            'nama' => 'PT Company Indonesiaa2',
+            'username' => 'company2',
+            'email' => 'company2@mail.com',
+            'password' => Hash::make('company123'),
+            'role' => '1',
+            'no_telp' => '0892672872',
+            'jk' => 'L',
+            'company_id' => 1,
+        ]);
+
+        User::create([
+            'nama' => 'Putri',
+            'username' => 'putri',
+            'email' => 'putri@mail.com',
+            'password' => Hash::make('putri123'),
+            'role' => '0',
+            'no_telp' => '0892672872',
+            'jk' => 'P',
         ]);
 
         Vacancy::create([

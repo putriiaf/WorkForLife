@@ -80,9 +80,12 @@ class VacancyController extends Controller
      * @param  \App\Models\Vacancy  $vacancy
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vacancy $vacancy)
+    public function edit($id)
     {
-        //
+        return view('loker.editLoker', [
+            'title' => 'Edit Post',
+            'loker' => Vacancy::where('id', $id)->first(),
+        ]);
     }
 
     /**
@@ -94,7 +97,16 @@ class VacancyController extends Controller
      */
     public function update(Request $request, Vacancy $vacancy)
     {
-        //
+        $rules = [
+            'posisi' => 'required|max:255',
+            'jobdesc' => 'required',
+            'company_id' => 'required'
+        ];
+        $validatedData = $request->validate($rules);
+        $validatedData["company_id"] = auth()->user()->id;
+
+        Vacancy::where('id', $vacancy->id)->update($validatedData);
+        return redirect('/loker');
     }
 
     /**
@@ -105,6 +117,7 @@ class VacancyController extends Controller
      */
     public function destroy(Vacancy $vacancy)
     {
-        //
+        Vacancy::destroy($vacancy->id);
+        return redirect('/loker')->with('success', 'Vacancy has been deleted!');
     }
 }

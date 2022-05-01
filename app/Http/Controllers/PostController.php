@@ -99,7 +99,7 @@ class PostController extends Controller
         $validatedData["user_id"] = auth()->user()->id;
 
         Post::where('id', $post->id)->update($validatedData);
-        return redirect('/profile');
+        return redirect('/posts');
     }
 
     /**
@@ -108,8 +108,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        Post::destroy($post->id);
+        return redirect('/posts')->with('success', 'Post has been deleted!');
     }
 }
