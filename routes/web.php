@@ -31,9 +31,6 @@ Route::get('/',  [HomeController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
-Route::get('/logout', function () {
-    return view('logout');
-});
 Route::get('/uploadpost', [PostController::class, 'create'])->middleware('auth');
 Route::post('/uploadpost', [PostController::class, 'store']);
 Route::get('/posts', [PostController::class, 'index']);
