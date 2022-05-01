@@ -15,6 +15,11 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function report()
+    {
+        return $this->hasMany(Report::class, 'postingan_id');
+    }
+
     public function scopeFilter($query, array $filters)
     {
         $query->when($filters['search'] ?? false, function ($query, $search) {

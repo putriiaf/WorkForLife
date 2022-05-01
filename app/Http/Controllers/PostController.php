@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Report;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -17,7 +18,8 @@ class PostController extends Controller
     {
         return view('Posts.posts', [
             "title" => "Sharing",
-            'posts' => Post::latest()->filter(request(['search']))->paginate(10)->withQueryString()
+            'posts' => Post::latest()->filter(request(['search']))->paginate(10)->withQueryString(),
+            'reports' => Report::latest()->get(),
         ]);
     }
     /**
