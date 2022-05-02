@@ -32,7 +32,7 @@ class VacancyController extends Controller
      */
     public function create()
     {
-        return view('loker.formloker', [
+        return view('Loker.formloker', [
             'title' => 'Upload Lowongan Kerja',
             'message' => NULL
         ]);
@@ -49,6 +49,7 @@ class VacancyController extends Controller
         Vacancy::create([
             'company' => request('company_id'),
             'posisi' => request('posisi'),
+            'jobdesc' => request('jobdesc'),
             'jobdesc' => request('kriteria'),
             'domisili' => request('domisili'),
             'min_pengalaman' => request('min_pengalaman'),

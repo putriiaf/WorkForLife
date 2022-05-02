@@ -69,6 +69,16 @@
                     </div>
                 </div>
             </div>
+            <div class="flex flex-col md:flex-row pb-4 mb-4">
+                <div class="w-44 text-base font-bold h-6 mx-2 mt-3">Link Pendaftaran</div>
+                <div class="flex-1 flex flex-col md:flex-row">
+                    <div class="w-full flex-1 mx-2">
+                        <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
+                            <input class="p-1 px-2 w-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         </div>
         <div class="flex justify-center item-center pb-4">
