@@ -47,17 +47,17 @@ class VacancyController extends Controller
     public function store(Request $request)
     {
         Vacancy::create([
-            'company' => request('company_id'),
+            'company_id' => request('company_id'),
             'posisi' => request('posisi'),
             'jobdesc' => request('jobdesc'),
-            'jobdesc' => request('kriteria'),
+            'kriteria' => request('kriteria'),
             'domisili' => request('domisili'),
             'min_pengalaman' => request('min_pengalaman'),
             'insentif' => request('insentif'),
             'link_pendaftaran' => request('link_pendaftaran'),
         ]);
 
-        return redirect('/company/verify')->with('success', 'Loker berhasil diunggah.');
+        return redirect('/loker')->with('success', 'Loker berhasil diunggah.');
     }
 
     /**
