@@ -12,17 +12,22 @@
               <button type="submit" class="w-20 h-12 text-center rounded-lg bg-dongker text-white text-base hover:bg-dongker/50">
                 Cari
               </button>
-              @guest
-              @else
-              @if(auth()->user()->role != 0)
-              <form method="GET" action="/loker/upload">
-                @csrf
-                <button class="w-32 h-12 text-center rounded-lg bg-dongker text-white text-base hover:bg-dongker/50" type="submit">Tambah Loker</button>
-            </form>
-              @endif
-              @endguest
             </span>
           </form>
+          @guest
+          @else
+          <form action="/loker/upload">
+            @if(auth()->user()->role != 0)
+              <form method="get" action="/loker/upload">
+                <span class="pl-3 space-x-3">
+                <button class="w-32 h-12 text-center rounded-lg bg-dongker text-white text-base hover:bg-dongker/50" type="submit">Tambah Loker</button>
+                </span>
+              </form>
+            @endif
+            @endguest
+          </form>
+        </span>
+
     </div>
 </section>
 

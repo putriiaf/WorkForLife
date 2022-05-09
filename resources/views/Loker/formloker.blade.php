@@ -7,6 +7,7 @@
     </div>
     <div class="flex justify-center item-center">
         <form method="POST" action="/loker/upload" enctype="multipart/form-data" class="w-6/12">
+        @csrf
         <div class="bg-abu rounded-lg">
         <div class="m-10 py-10">
             <div class="flex flex-col md:flex-row pb-4 mb-4">
@@ -82,13 +83,10 @@
         </div>
         </div>
         @auth
-            <input id="company_id" type="hidden" name="company_id" value="{{ auth()->user()->company_id }}">
+            <input id="company_id" type="hidden" name="company_id" value="{{ auth()->user()->company->id }}">
         @endauth
         <div class="flex justify-center item-center pb-4">
             <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">Submit</button>
-        </div>
-        <div class="flex justify-center item-center font-bold">
-            <p>Sudah Punya Akun? <span><a href="#" class="text-pingki">Masuk Sekarang</a></span> </p>
         </div>
         </form>
     </div>
