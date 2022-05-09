@@ -83,7 +83,7 @@
         </div>
         </div>
         @auth
-            <input id="company_id" type="hidden" name="company_id" value="{{ auth()->user()->company->id }}">
+            <input id="company_id" type="hidden" name="company_id" value="{{ auth()->user()->company_id }}">
         @endauth
         <div class="flex justify-center item-center pb-4">
             <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">Submit</button>
