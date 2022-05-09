@@ -7,6 +7,8 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Support\Facades\Hash;
+
 class UserController extends Controller
 {
     /**
@@ -97,8 +99,12 @@ class UserController extends Controller
         if ($request->email != $profilUser->email) {
             $rules['email'] = 'required|email:dns|unique:users';
         }
+        if ($request->password != $profilUser->passoword) {
+            $rules['password'] = 'required|min:3|max:255';
+        }
 
         $validatedData = $request->validate($rules);
+        $validatedData['password'] = Hash::make($validatedData['password']);
 
         if ($request->file('foto_profil')) {
             if ($request->oldImage) {

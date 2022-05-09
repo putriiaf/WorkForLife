@@ -118,7 +118,15 @@
                       </div>
                       @enderror
                     </div>
-
+                    <div class="box-login2 mt-3">
+                      <h6>Ubah Password</h6>
+                      <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password baru" required value="{{ old('password') }}">                            
+                      @error('password')
+                      <div class="invalid-feedback">
+                          {{ $message }}
+                      </div>
+                      @enderror
+                  </div>
                     <button class="w-100 btn btn-md btn-primary mt-4 mb-5" type="submit">Update Profile</button>
                   </form>
             </div>
