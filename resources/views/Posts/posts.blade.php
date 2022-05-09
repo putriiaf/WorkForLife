@@ -20,9 +20,13 @@
 
     <div class="mx-20 font-montserrat">
         <h1 class="text-2xl text-dongker font-extrabold pb-6">Postingan Terbaru</h1>
-        @foreach($reports as $report)
-        @foreach($posts as $post)
-        @if(($post->id != $report->postingan_id) || ($post->id == $report->postingan_id && $report->is_approved == '0'))
+        @if($posts->first())
+        @foreach ($posts->unique('id') as $post)
+            @foreach ($reports as $report)
+                @if($report->postingan_id == $post->id && $report->is_approved == '1')
+                    @continue(2)
+                @endif
+            @endforeach
         <div class="flex bg-white border-gray-100 border-2 shadow-lg rounded-xl max-w-2xl mb-5">
         <a href="/posts/{{ $post->id }}">
                 <div class="flex items-start px-4 py-6">
@@ -42,17 +46,19 @@
                             </p>
                             <a href="/report/{{ $post->id }}">
                             <button class="flex pt-5 space-x-2">
+                                @if($post->user_id == auth()->user()->id)
+                                @else
                                 <img src="{{ asset('img/report.png') }}" alt="">
                                 <p>Report</p>
+                                @endif
                             </button>
                             </a>
                         </div>
                 </div>
         </a>
         </div>
+        @endforeach
         @endif
-        @endforeach
-        @endforeach
     </div>
 
     <div class="mx-16 py-7">

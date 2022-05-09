@@ -49,7 +49,7 @@ class PostController extends Controller
             'user_id' => request('user_id')
         ]);
 
-        return redirect('/uploadpost')->with('success', 'Postingan diunggah.');
+        return redirect('/posts')->with('success', 'Postingan diunggah.');
     }
 
     /**

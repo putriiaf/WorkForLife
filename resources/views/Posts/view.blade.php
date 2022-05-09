@@ -59,7 +59,8 @@
     <div class="mt-5 text-justify">
         <p>{{ $post->deskripsi }}</p>
     </div>
-
+    @if($post->user_id == auth()->user()->id)
+    @else
     <div class="flex space-x-4">
         {{-- <button class="flex pt-5 space-x-2">
             <img src="{{ asset('img/like.png') }}" alt="">
@@ -72,6 +73,7 @@
         </button>
         </a>
     </div>
+    @endif
 </div>
 
 <div class="mr-10">
