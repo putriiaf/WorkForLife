@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\Vacancy;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Http;
+use GuzzleHttp\Client;
 class VacancyController extends Controller
 {
     /**
@@ -12,24 +14,49 @@ class VacancyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function getData()
     {
+        $client = new Client();
+        $response = $client->request('GET','http://localhost:8080/api/loker');
+        $statusCode = $response->getStatusCode();
+        $body = $response->getBody()->getContents();
+
+        $data[]= array(json_encode($body,true));
+
+        //return view('loker.loker',['data'=>$data]);
         $title = 'Lowongan Kerja';
         if (request('category')) {
             $title = "Semua Lowongan Kerja";
         }
         return view('loker.loker', [
-            'title' => 'All Events' . $title,
+            'data'=> $data,
+           'title' => 'All Events' . $title,
             'active' => 'events',
             'lokers' => Vacancy::latest()->filter(request(['search']))->paginate(6)->withQueryString()
         ]);
     }
+
+    // public function index()
+    // {
+    //     $title = 'Lowongan Kerja';
+    //     if (request('category')) {
+    //         $title = "Semua Lowongan Kerja";
+    //     }
+    //     return view('loker.loker', [
+    //        'title' => 'All Events' . $title,
+    //         'active' => 'events',
+    //         'lokers' => Vacancy::latest()->filter(request(['search']))->paginate(6)->withQueryString()
+    //     ]);
+        
+    // }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         return view('Loker.formloker', [

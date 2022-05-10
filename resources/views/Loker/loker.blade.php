@@ -31,64 +31,9 @@
     </div>
 </section>
 
-<!--
-<section>
-  <div class="">
-    <div class="grid gap-4">
-    @foreach($lokers as $loker)
-      <a href="/loker/{{ $loker->id }}">
-      <div class="px-5 py-7 m-10 max-w-xs bg-white rounded-xl border shadow-lg font-montserrat font-semibold">
-        <span class="flex mr-4">
-          <div class="pr-4">
-            <img class="mb-3 w-16 h-16 rounded-lg" src="{{ asset('img/gojek.png') }}" alt="logo">
-          </div>
-          <div>
-            <p class="pt-2 pb-1 text-md font-bold">{{ $loker->posisi }}</p>
-            <p class="mb-3 text-sm text-dongker font-bold">{{ $loker->company->nama_perusahaan }}</p>
-          </div>
-        </span>
-        <div>
-          <ul>
-            <li class="flex flex-row pl-5 pt-3">
-              <div class="pr-5 pt-0.5">
-                <img class="w-5 h-5" src="{{ asset('img/map.png') }}" alt="">
-              </div>
-              <p class="text-md">{{ $loker->domisili }}</p>
-            </li>
-            @if($loker->min_pengalaman != NULL)
-            <li class="flex flex-row pl-5 pt-3">
-              <div class="pr-5 pt-0.5">
-                <img class="w-5 h-5" src="{{ asset('img/briefcase.png') }}" alt="">
-              </div>
-              <p class="text-md">{{ $loker->min_pengalaman }}</p>
-            </li>
-            @endif
-            @if($loker->insentif != NULL)
-            <li class="flex flex-row pl-5 pt-3">
-              <div class="pr-5 pt-0.5">
-                <img class="w-5 h-5" src="{{ asset('img/duit.png') }}" alt="">
-              </div>
-              <p class="text-md">{{ $loker->insentif }}</p>
-            </li>
-            @endif
-          </ul>
-        </div>
-        </a>
-        <div class="justify-center item-center pt-9 mx-16">
-          <a class="bg-[#E0FBFC] px-9 py-3 mt-8 rounded-xl font-semibold uppercase tracking-wide hover:bg-tipis/50" href="#">
-            Apply
-          </a>
-        </div>
-      </div>
-    @endforeach
-    </div>
-  </div>
-</section>
--->
-
 <section class="mx-10 grid grid-cols-3 gap-8">
 @foreach($lokers as $loker)
-<a href="/loker/{{ $loker->id }}" class="block font-montserrat p-6 max-w-sm bg-white rounded-xl border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+<a href="/loker/{{$loker->id}}" class="block font-montserrat p-6 max-w-sm bg-white rounded-xl border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
   <span class="flex mr-4">
     <div class="pr-4">
       <img class="mb-3 w-16 h-16 rounded-lg" src="{{ asset('img/gojek.png') }}" alt="logo">
@@ -128,7 +73,52 @@
 @endforeach
 </section>
 
+<!--
+<section class="mx-10 grid grid-cols-3 gap-8">
+  <a id="loker-card" href="" class="block font-montserrat p-6 max-w-sm bg-white rounded-xl border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+  <span class="flex mr-4">
+    <div class="pr-4">
+      <img class="mb-3 w-16 h-16 rounded-lg" src="{{ asset('img/gojek.png') }}" alt="logo">
+    </div>
+    <div>
+      <p id="posisi" class="pt-2 pb-1 text-md font-bold"></p>
+      <p class="mb-3 text-sm text-dongker font-bold">Gojek</p>
+    </div>
+  </span>
+  <div>
+    <ul>
+      <li class="flex flex-row pl-5 pt-3">
+        <div class="pr-5 pt-0.5">
+          <img class="w-5 h-5" src="{{ asset('img/map.png') }}" alt="">
+        </div>
+        <p class="text-md">Jakarta</p>
+      </li>
+      @if($loker->min_pengalaman != NULL)
+      <li class="flex flex-row pl-5 pt-3">
+        <div class="pr-5 pt-0.5">
+          <img class="w-5 h-5" src="{{ asset('img/briefcase.png') }}" alt="">
+        </div>
+        <p id="min_pengalaman" class="text-md"></p>
+      </li>
+      @endif
+      @if($loker->insentif != NULL)
+      <li class="flex flex-row pl-5 pt-3">
+        <div class="pr-5 pt-0.5">
+          <img class="w-5 h-5" src="{{ asset('img/duit.png') }}" alt="">
+        </div>
+        <p id="insentif" class="text-md"></p>
+      </li>
+      @endif
+    </ul>
+  </div>
+  </a>
+</section>
+-->
+
 <div class="mx-16 py-7 items-center justify-center">
     {{$lokers->links()}}
 </div>
+<!--
+<script src="{{ asset('js/loker.js') }}"></script>
+-->
 @endsection

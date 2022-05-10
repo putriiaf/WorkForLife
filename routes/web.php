@@ -52,7 +52,12 @@ Route::get('/profile/{username}', function ($username) {
     return view('/user/profile', compact(['title', 'my_posts']));
 });
 
+<<<<<<< Updated upstream
 Route::get('/loker', [VacancyController::class, 'index']);
+=======
+Route::get('/loker', [VacancyController::class, 'getData']);
+Route::get('/loker/{vacancy:id}', [VacancyController::class, 'show']);
+>>>>>>> Stashed changes
 Route::get('/loker/upload', [VacancyController::class, 'create'])->middleware('auth');
 Route::post('/loker/upload', [VacancyController::class, 'store']);
 Route::get('/loker/{vacancy:id}', [VacancyController::class, 'show']);
@@ -70,8 +75,12 @@ Route::post('/company/verify', [CompanyController::class, 'store']);
 Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
 Route::get('/admin/company/{company:id}/detail', [AdminController::class, 'show']);
 Route::post('/admin/company/create', [AdminController::class, 'store'])->middleware('auth');
+<<<<<<< Updated upstream
 Route::delete('/admin/company/delete', [AdminController::class, 'destroy'])->middleware('auth');
 
 Route::get('/admin/report/{report:id}/detail', [ReportController::class, 'edit']);
 Route::put('/admin/report/{report:id}', [ReportController::class, 'update']);
 Route::delete('/admin/report/{report:id}', [ReportController::class, 'destroy']);
+=======
+Route::delete('/admin/company/delete', [AdminController::class, 'destroy'])->middleware('auth');
+>>>>>>> Stashed changes
