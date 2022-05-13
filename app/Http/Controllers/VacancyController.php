@@ -19,18 +19,17 @@ class VacancyController extends Controller
     {
         $client = new Client();
         $response = $client->request('GET','http://localhost:8080/api/loker');
-        $statusCode = $response->getStatusCode();
-        $body = $response->getBody()->getContents();
+        //$statusCode = $response->getStatusCode();
+        //$body = $response->getBody()->getContents();
 
-        $data[]= array(json_encode($body,true));
+        $data= json_decode($response->getBody(), $response = false);
 
-        //return view('loker.loker',['data'=>$data]);
         $title = 'Lowongan Kerja';
         if (request('category')) {
             $title = "Semua Lowongan Kerja";
         }
         return view('loker.loker', [
-            'data'=> $data,
+            'lokers' => $data,
            'title' => 'All Events' . $title,
             'active' => 'events',
             'lokers' => Vacancy::latest()->filter(request(['search']))->paginate(6)->withQueryString()
@@ -73,6 +72,11 @@ class VacancyController extends Controller
      */
     public function store(Request $request)
     {
+        $client = new Client();
+        $response = $client->request('POST','http://localhost:8080/api/loker');
+        $data = json_decode($response->getBody(),true);
+
+
         Vacancy::create([
             'company_id' => request('company_id'),
             'posisi' => request('posisi'),
@@ -95,7 +99,12 @@ class VacancyController extends Controller
      */
     public function show(Vacancy $vacancy)
     {
+        $client = new Client();
+        $response = $client->request('GET','http://localhost:8080/api/loker');
+        $data = json_decode($response->getBody(),$response = false);
+
         return view('loker.view', [
+            'loker' => $data,
             'title' => 'Detail Lowongan Kerja',
             'active' => 'loker',
             'loker' => $vacancy,
@@ -142,6 +151,9 @@ class VacancyController extends Controller
      */
     public function destroy(Vacancy $vacancy)
     {
+        $client = new Client();
+        $response = $client -> delete('http://localhost:8080/api/loker');
+        $body = json_decode($response->getBody(), true);
         Vacancy::destroy($vacancy->id);
         return redirect('/loker')->with('success', 'Vacancy has been deleted!');
     }
