@@ -56,7 +56,7 @@ Route::get('/loker', [VacancyController::class, 'getData']);
 Route::get('/loker/upload', [VacancyController::class, 'create'])->middleware('auth');
 Route::post('/loker/upload', [VacancyController::class, 'store']);
 Route::get('/loker/{vacancy:id}', [VacancyController::class, 'show']);
-Route::get('/loker/id}/edit', [VacancyController::class, 'edit']);
+Route::get('/loker/{vacancy:id}/edit', [VacancyController::class, 'edit']);
 Route::put('/loker/{vacancy:id}', [VacancyController::class, 'update']);
 Route::delete('/loker/{vacancy:id}', [VacancyController::class, 'destroy']);
 
