@@ -40,7 +40,7 @@
     </div>
     <div>
       <p class="pt-2 pb-1 text-md font-bold">{{ $loker->posisi }}</p>
-      <p class="mb-3 text-sm text-dongker font-bold">{{ $loker->company->nama_perusahaan }}</p>
+      <p class="mb-3 text-sm text-dongker font-bold">{{$loker->company->nama_perusahaan}}</p>
     </div>
   </span>
   <div>
@@ -116,7 +116,7 @@
 -->
 
 <div class="mx-16 py-7 items-center justify-center">
-    {{$lokers->links()}}
+
 </div>
 <!--
 <script src="{{ asset('js/loker.js') }}"></script>
