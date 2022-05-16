@@ -18,7 +18,7 @@ class VacancyController extends Controller
     public function getData()
     {
         $client = new Client();
-        $response = $client->request('GET','http://localhost:8080/api/loker');
+        $response = $client->request('GET','https://apiwfl.herokuapp.com/api/loker');
         //$statusCode = $response->getStatusCode();
         //$body = $response->getBody()->getContents();
 
@@ -73,7 +73,7 @@ class VacancyController extends Controller
     public function store(Request $request)
     {
         $client = new Client();
-        $response = $client->request('POST','http://localhost:8080/api/loker');
+        $response = $client->request('POST','https://apiwfl.herokuapp.com/api/loker');
         $data = json_decode($response->getBody(),true);
 
 
@@ -100,7 +100,7 @@ class VacancyController extends Controller
     public function show(Vacancy $vacancy)
     {
         $client = new Client();
-        $response = $client->request('GET','http://localhost:8080/api/loker');
+        $response = $client->request('GET','https://apiwfl.herokuapp.com/api/loker');
         $data = json_decode($response->getBody(),$response = false);
 
         return view('Loker.view', [
@@ -152,7 +152,7 @@ class VacancyController extends Controller
     public function destroy(Vacancy $vacancy)
     {
         $client = new Client();
-        $response = $client -> delete('http://localhost:8080/api/loker');
+        $response = $client -> delete('https://apiwfl.herokuapp.com/api/loker');
         $body = json_decode($response->getBody(), true);
         Vacancy::destroy($vacancy->id);
         return redirect('/loker')->with('success', 'Vacancy has been deleted!');
