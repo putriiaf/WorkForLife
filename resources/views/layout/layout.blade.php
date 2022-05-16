@@ -34,7 +34,7 @@
 				</li>
         @guest
         @else
-        @if(auth()->user()->role == 2)
+        @if(session()->get('role')== 2)
         <li class="flex">
 					<a rel="noopener noreferrer" href="/admin" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Admin</a>
 				</li>
@@ -67,8 +67,8 @@
       <button type="button" class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
                 <div class="w-10 h-10 mx-10 overflow-hidden border-2 border-gray-400 rounded-full">
                     <a href="/profile">
-                      @if(auth()->user()->foto_profil)
-                        <img src="{{ asset('storage/' . auth()->user()->foto_profil) }}" class="object-cover w-full h-full" alt="avatar">
+                      @if(session()->get('foto_profil') != NULL)
+                        <img src="{{ asset('storage/' . session()->get('foto_profil')) }}" class="object-cover w-full h-full" alt="avatar">
                       @else
                         <img src="{{ asset('img/avatar.png') }}" class="object-cover w-full h-full" alt="avatar">
                       @endif
@@ -102,7 +102,7 @@
 					<li><a href="/posts" class="block text-sm px-2 py-4 bg-white hover:bg-dongker hover:text-white transition duration-300">Sharing</a></li>
           @guest
           @else
-          @if(auth()->user()->role == 2)
+          @if(session()->get('role') == 2)
 					<li><a href="/admin" class="block text-sm px-2 py-4 bg-white hover:bg-dongker hover:text-white transition duration-300">Admin</a></li>
           @endif
           @endguest
