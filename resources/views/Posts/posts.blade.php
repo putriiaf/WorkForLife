@@ -44,6 +44,8 @@
                             <p class="mt-1 text-gray-700 text-sm block w-[560px] line-clamp-2">
                                 {{ $post->deskripsi }}
                             </p>
+                            @guest
+                            @else
                             <a href="/report/{{ $post->id }}">
                             <button class="flex pt-5 space-x-2">
                                 @if($post->user_id == auth()->user()->id)
@@ -53,6 +55,7 @@
                                 @endif
                             </button>
                             </a>
+                            @endguest
                         </div>
                 </div>
         </a>
