@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Report;
 use Illuminate\Support\Facades\Storage;
 use GuzzleHttp\Client;
+
 class PostController extends Controller
 {
     /**
@@ -29,7 +30,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.upload', [
+        return view('Posts.upload', [
             "title" => "Upload Posts",
             'message' => NULL
         ]);
@@ -76,7 +77,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        return view('posts.editPost', [
+        return view('Posts.editPost', [
             'title' => 'Edit Post',
             'posts' => Post::where('id', $id)->first()
             // 'posts' => $posts

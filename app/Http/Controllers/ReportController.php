@@ -30,7 +30,7 @@ class ReportController extends Controller
 
     public function edit($id)
     {
-        return view('reports.editReport', [
+        return view('Reports.editReport', [
             'title' => 'Edit Laporan',
             'report' => Report::where('id', $id)->first()
         ]);
