@@ -28,7 +28,7 @@ class VacancyController extends Controller
         if (request('category')) {
             $title = "Semua Lowongan Kerja";
         }
-        return view('loker.loker', [
+        return view('Loker.loker', [
             'lokers' => $data,
            'title' => 'All Events' . $title,
             'active' => 'events',
@@ -42,7 +42,7 @@ class VacancyController extends Controller
     //     if (request('category')) {
     //         $title = "Semua Lowongan Kerja";
     //     }
-    //     return view('loker.loker', [
+    //     return view('Loker.loker', [
     //        'title' => 'All Events' . $title,
     //         'active' => 'events',
     //         'lokers' => Vacancy::latest()->filter(request(['search']))->paginate(6)->withQueryString()
@@ -103,7 +103,7 @@ class VacancyController extends Controller
         $response = $client->request('GET','http://localhost:8080/api/loker');
         $data = json_decode($response->getBody(),$response = false);
 
-        return view('loker.view', [
+        return view('Loker.view', [
             'loker' => $data,
             'title' => 'Detail Lowongan Kerja',
             'active' => 'loker',
@@ -119,7 +119,7 @@ class VacancyController extends Controller
      */
     public function edit($id)
     {
-        return view('loker.editLoker', [
+        return view('Loker.editLoker', [
             'title' => 'Edit Post',
             'loker' => Vacancy::where('id', $id)->first(),
         ]);
