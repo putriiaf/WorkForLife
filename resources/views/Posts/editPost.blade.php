@@ -11,7 +11,7 @@
     <div class="font-montserrat text-black ">
         <h4 class="text-3xl text-center font-bold mb-5">Form Edit Postingan</h4> <br>  
         <div class="container text-center bg-[#F6F6F6] mx-auto p-4 shadow-lg rounded">  
-        <form method="POST" action="/posts/{{ $posts->id }}/edit" class="offset-md-1" enctype="multipart/form-data">
+        <form method="POST" action="/posts/{{ $posts->id }}" class="offset-md-1" enctype="multipart/form-data">
             @method('put')
             @csrf
             <div class="p-6 font-bold">
