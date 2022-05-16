@@ -20,7 +20,7 @@
             @if(auth()->user()->role != 0)
               <form method="get" action="/loker/upload">
                 <span class="pl-3 space-x-3">
-                <button class="w-32 h-12 text-center rounded-lg bg-dongker text-white text-base hover:bg-dongker/50" type="submit">Tambah Loker</button>
+                <button class="w-32 h-12 mt-7 text-center rounded-lg bg-dongker text-white text-base hover:bg-dongker/50" type="submit">Tambah Loker</button>
                 </span>
               </form>
             @endif

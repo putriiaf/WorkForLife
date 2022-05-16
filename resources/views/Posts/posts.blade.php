@@ -11,7 +11,7 @@
                         <button class="w-20 h-12 text-center rounded-lg bg-dongker text-white text-base hover:bg-dongker/50" type="submit">Cari</button>
                     </form>
                     <form method="get" action="/uploadpost">
-                        <button class="w-32 h-12 text-center rounded-lg bg-dongker text-white text-base hover:bg-dongker/50" type="submit">Tambah Post</button>
+                        <button class="w-32 h-12 mt-7 text-center rounded-lg bg-dongker text-white text-base hover:bg-dongker/50" type="submit">Tambah Post</button>
                     </form>
                 </span>
             </span>
