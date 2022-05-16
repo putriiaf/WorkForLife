@@ -221,7 +221,7 @@
                                     {{ $post->deskripsi }}
                                 </td>
                                 <td class="px-5 py-4 text-right space-x-5">
-                                    <a href="/posts/{{ $post->id }}}/edit" class="font-medium text-dongker">Edit</a>
+                                    <a href="/posts/{{ $post->id }}/edit" class="font-medium text-dongker">Edit</a>
                                     <form action="/posts/{{ $post->id }}" method="post">
                                         @method('delete')
                                         @csrf
