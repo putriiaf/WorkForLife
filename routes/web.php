@@ -15,6 +15,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\VacancyController;
+use App\Http\Middleware\AuthCustom;
 use App\Models\Vacancy;
 
 /*
@@ -29,7 +30,8 @@ use App\Models\Vacancy;
 */
 
 Route::get('/',  [HomeController::class, 'index']);
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+// Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/uploadpost', [PostController::class, 'create'])->middleware('auth');
@@ -43,7 +45,7 @@ Route::get('/report/{post:id}', [ReportController::class, 'index']);
 Route::post('/report', [ReportController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
-Route::resource('/profile', UserController::class)->middleware('auth');
+Route::resource('/profile', UserController::class)->middleware('token');
 Route::get('/profile/{username}', function ($username) {
     $title = "My Profile";
     $username = User::where('username', $username)->first()->username;
@@ -66,8 +68,9 @@ Route::get('/form', function () {
 
 Route::get('/company', [CompanyController::class, 'index']);
 Route::post('/company/verify', [CompanyController::class, 'store']);
-
-Route::get('/admin', [AdminController::class, 'index'])->middleware('auth');
+// Route::middleware([AuthCustom::class])->group(function(){
+Route::get('/admin', [AdminController::class, 'index'])->middleware('token');
+// });
 Route::get('/admin/company/{company:id}/detail', [AdminController::class, 'show']);
 Route::post('/admin/company/create', [AdminController::class, 'store'])->middleware('auth');
 Route::delete('/admin/company/delete', [AdminController::class, 'destroy'])->middleware('auth');

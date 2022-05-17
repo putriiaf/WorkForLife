@@ -49,9 +49,9 @@
       <form action="/company">
 			  <button class="mx-8 px-8 py-2 font-semibold rounded-lg bg-white border-2 border-gray-500 text-dongker hover:bg-white/30 hover:border-gray-500/30">Rekrut Sekarang</button>
       </form>
-      @endif
-			@if (!(session()->has('token')))
+      
       <form action="/login">
+        @csrf
 			  <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">Masuk</button>
       </form>
       @endif	
@@ -60,8 +60,8 @@
 		@else
 		<div class="pt-2 items-center flex-shrink-0 hidden lg:flex">
       <form action="/logout" method="POST">
-			@csrf
-      <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">Keluar</button>
+        @csrf
+        <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">Keluar</button>
       </form>
       
       <button type="button" class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
