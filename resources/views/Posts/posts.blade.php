@@ -48,7 +48,7 @@
                             @else
                             <a href="/report/{{ $post->id }}">
                             <button class="flex pt-5 space-x-2">
-                                @if($post->user_id == auth()->user()->id)
+                                @if($post->user_id == session()->get('id'))
                                 @else
                                 <img src="{{ asset('img/report.png') }}" alt="">
                                 <p>Report</p>

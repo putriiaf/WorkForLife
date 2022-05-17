@@ -32,25 +32,25 @@
 				<li class="flex">
 					<a rel="noopener noreferrer" href="/posts" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Sharing</a>
 				</li>
-        @guest
+        @if (!(session()->has('token')))
         @else
         @if(session()->get('role')== 2)
         <li class="flex">
 					<a rel="noopener noreferrer" href="/admin" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Admin</a>
 				</li>
         @endif
-        @endguest
+        @endif
 			</ul>
 		</div>
 
-		@guest
+		@if (!(session()->has('token')))
 		<div class="pt-2 items-center flex-shrink-0 hidden lg:flex">
-			@if (Route::has('login'))
+			@if (!(session()->has('token')))
       <form action="/company">
 			  <button class="mx-8 px-8 py-2 font-semibold rounded-lg bg-white border-2 border-gray-500 text-dongker hover:bg-white/30 hover:border-gray-500/30">Rekrut Sekarang</button>
       </form>
       @endif
-			@if (Route::has('login'))
+			@if (!(session()->has('token')))
       <form action="/login">
 			  <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">Masuk</button>
       </form>
@@ -76,7 +76,7 @@
                 </div>
             </button>
 		</div>
-		@endguest
+		@endif
     <div class="md:hidden flex items-center">
 						<button class="outline-none mobile-menu-button">
 						<svg class=" w-6 h-6 text-gray-500 hover:text-dongker "
@@ -100,12 +100,12 @@
 					<li><a href="/" class="block text-sm px-2 py-4 bg-white hover:bg-dongker hover:text-white transition duration-300">Beranda</a></li>
 					<li><a href="/loker" class="block text-sm px-2 py-4 bg-white hover:bg-dongker hover:text-white transition duration-300">Cari Loker</a></li>
 					<li><a href="/posts" class="block text-sm px-2 py-4 bg-white hover:bg-dongker hover:text-white transition duration-300">Sharing</a></li>
-          @guest
+          @if(session()->has('token'))
           @else
           @if(session()->get('role') == 2)
 					<li><a href="/admin" class="block text-sm px-2 py-4 bg-white hover:bg-dongker hover:text-white transition duration-300">Admin</a></li>
           @endif
-          @endguest
+          @endif
 				</ul>
 			</div>
 	</div>
