@@ -72,7 +72,38 @@
 </a>
 @endforeach
 </section>
-
+<div class="mx-16 py-7">
+    <div class="Page navigation example">
+                  <ul class="pagination justify-content-end">
+                    @if($page->last_page > 1)
+                    @if($page->current_page == 1)
+                    <li class="page-item disabled">
+                      <a class="page-link" href="">Previous</a>
+                    </li>
+                    @else
+                    <li class=" page-item">
+                      <a class="page-link" href="/loker">Previous</a>
+                    </li>
+                    @endif
+                    <li>
+                        <span>
+                            {{$page->current_page}}
+                            <span>(current)</span>
+                        </span>
+                    </li>
+                    @if($page->current_page == $page->last_page)
+                    <li>
+                        <a href="/loker?page={{$page->last_page}}">Next</a>
+                    </li>
+                    @else
+                    <li>
+                        <a href="/loker?page={{$page->current_page + 1}}">Next</a>
+                    </li>
+                    @endif
+                    @endif
+                  </ul>
+    </div>
+    </div>
 <!--
 <section class="mx-10 grid grid-cols-3 gap-8">
   <a id="loker-card" href="" class="block font-montserrat p-6 max-w-sm bg-white rounded-xl border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">

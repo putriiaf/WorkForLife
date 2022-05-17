@@ -7,6 +7,7 @@ use App\Models\Vacancy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Log;
 class VacancyController extends Controller
 {
     /**
@@ -15,11 +16,17 @@ class VacancyController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function getData()
+    public function getData(Request $request)
     {
-        $response = Http::get('http://apiwfl.herokuapp.com/api/loker');
+        // if ($request->has('page')) {
+        //     $object = $request->query('page');
+        // }
+        // else{
+        //     $object = 1;
+        // }
+        $object = $request->query('page');
+        $response = Http::get('http://apiwfl.herokuapp.com/api/loker?page='.$object);
         $response = $response->object();
-
         $title = 'Lowongan Kerja';
         if (request('category')) {
             $title = "Semua Lowongan Kerja";
@@ -27,7 +34,9 @@ class VacancyController extends Controller
         return view('loker.loker', [
             'title' => 'All Events' . $title,
             'active' => 'events',
-            'lokers' => $response->data
+            'lokers' => $response->data,
+            'page' => $response
+
         ]);
     }
 
