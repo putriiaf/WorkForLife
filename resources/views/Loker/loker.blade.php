@@ -72,84 +72,37 @@
 </a>
 @endforeach
 </section>
-<div class="mx-16 py-7">
-    <div class="Page navigation example">
-                  <ul class="pagination justify-content-end">
-                    @if($page->last_page > 1)
-                    @if($page->current_page == 1)
-                    <li class="page-item disabled">
-                      <a class="page-link" href="">Previous</a>
-                    </li>
-                    @else
-                    <li class=" page-item">
-                      <a class="page-link" href="/loker">Previous</a>
-                    </li>
-                    @endif
-                    <li>
-                        <span>
-                            {{$page->current_page}}
-                            <span>(current)</span>
-                        </span>
-                    </li>
-                    @if($page->current_page == $page->last_page)
-                    <li>
-                        <a href="/loker?page={{$page->last_page}}">Next</a>
-                    </li>
-                    @else
-                    <li>
-                        <a href="/loker?page={{$page->current_page + 1}}">Next</a>
-                    </li>
-                    @endif
-                    @endif
-                  </ul>
-    </div>
-    </div>
-<!--
-<section class="mx-10 grid grid-cols-3 gap-8">
-  <a id="loker-card" href="" class="block font-montserrat p-6 max-w-sm bg-white rounded-xl border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-  <span class="flex mr-4">
-    <div class="pr-4">
-      <img class="mb-3 w-16 h-16 rounded-lg" src="{{ asset('img/gojek.png') }}" alt="logo">
-    </div>
-    <div>
-      <p id="posisi" class="pt-2 pb-1 text-md font-bold"></p>
-      <p class="mb-3 text-sm text-dongker font-bold">Gojek</p>
-    </div>
+
+<div class="flex flex-col items-center my-10">
+  <!-- Help text -->
+  <span class="text-sm text-gray-700 dark:text-gray-400">
+      Showing Page <span class="font-semibold text-gray-900 dark:text-white">{{$page->current_page}}</span>
   </span>
-  <div>
-    <ul>
-      <li class="flex flex-row pl-5 pt-3">
-        <div class="pr-5 pt-0.5">
-          <img class="w-5 h-5" src="{{ asset('img/map.png') }}" alt="">
-        </div>
-        <p class="text-md">Jakarta</p>
-      </li>
-      @if($loker->min_pengalaman != NULL)
-      <li class="flex flex-row pl-5 pt-3">
-        <div class="pr-5 pt-0.5">
-          <img class="w-5 h-5" src="{{ asset('img/briefcase.png') }}" alt="">
-        </div>
-        <p id="min_pengalaman" class="text-md"></p>
-      </li>
-      @endif
-      @if($loker->insentif != NULL)
-      <li class="flex flex-row pl-5 pt-3">
-        <div class="pr-5 pt-0.5">
-          <img class="w-5 h-5" src="{{ asset('img/duit.png') }}" alt="">
-        </div>
-        <p id="insentif" class="text-md"></p>
-      </li>
-      @endif
-    </ul>
-  </div>
+  <div class="inline-flex mt-2 xs:mt-0">
+  @if($page->last_page > 1)
+  @if($page->current_page == 1)
+  <a href="#" class="inline-flex items-center py-2 px-4 mr-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+    <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+    Previous
   </a>
-</section>
--->
-
-<div class="mx-16 py-7 items-center justify-center">
-
+  @else
+  <a href="/loker?page={{$page->current_page - 1}}" class="inline-flex items-center py-2 px-4 mr-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+    <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+    Previous
+  </a>
+  @endif
+  @if($page->current_page == $page->last_page)
+  <a href="/loker?page={{$page->last_page}}" class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+    Next
+    <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+  </a>
+  @else
+  <a href="/loker?page={{$page->current_page + 1}}" class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+    Next
+    <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+  </a>
+  @endif
+  @endif
+  </div>
 </div>
-<!--
-<script src="{{ asset('js/loker.js') }}"></script>
--->
 @endsection
