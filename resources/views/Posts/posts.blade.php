@@ -39,7 +39,7 @@
                             <p class="mt-1 text-gray-700 text-sm block w-[560px] line-clamp-2">
                                 {{ $post->deskripsi }}
                             </p>
-                            @guest
+                            @if (!(session()->has('token')))
                             @else
                             <a href="/report/{{ $post->id }}">
                             <button class="flex pt-5 space-x-2">
@@ -50,7 +50,7 @@
                                 @endif
                             </button>
                             </a>
-                            @endguest
+                            @endif
                         </div>
                 </div>
         </a>

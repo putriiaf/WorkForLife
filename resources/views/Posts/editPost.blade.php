@@ -22,9 +22,9 @@
                 <label for="deskripsi" class="text-blueGray-600 text-sm font-bold">Deskripsi</label>
                 <textarea id="deskripsi" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 h-48" type="text" name="deskripsi" value="{{ old('deskripsi', $posts->deskripsi) }}"></textarea>
             </div>
-            @auth
-            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-            @endauth
+            @if (session()->has('token'))
+            <input type="hidden" name="user_id" value="{{ session()->get('id')}}">
+            @endif
             <div class="text-center p-6"> 
                 <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40" type="submit">Submit</button><br> <br>
                 <button class="px-8 py-2 font-semibold rounded-lg border-2 border-[#E84A5F] text-red hover:bg-red/40 hover:border-[#123C69]/40" type="submit">Kembali</button>
