@@ -16,13 +16,15 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $response = Http::get('http://apiwfl.herokuapp.com/api/post');
+        $object = $request->query('page');
+        $response = Http::get('http://apiwfl.herokuapp.com/api/post?page='.$object);
         $response = $response->object();
         return view('Posts.posts', [
             "title" => "Sharing",
             'posts' => $response->data,
+            'page' => $response
             //'posts' => $response->data->latest()->filter(request(['search']))->paginate(10)->withQueryString(),
             //'reports' => Report::latest()->get(),
         ]);
