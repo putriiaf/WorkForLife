@@ -16,7 +16,7 @@
             @csrf
             <div class="p-6 font-bold">
                 <label class="text-blueGray-600 text-sm font-bold" for="posisi">Posisi</label>
-                <input type="text" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64" readonly name="posisi" value="{{ old('posisi', $loker->posisi) }}" id="posisi">
+                <input type="text" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64" value="{{ old('posisi', $loker->posisi) }}" id="posisi">
             </div>
             <div class="font-bold">
                 <label for="jobdesc" class="text-blueGray-600 text-sm font-bold">Job Description</label>

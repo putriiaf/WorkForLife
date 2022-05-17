@@ -20,24 +20,19 @@
 
     <div class="mx-20 font-montserrat">
         <h1 class="text-2xl text-dongker font-extrabold pb-6">Postingan Terbaru</h1>
-        @if($posts->first())
-        @foreach ($posts->unique('id') as $post)
-            @foreach ($reports as $report)
-                @if($report->postingan_id == $post->id && $report->is_approved == '1')
-                    @continue(2)
-                @endif
-            @endforeach
+        @if($posts != NULL)
+        @foreach ($posts as $post)
         <div class="flex bg-white border-gray-100 border-2 shadow-lg rounded-xl max-w-2xl mb-5">
         <a href="/posts/{{ $post->id }}">
                 <div class="flex items-start px-4 py-6">
-                    @if($post->user->foto_profil)
-                        <img src="{{ asset('storage/' . $post->user->foto_profil) }}" class="w-12 h-12 rounded-full object-cover mr-4 shadow" alt="avatar">
+                    @if($post->foto_profil)
+                        <img src="{{ asset('storage/' . $post->foto_profil) }}" class="w-12 h-12 rounded-full object-cover mr-4 shadow" alt="avatar">
                     @else
                         <img src="{{ asset('img/avatar.png') }}" class="w-12 h-12 rounded-full object-cover mr-4 shadow" alt="avatar">
                     @endif
                         <div class="">
                             <div class="flex items-center justify-between">
-                                <h2 class="text-lg font-semibold text-gray-900 -mt-1">{{ $post->user->nama }}</h2>
+                                <h2 class="text-lg font-semibold text-gray-900 -mt-1">{{ $post->nama }}</h2>
                             </div>
                             <p class="text-gray-700">{{ $post->created_at }}</p>
                             <h6 class="mt-3 font-extrabold block w-[560px] line-clamp-1">{{ $post->judul }}</h6>
@@ -65,6 +60,35 @@
     </div>
 
     <div class="mx-16 py-7">
-        {{$posts->links()}}
+    <div class="Page navigation example">
+                  <ul class="pagination justify-content-end">
+                    @if($posts->last_page() > 1)
+                    @if($posts->current_page() == 1)
+                    <li class="page-item disabled">
+                      <a class="page-link" href="">Previous</a>
+                    </li>
+                    @else
+                    <li class=" page-item">
+                      <a class="page-link" href="{{ $posts->url($posts->current_page() - 1) }}">Previous</a>
+                    </li>
+                    @endif
+                    <li>
+                        <span>
+                            {{$posts->current_page()}}
+                            <span>(current)</span>
+                        </span>
+                    </li>
+                    @if($posts->current_page() == $posts->last_page())
+                    <li>
+                        <a href="{{ $posts->url($posts->last_pagepage()) }}">Next</a>
+                    </li>
+                    @else
+                    <li>
+                        <a href="{{ $posts->url($posts->current_page() + 1) }}">Next</a>
+                    </li>
+                    @endif
+                    @endif
+                  </ul>
+    </div>
     </div>
 @endsection

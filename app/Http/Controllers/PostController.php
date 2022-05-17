@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Http;
 use App\Models\Report;
 use Illuminate\Support\Facades\Storage;
 use GuzzleHttp\Client;
@@ -17,10 +18,13 @@ class PostController extends Controller
      */
     public function index()
     {
+        $response = Http::get('http://apiwfl.herokuapp.com/api/post');
+        $response = $response->object();
         return view('Posts.posts', [
             "title" => "Sharing",
-            'posts' => Post::latest()->filter(request(['search']))->paginate(10)->withQueryString(),
-            'reports' => Report::latest()->get(),
+            'posts' => $response->data,
+            //'posts' => $response->data->latest()->filter(request(['search']))->paginate(10)->withQueryString(),
+            //'reports' => Report::latest()->get(),
         ]);
     }
     /**
