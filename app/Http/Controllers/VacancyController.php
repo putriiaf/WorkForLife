@@ -31,7 +31,7 @@ class VacancyController extends Controller
         if (request('category')) {
             $title = "Semua Lowongan Kerja";
         }
-        return view('loker.loker', [
+        return view('Loker.loker', [
             'title' => 'All Events' . $title,
             'active' => 'events',
             'lokers' => $response->data,

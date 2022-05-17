@@ -33,9 +33,9 @@ class LoginController extends Controller
         // }
 
         // return back()->with('loginError', 'Login failed!');
-        $response = Http::asForm()->post("https://apiwfl.herokuapp.com/api/login", [
-            'email' => request('email'),
-            'password' => request('password')
+        $response = Http::asForm()->post('http://apiwfl.herokuapp.com/api/login', [
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
         ]);
         $response = $response->object();
         $token = $response->access_token;
@@ -67,7 +67,7 @@ class LoginController extends Controller
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . session('token'),
-        ])->post('https://apiwfl.herokuapp.com/api/logout');
+        ])->post('http://apiwfl.herokuapp.com/api/logout');
         $request->session()->flush();
         // Auth::logout();
         return redirect('/');
