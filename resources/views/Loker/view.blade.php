@@ -8,7 +8,7 @@
             <img src="{{ asset('img/gojek.png') }}" alt="">
         </div>
         <div class="px-3 pt-6">
-            <h1 class="text-2xl font-extrabold mb-3">{{ $loker->company->nama_perusahaan }}</h1>
+            <h1 class="text-2xl font-extrabold mb-3">{{ $loker->nama_perusahaan }}</h1>
             <h1 class="text-2xl font-extrabold">{{ $loker->posisi }}</h1>
             <h2 class="pt-1">{{ $loker->domisili }}</h2>
             <h2 class="pt-1">{{ $loker->min_pengalaman }}</h2>
