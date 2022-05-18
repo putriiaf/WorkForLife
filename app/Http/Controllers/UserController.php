@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\Hash;
@@ -16,12 +17,16 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $title = "My Profile";
-        $user_id = auth()->user()->id;
-        $profilUser = User::where('id', $user_id)->first();
-        $my_posts = Post::where('user_id', $user_id)->get();
+        // $user_id = request()->user()->id;
+        // $profilUser = User::where('id', $user_id)->first();
+        // $my_posts = Post::where('user_id', $user_id)->get();
+        $response = Http::get('http://apiwfl.herokuapp.com/api/profile');
+        $response = $response->object();
+        $profilUser = $response->profile;
+        $my_posts = $response->post;
         return view('/user/profile', compact(['title', 'profilUser', 'my_posts']));
     }
 
@@ -55,9 +60,13 @@ class UserController extends Controller
     public function show(User $user)
     {
         $title = "My Profile";
-        $id = auth()->user()->id;
-        $user = User::where('id', $id)->first();
-        $my_posts = Post::where('user_id', $id)->get();
+        // $id = auth()->user()->id;
+        // $user = User::where('id', $id)->first();
+        // $my_posts = Post::where('user_id', $id)->get();
+        $response = Http::get('http://apiwfl.herokuapp.com/api/profile');
+        $response = $response->object();
+        $user = $response->profile;
+        $my_posts = $response->post;
         return view('/user/profile', compact(['title', 'user', 'my_posts']));
     }
 
@@ -70,7 +79,9 @@ class UserController extends Controller
     public function edit($username)
     {
         $title = "Edit Profile";
-        $profilUser = User::where('username', $username)->first();
+        // $profilUser = User::where('username', $username)->first();
+        $response = Http::get('http://apiwfl.herokuapp.com/api/profile');
+        $profilUser = $response->object();
         return view('/user/editProfile', compact(['title', 'profilUser']));
     }
 

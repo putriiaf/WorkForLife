@@ -29,12 +29,12 @@ use App\Models\Vacancy;
 |
 */
 
-Route::get('/',  [HomeController::class, 'index']);
-// Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/',  [HomeController::class, 'index'])->name('home');
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+// Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
-Route::get('/uploadpost', [PostController::class, 'create'])->middleware('auth');
+Route::get('/uploadpost', [PostController::class, 'create'])->middleware('token');
 Route::post('/uploadpost', [PostController::class, 'store']);
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post:id}', [PostController::class, 'show']);
@@ -55,7 +55,7 @@ Route::get('/profile/{username}', function ($username) {
 });
 
 Route::get('/loker', [VacancyController::class, 'getData']);
-Route::get('/loker/upload', [VacancyController::class, 'create'])->middleware('auth');
+Route::get('/loker/upload', [VacancyController::class, 'create'])->middleware('token');
 Route::post('/loker/upload', [VacancyController::class, 'store']);
 Route::get('/loker/{vacancy:id}', [VacancyController::class, 'show']);
 Route::get('/loker/{vacancy:id}/edit', [VacancyController::class, 'edit']);
@@ -72,8 +72,8 @@ Route::post('/company/verify', [CompanyController::class, 'store']);
 Route::get('/admin', [AdminController::class, 'index'])->middleware('token');
 // });
 Route::get('/admin/company/{company:id}/detail', [AdminController::class, 'show']);
-Route::post('/admin/company/create', [AdminController::class, 'store'])->middleware('auth');
-Route::delete('/admin/company/delete', [AdminController::class, 'destroy'])->middleware('auth');
+Route::post('/admin/company/create', [AdminController::class, 'store'])->middleware('token');
+Route::delete('/admin/company/delete', [AdminController::class, 'destroy'])->middleware('token');
 
 Route::get('/admin/report/{report:id}/detail', [ReportController::class, 'edit']);
 Route::put('/admin/report/{report:id}', [ReportController::class, 'update']);
