@@ -39,7 +39,6 @@ class ReportController extends Controller
     public function update(Request $request, Report $report)
     {
         $rules = [
-            'alasan' => 'required|max:255',
             'is_approved' => 'required',
         ];
         $validatedData = $request->validate($rules);
