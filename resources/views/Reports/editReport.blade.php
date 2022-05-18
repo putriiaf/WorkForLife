@@ -16,11 +16,7 @@
             @csrf
             <div class="p-6 font-bold">
                 <label class="text-blueGray-600 text-sm font-bold" for="postingan_id">Postingan ID</label>
-                <input type="text" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64" name="postingan_id" value={{ $report->postingan_id }}>
-            </div>
-            <div class="font-bold">
-                <label for="alasan" class="text-blueGray-600 text-sm font-bold">Alasan</label>
-                <textarea id="alasan" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 h-48" type="text" name="alasan" value="{{ $report->alasan }}"></textarea>
+                <input type="text" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64" readonly name="postingan_id" value={{ $report->postingan_id }}>
             </div>
             <div class="flex font-bold">
                 <label for="is_approved" class="text-blueGray-600 text-sm font-bold">Status</label>

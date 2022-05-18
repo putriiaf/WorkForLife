@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Report;
+use Illuminate\Support\Facades\Http;
 
 class ReportController extends Controller
 {
@@ -19,10 +20,18 @@ class ReportController extends Controller
 
     public function store(Request $request)
     {
-        Report::create([
-            'alasan' => request('alasan'),
-            'user_id' => request('user_id'),
-            'postingan_id' => request('postingan_id')
+        // Report::create([
+        //     'alasan' => request('alasan'),
+        //     'user_id' => request('user_id'),
+        //     'postingan_id' => request('postingan_id')
+        // ]);
+
+        // return redirect('/posts');
+
+        Http::asForm()->post("http://apiwfl.herokuapp.com/api/report", [
+            'alasan' => $request->input('alasan'),
+            'user_id' => $request->input('user_id'),
+            'postingan_id' => $request->input('postingan_id')
         ]);
 
         return redirect('/posts');
@@ -39,7 +48,6 @@ class ReportController extends Controller
     public function update(Request $request, Report $report)
     {
         $rules = [
-            'alasan' => 'required|max:255',
             'is_approved' => 'required',
         ];
         $validatedData = $request->validate($rules);

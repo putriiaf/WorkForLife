@@ -9,10 +9,6 @@
     <link href="{{ asset('https://workforlife.herokuapp.com/css/app.css') }}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <script src="https://unpkg.com/flowbite@1.4.2/dist/flowbite.js"></script>
-    <script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Navbar -->
@@ -77,7 +73,43 @@
             </button>
 		</div>
 		@endif
+
+    <!--Mobile Menu-->
     <div class="md:hidden flex items-center">
+    @if (!(session()->has('token')))
+		<div class="pt-2 items-center flex-shrink-0 flex">
+			@if (!(session()->has('token')))
+      <form action="/company">
+			  <button class="mx-4 px-3 py-1 font-semibold rounded-lg bg-white border-2 border-gray-500 text-dongker hover:bg-white/30 hover:border-gray-500/30">Rekrut Sekarang</button>
+      </form>
+      
+      <form action="/login">
+        @csrf
+			  <button class="px-3 py-1 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">Masuk</button>
+      </form>
+      @endif	
+		</div>
+
+		@else
+		<div class="pt-2 items-center flex-shrink-0 flex">
+      <form action="/logout" method="POST">
+        @csrf
+        <button class="px-4 py-1 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">Keluar</button>
+      </form>
+      
+      <button type="button" class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
+                <div class="w-9 h-9 mx-9 overflow-hidden border-2 border-gray-400 rounded-full">
+                    <a href="/profile">
+                      @if(session()->get('foto_profil') != NULL)
+                        <img src="{{ asset('storage/' . session()->get('foto_profil')) }}" class="object-cover w-full h-full" alt="avatar">
+                      @else
+                        <img src="{{ asset('img/avatar.png') }}" class="object-cover w-full h-full" alt="avatar">
+                      @endif
+                    </a>
+                </div>
+            </button>
+		</div>
+		@endif
 						<button class="outline-none mobile-menu-button">
 						<svg class=" w-6 h-6 text-gray-500 hover:text-dongker "
 							x-show="!showMenu"

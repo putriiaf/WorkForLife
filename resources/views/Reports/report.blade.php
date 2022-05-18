@@ -17,10 +17,8 @@
                 <label for="alasan" class="text-blueGray-600 text-sm font-bold">Alasan</label>
                 <textarea id="alasan" class="bg-white border border-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 h-48" type="text" name="alasan" value="{{ old('alasan') }}"></textarea>
             </div>
-            @auth
-            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-            <input type="hidden" name="postingan_id" value="{{$posts->id}}">
-            @endauth
+            <input type="hidden" id="user_id" name="user_id" value="{{ session()->get('id') }}">
+            <input type="hidden" name="postingan_id" value="{{$posts->id}}"> 
             <div class="text-center p-6"> 
                 <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40" type="submit">Submit</button><br> <br>
                 </form>

@@ -89,9 +89,7 @@
                                     {{ $company->alamat }}
                                 </td>
                                 <td class="px-1 py-4">
-                                    @if($company->user == NULL)
-                                    <a href="/admin/company/{{ $company->id }}/detail" class="font-medium text-dongker">Detail</a>
-                                    @endif
+                                   
                                     <a href="#" class="font-medium text-dongker">Hapus</a>
                                 </td>
                             </tr>
@@ -144,7 +142,7 @@
                                     {{ $loker->id }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $loker->company->nama_perusahaan }}
+                                    {{ $loker->nama_perusahaan }}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $loker->posisi }}
