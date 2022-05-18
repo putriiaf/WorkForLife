@@ -1,17 +1,3 @@
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('https://workforlife.herokuapp.com/css/app.css') }}" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <title>WorkForLife</title>
-</head>
-<body>
--->
-
 @extends('layout.layout')
 
 <!--  Hero -->
@@ -24,7 +10,7 @@
       </p>
       <div>
   	    <form class="font-montserrat flex">
-		    <button class="px-8 rounded-lg bg-[#E84A5F]  text-white font-bold p-4  border-[#E84A5F] hover:bg-[#E84A5F]/75 border-[#E84A5F]/75">Cek Sekarang</button>
+		    <a href="/loker" class="px-8 rounded-lg bg-[#E84A5F]  text-white font-bold p-4  border-[#E84A5F] hover:bg-[#E84A5F]/75 border-[#E84A5F]/75">Cek Sekarang</a>
 	    </form>
       </div>
     </div>
@@ -72,34 +58,27 @@
   </div>
 
   <!-- Loker Terbaru -->
-<section class="relative bg-[#123C69]">
+  @if($latest_loker != NULL)
+  <section class="relative bg-[#123C69]">
     <div class="pt-28 max-h-7">
         <p class="font-montserrat font-bold pt-5 text-white text-center text-5xl sm:text-4xl">Beberapa Lowongan Terbaru</p>
     </div>
   <div class="flex items-center justify-center h-screen">
-   <div class="font-montserrat bg-white font-semibold text-center rounded-xl border shadow-lg px-10 py-5 max-w-xs md:m-10">
-     <img class="mb-3 w-32 h-32 rounded-lg mx-auto" src="{{ asset('img/gojek.png') }}" alt="logo">
-     <h2 class="text-md"> Product Designer </h1>
-     <h1 class="text-lg font-bold"> Rp.8.000.000 </h3>
-     <button class="bg-[#123C69] px-8 py-2 mt-8 rounded-xl text-gray-100 font-semibold uppercase tracking-wide hover:bg-[#123C69]/70">Lihat Detail</button>
-   </div>
-
-   <div class="font-montserrat bg-white font-semibold text-center rounded-xl border shadow-lg px-10 py-5 max-w-xs md:m-10">
-     <img class="mb-3 w-32 h-32 rounded-lg mx-auto" src="{{ asset('img/gojek.png') }}" alt="logo">
-     <h2 class="text-md"> Product Designer </h1>
-     <h1 class="text-lg font-bold"> Rp.8.000.000 </h3>
-     <button class="bg-[#123C69] px-8 py-2 mt-8 rounded-xl text-gray-100 font-semibold uppercase tracking-wide hover:bg-[#123C69]/70">Lihat Detail</button>
-   </div>
-
-   <div class="font-montserrat bg-white font-semibold text-center rounded-xl border shadow-lg px-10 py-5 max-w-xs md:m-10">
-     <img class="mb-3 w-32 h-32 rounded-lg mx-auto" src="{{ asset('img/gojek.png') }}" alt="logo">
-     <h2 class="text-md"> Product Designer </h1>
-     <h1 class="text-lg font-bold"> Rp.8.000.000 </h3>
-     <button class="bg-[#123C69] px-8 py-2 mt-8 rounded-xl text-gray-100 font-semibold uppercase tracking-wide hover:bg-[#123C69]/70">Lihat Detail</button>
-   </div>
-
- </div>
-</section>
+    @foreach($latest_loker as $loker)
+    <div class="font-montserrat bg-white font-semibold text-center rounded-xl border shadow-lg px-10 py-5 max-w-xs md:m-10">
+      <img class="mb-3 w-32 h-32 rounded-lg mx-auto" src="{{ asset('img/gojek.png') }}" alt="logo">
+      <h2 class="text-md"> {{ $loker->posisi }}</h1>
+      @if($loker->insentif != NULL)
+      <h3 class="text-lg font-bold"> {{ $loker->insentif }} </h3>
+      @else
+      <h3 class="text-lg font-bold"></h3>
+      @endif
+      <a href="/loker/{{$loker->id}}" class="mt-8 bg-[#123C69] px-8 py-2 mt-8 rounded-xl text-gray-100 font-semibold uppercase tracking-wide hover:bg-[#123C69]/70">Lihat Detail</a>
+    </div>
+    @endforeach
+  </div>
+  </section>
+  @endif
   
 
 <!-- Features -->
