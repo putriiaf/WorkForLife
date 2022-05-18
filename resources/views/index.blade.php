@@ -188,14 +188,14 @@
 </section>
 
 <!-- Testimoni -->
-<section>
+{{-- <section>
   <div>
     <h2 class="bg-100% text-center text-5xl mt-10">
       Testi
     </h2>
   </div>
 </section>
-@endsection
+@endsection --}}
 
 <!--
 </body>
