@@ -39,9 +39,12 @@ class ReportController extends Controller
 
     public function edit($id)
     {
+        $response = Http::get("http://apiwfl.herokuapp.com/api/report/" . $id);
+        $response = $response->object();
+
         return view('Reports.editReport', [
             'title' => 'Edit Laporan',
-            'report' => Report::where('id', $id)->first()
+            'report' => $response->data,
         ]);
     }
 
@@ -51,13 +54,17 @@ class ReportController extends Controller
             'is_approved' => 'required',
         ];
         $validatedData = $request->validate($rules);
-        Report::where('id', $report->id)->update($validatedData);
+        Http::put("http://apiwfl.herokuapp.com/api/report/" . $report->id, $validatedData);
+        //Report::where('id', $report->id)->update($validatedData);
         return redirect('/admin');
     }
 
-    public function destroy(Report $report)
+    public function destroy($id)
     {
-        Report::destroy($report->id);
+        // Report::destroy($report->id);
+        // return redirect('/admin')->with('success', 'Report has been deleted!');
+
+        Http::delete("http://apiwfl.herokuapp.com/api/report/" . $id);
         return redirect('/admin')->with('success', 'Report has been deleted!');
     }
 }
