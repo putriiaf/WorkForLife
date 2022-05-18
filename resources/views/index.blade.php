@@ -67,13 +67,13 @@
     @foreach($latest_loker as $loker)
     <div class="font-montserrat bg-white font-semibold text-center rounded-xl border shadow-lg px-10 py-5 max-w-xs md:m-10">
       <img class="mb-3 w-32 h-32 rounded-lg mx-auto" src="{{ asset('img/gojek.png') }}" alt="logo">
-      <h2 class="text-md"> {{ $loker->posisi }}</h1>
+      <h2 class="text-md pb-3"> {{ $loker->posisi }}</h1>
       @if($loker->insentif != NULL)
-      <h3 class="text-lg font-bold"> {{ $loker->insentif }} </h3>
+      <h3 class="text-lg pb-5 font-bold"> {{ $loker->insentif }} </h3>
       @else
-      <h3 class="text-lg font-bold"></h3>
+      <h3 class="text-lg pb-5 font-bold"></h3>
       @endif
-      <a href="/loker/{{$loker->id}}" class="mt-8 bg-[#123C69] px-8 py-2 mt-8 rounded-xl text-gray-100 font-semibold uppercase tracking-wide hover:bg-[#123C69]/70">Lihat Detail</a>
+      <a href="/loker/{{$loker->id}}" class="my-8 bg-[#123C69] px-8 py-2 rounded-xl text-gray-100 font-semibold uppercase tracking-wide hover:bg-[#123C69]/70">Lihat Detail</a>
     </div>
     @endforeach
   </div>
