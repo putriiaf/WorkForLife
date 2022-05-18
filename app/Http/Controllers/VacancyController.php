@@ -98,11 +98,11 @@ class VacancyController extends Controller
      */
     public function show(Vacancy $vacancy)
     {
-        $response = Http::get('http://apiwfl.herokuapp.com/api/loker'.$vacancy->id);
+        $response = Http::get('http://apiwfl.herokuapp.com/api/loker/'.$vacancy->id);
         $response = $response->object();
 
         return view('Loker.view', [
-            'loker' => $response,
+            'lokers' => $response->data,
             'title' => 'Detail Lowongan Kerja',
             'active' => 'loker'
         ]);
