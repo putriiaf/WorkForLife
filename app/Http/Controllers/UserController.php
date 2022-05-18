@@ -23,7 +23,10 @@ class UserController extends Controller
         // $user_id = request()->user()->id;
         // $profilUser = User::where('id', $user_id)->first();
         // $my_posts = Post::where('user_id', $user_id)->get();
-        $response = Http::get('http://apiwfl.herokuapp.com/api/profile');
+        $response = Http::withHeaders([
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer ' . session('token'),
+        ])->get('http://apiwfl.herokuapp.com/api/profile');
         $response = $response->object();
         $profilUser = $response->profile;
         $my_posts = $response->post;
@@ -63,7 +66,10 @@ class UserController extends Controller
         // $id = auth()->user()->id;
         // $user = User::where('id', $id)->first();
         // $my_posts = Post::where('user_id', $id)->get();
-        $response = Http::get('http://apiwfl.herokuapp.com/api/profile');
+        $response = Http::withHeaders([
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer ' . session('token'),
+        ])->get('http://apiwfl.herokuapp.com/api/profile/'.$user);
         $response = $response->object();
         $user = $response->profile;
         $my_posts = $response->post;
@@ -80,7 +86,10 @@ class UserController extends Controller
     {
         $title = "Edit Profile";
         // $profilUser = User::where('username', $username)->first();
-        $response = Http::get('http://apiwfl.herokuapp.com/api/profile');
+        $response = Http::withHeaders([
+            'Accept' => 'application/json',
+            'Authorization' => 'Bearer ' . session('token'),
+        ])->get('http://apiwfl.herokuapp.com/api/profile/'.$username.'/edit');
         $profilUser = $response->object();
         return view('/user/editProfile', compact(['title', 'profilUser']));
     }
