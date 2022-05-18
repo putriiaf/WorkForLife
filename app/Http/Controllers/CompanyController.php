@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class CompanyController extends Controller
 {
@@ -38,16 +39,33 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $rules = [
             'user_id' => 'required',
             'nama_perusahaan' => 'required|max:255',
             'namaCP' => 'required|max:50',
             'noCP' => 'required|numeric|digits_between:10,14',
             'email' => 'required|email:dns|unique:companies',
             'alamat' => 'required|max:255',
+        ];
+        $validatedData = $request->validate($rules);
+        Http::asForm()->post("http://apiwfl.herokuapp.com/api/admin/company/create",$validatedData,[
+            'user_id' => $request->input('user_id'),
+            'nama_perusahaan' => $request->input('nama_perusahaan'),
+            'namaCP' => $request->input('namaCP'),
+            'noCP' => $request->input('noCP'),
+            'email' => $request->input('email'),
+            'alamat' => $request->input('alamat'),
         ]);
+        // $validatedData = $request->validate([
+        //     'user_id' => 'required',
+        //     'nama_perusahaan' => 'required|max:255',
+        //     'namaCP' => 'required|max:50',
+        //     'noCP' => 'required|numeric|digits_between:10,14',
+        //     'email' => 'required|email:dns|unique:companies',
+        //     'alamat' => 'required|max:255',
+        // ]);
 
-        Company::create($validatedData);
+        // Company::create($validatedData);
         // $request->session()->flash('success', 'Registration successful, please login!');
         return redirect('/company')->with('success', 'Company Verification submitted, please wait for further info!');
     }
