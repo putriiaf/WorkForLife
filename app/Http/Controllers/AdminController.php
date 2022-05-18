@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Hash;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Report;
@@ -20,12 +21,19 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $response = Http::get('http://apiwfl.herokuapp.com/api/admin');
+        $response = $response->object();
+
         return view('admin.rekap', [
-            'title' => "Halaman Admin",
-            'posts' => Post::latest()->get(),
-            'lokers' => Vacancy::latest()->get(),
-            'reports' => Report::latest()->get(),
-            'companies' => Company::orderBy('id')->get(),
+            // 'title' => "Halaman Admin",
+            // 'posts' => Post::latest()->get(),
+            // 'lokers' => Vacancy::latest()->get(),
+            // 'reports' => Report::latest()->get(),
+            // 'companies' => Company::orderBy('id')->get(),
+            'posts' => $response->post,
+            'lokers' => $response->vacancy,
+            'reports' => $response->report,
+            'companies' => $response->company 
         ]);
     }
 
