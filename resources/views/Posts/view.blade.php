@@ -59,6 +59,8 @@
     <div class="mt-5 text-justify">
         <p>{{ $post->deskripsi }}</p>
     </div>
+    @guest
+    @else
     @if($post->user_id == auth()->user()->id)
     @else
     <div class="flex space-x-4">
@@ -74,6 +76,7 @@
         </a>
     </div>
     @endif
+    @endguest
 </div>
 
 <div class="mr-10">
