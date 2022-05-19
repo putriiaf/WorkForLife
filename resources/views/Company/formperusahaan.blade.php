@@ -70,7 +70,7 @@
                 </div>
             </div>
             <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 font-bold h-6 mx-2 mt-3">Nama Contact Perusahaan</div>
+                <div class="w-44 font-bold h-6 mx-2 mt-3">Nama Contact Person</div>
                 <div>
                     <div class="flex flex-col md:flex-row w-max">
                         <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div class="flex flex-col md:flex-row pb-4 mb-4">
-                <div class="w-44 font-bold h-6 mx-2 mt-3">Nomor Telepon Contact Perusahaan</div>
+                <div class="w-44 font-bold h-6 mx-2 mt-3">Nomor Telepon Contact Person</div>
                 <div>
                     <div class="flex flex-col md:flex-row w-max">
                         <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
