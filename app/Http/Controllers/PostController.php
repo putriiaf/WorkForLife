@@ -83,17 +83,13 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        // return view('Posts.editPost', [
-        //     'title' => 'Edit Post',
-        //     'posts' => Post::where('id', $id)->first()
-        //     // 'posts' => $posts
-        // ]);
-        $response = Http::get("http://apiwfl.herokuapp.com/api/post/".$id);
+        $response = Http::get("http://apiwfl.herokuapp.com/api/post/" . $id);
         $response = $response->object();
 
         return view('Posts.editPost', [
             'title' => 'Edit Post',
-            'post' => $response->data,
+            'posts' => $response->data
+            // 'posts' => $posts
         ]);
     }
 
@@ -113,14 +109,13 @@ class PostController extends Controller
         $validatedData["user_id"] = session()->get('id');
         $validatedData = $request->validate($rules);
         
-        Http::asform()->post("http://apiwfl.herokuapp.com/api/post/".$id.'?_method=PUT', [
+        Http::asForm()->post("http://apiwfl.herokuapp.com/api/post/".$id.'?_method=PUT', [
             'judul' => $request->input('judul'),
             'deskripsi' => $request->input('deskripsi')
         ]);
-        Post::where('id', $id)->update($validatedData);
+
         return redirect('/posts');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -129,7 +124,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        Post::destroy($post->id);
+        Http::delete("http://apiwfl.herokuapp.com/api/post/" . $post->id);
+
         return redirect('/posts')->with('success', 'Post has been deleted!');
     }
 }
