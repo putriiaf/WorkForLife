@@ -31,7 +31,7 @@
 		</div>
         <div>
             <button class="px-3 py-1 rounded-full bg-[#E84A5F] text-white font-bold border-[#E84A5F] hover:bg-[#E84A5F]/75 border-[#E84A5F]/75">
-                <a href="/profile/{{ auth()->user()->username }}/edit">EDIT PROFIL</a> 
+                <a href="/profile/{{ session()->get('username') }}/edit">EDIT PROFIL</a> 
             </button>
         </div>
 

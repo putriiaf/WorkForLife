@@ -132,13 +132,13 @@ class VacancyController extends Controller
      * @param  \App\Models\Vacancy  $vacancy
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vacancy $vacancy)
+    public function update(Request $request, $id)
     {
         $rules = [
             'posisi' => 'required|max:255',
         ];
         $validatedData = $request->validate($rules);
-        Http::asform()->put("http://apiwfl.herokuapp.com/api/loker/".$vacancy, $validatedData, [
+        Http::asform()->post("http://apiwfl.herokuapp.com/api/loker/".$id.'?_method=PUT', [
             'posisi' => $request->input('posisi'),
             'jobdesc' => $request->input('jobdesc'),
             'kriteria' => $request->input('kriteria'),

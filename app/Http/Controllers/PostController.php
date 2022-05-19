@@ -97,17 +97,20 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
         $rules = [
             'judul' => 'required|max:255',
             'deskripsi' => 'required',
-            'user_id' => 'required'
         ];
+        $validatedData["user_id"] = session()->get('id');
         $validatedData = $request->validate($rules);
-        $validatedData["user_id"] = auth()->user()->id;
-
-        Post::where('id', $post->id)->update($validatedData);
+        
+        Http::asform()->post("http://apiwfl.herokuapp.com/api/post/".$id.'?_method=PUT', [
+            'judul' => $request->input('judul'),
+            'deskripsi' => $request->input('deskripsi')
+        ]);
+        Post::where('id', $id)->update($validatedData);
         return redirect('/posts');
     }
 
