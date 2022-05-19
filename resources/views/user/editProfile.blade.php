@@ -121,7 +121,7 @@
                     </div>
                     <div class="box-login2 mt-3">
                       <h6>Ubah Password</h6>
-                      <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password baru" required value="{{ old('password') }}">                            
+                      <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Password baru">                            
                       @error('password')
                       <div class="invalid-feedback">
                           {{ $message }}
