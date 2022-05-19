@@ -32,7 +32,7 @@
                   <div class="col-md-10" style="margin-left:65px; margin-bottom:20px">
                     <input type="hidden" name="oldImage" value="{{ $profilUser->foto_profil }}">
                     @if ($profilUser->foto_profil)
-                    <img src="{{ asset('storage/' . $profilUser->foto_profil) }}" style="float:left" alt="" class="img-preview mb-3">
+                    <img src="{{ asset('https://workforlife.herokuapp.com/storage/' . $profilUser->foto_profil) }}" style="float:left" alt="" class="img-preview mb-3">
                     @else
                     <img src="{{ asset('img/avatar.png') }}" width="180px" style="float:left" alt="" class="img-preview">
                     @endif
