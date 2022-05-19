@@ -71,9 +71,9 @@ class UserController extends Controller
             'Authorization' => 'Bearer ' . session('token'),
         ])->get('http://apiwfl.herokuapp.com/api/profile/'.$user);
         $response = $response->object();
-        $user = $response->profile;
+        $profilUser = $response->profile;
         $my_posts = $response->post;
-        return view('/user/profile', compact(['title', 'user', 'my_posts']));
+        return view('/user/profile', compact(['title', 'profilUser', 'my_posts']));
     }
 
     /**

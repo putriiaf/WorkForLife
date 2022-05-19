@@ -55,19 +55,29 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'nama' => 'required|max:255',
-            'username' => ['required', 'min:3', 'max:255', 'unique:users'],
-            'email' => 'required|email:dns|unique:users',
-            'no_telp' => 'required|numeric|digits_between:10,14',
-            'password' => 'required|min:5|max:255',
-            'role' => 'required',
-            'company_id' => 'required'
+        // $validatedData = $request->validate([
+        //     'nama' => 'required|max:255',
+        //     'username' => ['required', 'min:3', 'max:255', 'unique:users'],
+        //     'email' => 'required|email:dns|unique:users',
+        //     'no_telp' => 'required|numeric|digits_between:10,14',
+        //     'password' => 'required|min:5|max:255',
+        //     'role' => 'required',
+        //     'company_id' => 'required'
+        // ]);
+
+        // $validatedData['password'] = Hash::make($validatedData['password']);
+        Http::asForm()->post("http://apiwfl.herokuapp.com/api/admin/company/create", [
+            'nama' => $request->input('nama'),
+            'username' => $request->input('username'),
+            'email' => $request->input('email'),
+            'no_telp' => $request->input('no_telp'),
+            'password' => $request->input('password'),
+            'role' => $request->input('role'),
+            'company_id' => $request->input('company_id')
         ]);
+        
 
-        $validatedData['password'] = Hash::make($validatedData['password']);
 
-        User::create($validatedData);
         return redirect('/admin')->with('success', 'Company account successfully made!');
     }
 
@@ -77,12 +87,14 @@ class AdminController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+    public function show($id)
     {
+        $response = Http::get("http://apiwfl.herokuapp.com/api/company/".$id);
+        $response = $response->object();
         return view('admin.detail-company', [
             'title' => 'Detail Perusahaan',
             'active' => 'perusahaan',
-            'company' => $company,
+            'company' => $response->data,
         ]);
     }
 

@@ -82,7 +82,8 @@
                                     {{ $company->id }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ !empty($company->user) ? $company->user->nama:'' }}
+                                    <!-- {{ !empty($company->user) ? $company->user->nama:'' }} -->
+                                    {{ $company->is_approved!=0 ? "ada akun":'' }}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $company->nama_perusahaan }}
@@ -100,7 +101,7 @@
                                     {{ $company->alamat }}
                                 </td>
                                 <td class="px-1 py-4">
-                                    @if($company->user == NULL)
+                                    @if($company->is_approved == 0)
                                     <a href="/admin/company/{{ $company->id }}/detail" class="font-medium text-dongker">Detail</a>
                                     @endif  
                                     <a href="#" class="font-medium text-dongker">Hapus</a>

@@ -83,10 +83,17 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+        // return view('Posts.editPost', [
+        //     'title' => 'Edit Post',
+        //     'posts' => Post::where('id', $id)->first()
+        //     // 'posts' => $posts
+        // ]);
+        $response = Http::get("http://apiwfl.herokuapp.com/api/post/".$id);
+        $response = $response->object();
+
         return view('Posts.editPost', [
             'title' => 'Edit Post',
-            'posts' => Post::where('id', $id)->first()
-            // 'posts' => $posts
+            'post' => $response->data,
         ]);
     }
 
