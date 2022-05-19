@@ -19,7 +19,7 @@
     </div>
   </section>
 
-  <div class="font-montserrat sm:max-w-3xl pt-8 rounded-xl bg-[#F2F6FB] mx-4 sm:mx-8 md:mx-auto">
+  <div class="font-montserrat sm:max-w-3xl pt-8 rounded-xl bg-[#F2F6FB] mx-4 sm:mx-8 md:mx-auto mx-auto">
     <div class="w-11/12 sm:w-2/3 mx-auto mb-6">
       <h1 class="focus:outline-none xl:text-xl text-lg text-center text-gray-800 font-extrabold pt-2">Perusahaan Terpercaya</h1>
     </div>
@@ -167,13 +167,56 @@
 </section>
 
 <!-- Testimoni -->
-{{-- <section>
-  <div>
-    <h2 class="bg-100% text-center text-5xl mt-10">
-      Testi
+<section class="bg-white mt-10 mb-10">
+  <div class="container font-montserrat px-6 py-10 mx-auto">
+    <h2 class="text-3xl text-center font-bold capitalize lg:text-4xl">
+      Testimonial
     </h2>
+    <div class="container mx-auto w-full overflow-hidden relative mt-5">
+      <div class="w-full h-full absolute">
+          <div class="w-1/4 h-full absolute z-50 left-0" style="background: linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 100%);"></div>
+          <div class="w-1/4 h-full absolute z-50 right-0" style="background: linear-gradient(to left, #fff 0%, rgba(255, 255, 255, 0) 100%);"></div>
+      </div>
+  
+      <div class="carousel-items flex items-center justify-center" style="width: fit-content; animation: carouselAnim 10s infinite alternate linear;">
+          <div class="carousel-focus flex items-center flex-col relative bg-white mx-15 my-10 px-4 py-3 rounded-lg shadow-lg" style="width: 270px; margin: 10px 40px;">
+              <span class="text-teal-400 font-bold text-xl mb-3">Putri Ainur</span>
+              <img class="h-16 w-16 rounded-full shadow-2xl" src="{{ asset('img/avatar.png') }}" alt="Img">
+              <p class="mt-3 text-gray-600 text-center">"Fitur sharing pengalama WFL membantu saya menentukan career path cocok"</p>
+          </div>
+          <div class="carousel-focus flex items-center flex-col relative bg-white mx-15 my-10 px-4 py-3 rounded-lg shadow-lg" style="width: 270px; margin: 10px 40px;">
+            <span class="text-teal-400 font-bold text-xl mb-3">Alifa Hafida</span>
+            <img class="h-16 w-16 rounded-full shadow-2xl" src="{{ asset('img/avatar.png') }}" alt="Img">
+            <p class="mt-3 text-gray-600 text-center">"WorkForLife membantu banget buat saya yang sedang mencari lowongan magang!"</p>
+          </div>
+          <div class="carousel-focus flex items-center flex-col relative bg-white mx-15 my-10 px-4 py-3 rounded-lg shadow-lg" style="width: 270px; margin: 10px 40px;">
+            <span class="text-teal-400 font-bold text-xl mb-3">Fadlan Fasya</span>
+            <img class="h-16 w-16 rounded-full shadow-2xl" src="{{ asset('img/avatar.png') }}" alt="Img">
+            <p class="mt-3 text-gray-600 text-center">"Mudah banget buat digunakan, tampilannya user friendly"</p>
+          </div>
+          <div class="carousel-focus flex items-center flex-col relative bg-white mx-15 my-10 px-4 py-3 rounded-lg shadow-lg" style="width: 270px; margin: 10px 40px;">
+            <span class="text-teal-400 font-bold text-xl mb-3">Cut Fazira Zuhra</span>
+            <img class="h-16 w-16 rounded-full shadow-2xl" src="{{ asset('img/avatar.png') }}" alt="Img">
+            <p class="mt-3 text-gray-600 text-center">"Pilihan perusahaan dari lowongan kerja WFL itu bisa diandalkan banget"</p>
+          </div>
+          <div class="carousel-focus flex items-center flex-col relative bg-white md:mx-15 my-10 px-4 py-3 rounded-lg shadow-lg" style="width: 270px; margin: 10px 40px;">
+            <span class="text-teal-400 font-bold text-xl mb-3">Ani Suryani</span>
+            <img class="h-16 w-16 rounded-full shadow-2xl" src="{{ asset('img/avatar.png') }}" alt="Img">
+            <p class="mt-3 text-gray-600 text-center">"Sebagai startup, saya merasa dibantu dalma hal branding dan rekrutmen"</p>
+          </div>
+          <div class="carousel-focus flex items-center flex-col relative bg-white mx-15 my-10 px-4 py-3 rounded-lg shadow-lg" style="width: 270px; margin: 10px 40px;">
+            <span class="text-teal-400 font-bold text-xl mb-3">Budiana</span>
+            <img class="h-16 w-16 rounded-full shadow-2xl" src="{{ asset('img/avatar.png') }}" alt="Img">
+            <p class="mt-3 text-gray-600 text-center">"Tampilannya rapih, clean, keep it up!"</p>
+          </div>
+          <div class="carousel-focus flex items-center flex-col relative bg-white mx-15 my-10 px-4 py-3 rounded-lg shadow-lg" style="width: 270px; margin: 10px 40px;">
+            <span class="text-teal-400 font-bold text-xl mb-3">Muhammad Asep</span>
+            <img class="h-16 w-16 rounded-full shadow-2xl" src="{{ asset('img/avatar.png') }}" alt="Img">
+            <p class="mt-3 text-gray-600 text-center">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quibusdam!"</p>
+          </div>
+      </div>
   </div>
-</section> --}}
+</section>
 @endsection
 
 <!--
