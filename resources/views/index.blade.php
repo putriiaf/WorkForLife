@@ -170,7 +170,7 @@
 <section class="bg-white mt-10 mb-10">
   <div class="container font-montserrat px-6 py-10 mx-auto">
     <h2 class="text-3xl text-center font-bold capitalize lg:text-4xl">
-      Testimonial
+      Apa Kata Mereka ?
     </h2>
     <div class="container mx-auto w-full overflow-hidden relative mt-5">
       <div class="w-full h-full absolute">
