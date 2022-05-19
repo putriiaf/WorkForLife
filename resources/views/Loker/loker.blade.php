@@ -36,7 +36,11 @@
 <a href="/loker/{{$loker->id}}" class="block font-montserrat p-6 max-w-sm bg-white rounded-xl border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
   <span class="flex mr-4">
     <div class="pr-4">
-      <img class="mb-3 w-16 h-16 rounded-lg" src="{{ asset('img/gojek.png') }}" alt="logo">
+      @if($loker->foto_profil == NULL)
+      <img src="{{ asset('img/avatar.png') }}" alt="" class="mb-3 w-16 h-16 rounded-lg">
+      @else
+          <img src="{{ asset('storage/' . $loker->foto_profil) }}" alt="" class="mb-3 w-16 h-16 rounded-lg">
+      @endif
     </div>
     <div>
       <p class="pt-2 pb-1 text-md font-bold">{{ $loker->posisi }}</p>
