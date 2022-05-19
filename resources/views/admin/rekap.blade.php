@@ -100,7 +100,9 @@
                                     {{ $company->alamat }}
                                 </td>
                                 <td class="px-1 py-4">
-                                   
+                                    @if($company->user == NULL)
+                                    <a href="/admin/company/{{ $company->id }}/detail" class="font-medium text-dongker">Detail</a>
+                                    @endif  
                                     <a href="#" class="font-medium text-dongker">Hapus</a>
                                 </td>
                             </tr>
