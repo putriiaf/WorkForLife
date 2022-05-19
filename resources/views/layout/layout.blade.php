@@ -65,7 +65,7 @@
                 <div class="w-10 h-10 mx-10 overflow-hidden border-2 border-gray-400 rounded-full">
                     <a href="/profile">
                       @if(session()->get('foto_profil') != NULL)
-                        <img src="{{ asset('https://workforlife.herokuapp.com/storage//foto-profil/' . session()->get('foto_profil')) }}" class="object-cover w-full h-full" alt="avatar">
+                        <img src="{{ asset('https://workforlife.herokuapp.com/storage/' . session()->get('foto_profil')) }}" class="object-cover w-full h-full" alt="avatar">
                       @else
                         <img src="{{ asset('img/avatar.png') }}" class="object-cover w-full h-full" alt="avatar">
                       @endif
