@@ -22,7 +22,7 @@
     <div class="flex justify-center item-center mt-8">
         <h1 class="text-2xl font-bold">Form Edit Lowongan Pekerjaan</h1>
     </div>
-
+    @foreach($lokers as $loker)
     <div class="flex justify-center item-center">
         <form method="POST" action="/loker/{{ $loker->id }}" class="w-6/12" enctype="multipart/form-data">
         @method('put')
@@ -74,7 +74,7 @@
                 <div>
                     <div class="flex flex-col md:flex-row w-max">
                         <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="email" class="p-1 px-2 w-96" name="min_pengalaman" value="{{ old('min_pengalaman', $loker->min_pengalaman) }}">
+                            <input type="text" class="p-1 px-2 w-96" name="min_pengalaman" value="{{ old('min_pengalaman', $loker->min_pengalaman) }}">
                         </div>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                 <div>
                     <div class="flex flex-col md:flex-row w-max">
                         <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="email" class="p-1 px-2 w-96" name="insentif" value="{{ old('insentif', $loker->insentif) }}">
+                            <input type="text" class="p-1 px-2 w-96" name="insentif" value="{{ old('insentif', $loker->insentif) }}">
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                 <div>
                     <div class="flex flex-col md:flex-row w-max">
                         <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="email" class="p-1 px-2 w-96" name="link_pendaftaran" value="{{ old('link_pendaftaran', $loker->link_pendaftaran) }}">
+                            <input type="text" class="p-1 px-2 w-96" name="link_pendaftaran" value="{{ old('link_pendaftaran', $loker->link_pendaftaran) }}">
                         </div>
                     </div>
                 </div>
@@ -110,5 +110,6 @@
         </div>
         </form>
     </div>
+    @endforeach
 </div>
 @endsection
