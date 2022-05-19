@@ -90,8 +90,8 @@ class UserController extends Controller
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . session('token'),
         ])->get('http://apiwfl.herokuapp.com/api/profile/'.$username.'/edit');
-        $profilUser = $response->object();
-        return view('/user/editProfile', compact(['title', 'profilUser']));
+        $profilUsers = $response->object();
+        return view('/user/editProfile', compact(['title', 'profilUsers']));
     }
 
     /**

@@ -21,6 +21,7 @@
         
         <!-- Content -->
         @section('content')
+        @foreach($profilUsers as $profilUser)
         <div class="global-container">
             <div class="row justify-content-md-center">
               <div class="content mt-5" id="top-content">
@@ -132,6 +133,7 @@
             </div>
           </div>
         </div>
+        @endforeach
         @endsection
 
         <!-- Optional JavaScript; choose one of the two! -->
