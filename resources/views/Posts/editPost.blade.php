@@ -33,7 +33,7 @@
                 <div>
                     <div class="flex flex-col md:flex-row w-max">
                         <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="text" class="p-1 px-2 w-96" name="judul" value="{{ old('judul', $posts->judul) }}">
+                            <input type="text" class="p-1 px-2 w-96" name="judul" value="{{ old('judul', $post->judul) }}">
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                 <div>
                     <div class="flex flex-col md:flex-row w-max">
                         <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="text" class="p-1 px-2 py-10 w-96" name="deskripsi" value="{{ old('deskripsi', $posts->deskripsi) }}">
+                            <input type="text" class="p-1 px-2 py-10 w-96" name="deskripsi" value="{{ old('deskripsi', $post->deskripsi) }}">
                         </div>
                     </div>
                 </div>

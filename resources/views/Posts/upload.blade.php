@@ -21,9 +21,8 @@
     <div class="flex justify-center item-center mt-8">
         <h1 class="text-2xl font-bold">Form Tambah Postingan</h1>
     </div>
-    @foreach($posts as $post)
     <div class="flex justify-center item-center">
-        <form method="POST" action="/posts/{{ $post->id }}" class="w-6/12" enctype="multipart/form-data">
+        <form method="POST" action="/uploadpost" class="w-6/12" enctype="multipart/form-data">
         @csrf
         <div class="bg-abu rounded-lg">
         <div class="m-10 py-10">
@@ -32,7 +31,7 @@
                 <div>
                     <div class="flex flex-col md:flex-row w-max">
                         <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="text" class="p-1 px-2 w-96" name="judul" value="{{ old('judul'}}">
+                            <input type="text" class="p-1 px-2 w-96" name="judul" value="{{ old('judul')}}">
                         </div>
                     </div>
                 </div>
@@ -42,7 +41,7 @@
                 <div>
                     <div class="flex flex-col md:flex-row w-max">
                         <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="text" class="p-1 px-2 py-10 w-96" name="deskripsi" value="{{ old('deskripsi' }}">
+                            <input type="text" class="p-1 px-2 py-10 w-96" name="deskripsi" value="{{ old('deskripsi')}}">
                         </div>
                     </div>
                 </div>
@@ -57,6 +56,5 @@
         </div>
         </form>
     </div>
-    @endforeach
 </div>
 @endsection
