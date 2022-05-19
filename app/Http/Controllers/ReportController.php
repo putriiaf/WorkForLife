@@ -48,13 +48,15 @@ class ReportController extends Controller
         ]);
     }
 
-    public function update(Request $request, Report $report)
+    public function update(Request $request, $id)
     {
         $rules = [
             'is_approved' => 'required',
         ];
         $validatedData = $request->validate($rules);
-        Http::put("http://apiwfl.herokuapp.com/api/report/" . $report->id, $validatedData);
+        Http::asform()->post("http://apiwfl.herokuapp.com/api/report/".$id.'?_method=PUT', [
+            'is_approved' => $request->input('is_approved')
+        ]);
         //Report::where('id', $report->id)->update($validatedData);
         return redirect('/admin');
     }

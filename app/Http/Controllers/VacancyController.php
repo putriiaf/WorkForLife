@@ -25,7 +25,8 @@ class VacancyController extends Controller
         //     $object = 1;
         // }
         $object = $request->query('page');
-        $response = Http::get('http://apiwfl.herokuapp.com/api/loker?page='.$object);
+        $response = Http::get('http://apiwfl.herokuapp.com/api/loker?page='.$object, [
+            'search' => $request->query('search')]);
         $response = $response->object();
         $title = 'Lowongan Kerja';
         if ($request->input('category')) {
