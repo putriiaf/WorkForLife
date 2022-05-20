@@ -30,27 +30,28 @@
                 </div>
                 <form method="post" action="/profile/{{ $profilUser->username }}" enctype="multipart/form-data">
                   <div class="col-md-10" style="margin-left:65px; margin-bottom:20px">
-                    <input type="hidden" name="oldImage" value="{{ $profilUser->foto_profil }}">
+                    {{-- #Hidden: bisa pakai imgbb dsb, tidak bisa pake public:link laravel --}}
+                    {{-- <input type="hidden" name="oldImage" value="{{ $profilUser->foto_profil }}">
                     @if ($profilUser->foto_profil)
-                    <img src="{{ asset('storage/' . $profilUser->foto_profil) }}" style="float:left" alt="" class="img-preview mb-3">
+                    <img src="{{ asset('storage/' . $profilUser->foto_profil) }}" width="50px" style="float:left; display:block;" alt="" class="img-preview mb-3">
                     @else
-                    <img src="{{ asset('img/avatar.png') }}" width="180px" style="float:left" alt="" class="img-preview">
-                    @endif
-                    <h5 class="edit mt-5 mb-3">Hello, </h5>
-                    <p class="edit mb-2">You can fill this form to update your profile!</p>
+                    <img src="{{ asset('img/avatar.png') }}" width="50px" style="float:left; display:block;" alt="" class="img-preview">
+                    @endif --}}
                     {{-- <label class="mt-5">Edit Foto Profil</label> --}}
-                    <input style="width:93.8%" class="form-control @error('foto_profil') is-invalid @enderror mt-5" type="file" id="foto_profil" name="foto_profil" onchange="previewImage()">
+                    {{-- #Hidden: bisa pakai imgbb dsb, tidak bisa pake public:link laravel --}}
+                    {{-- <input style="width:93.8%" class="form-control @error('foto_profil') is-invalid @enderror mt-5" type="file" id="foto_profil" name="foto_profil" onchange="previewImage()">
                     @error('foto_profil')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
-                    @enderror
+                    @enderror --}}
                   </div>
             </div>
             <div class="col-md-10 row justify-content"  id="bottom-content">
-                    
                     @method('put')
                     @csrf
+                    <h5 class="edit mt-5 text-lg">Hello, </h5>
+                    <p class="edit mb-4 text-lg">You can fill this form to update your profile!</p>
                     <div class="box-login2">
                       <h6>Name</h6>
                       <input type="text" name="nama" class="form-control rounded-top @error('nama') is-invalid @enderror" id="nama" placeholder="Name" required value="{{ old('nama', $profilUser->nama) }}">
@@ -128,7 +129,7 @@
                       </div>
                       @enderror
                   </div>
-                    <button class="w-100 btn btn-md btn-primary mt-4 mb-5" type="submit">Update Profile</button>
+                    <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40 mt-5" type="submit">Update Profile</button>
                   </form>
             </div>
           </div>

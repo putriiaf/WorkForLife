@@ -164,6 +164,6 @@ class VacancyController extends Controller
     {
         Http::delete("http://apiwfl.herokuapp.com/api/loker/" . $vacancy->id);
 
-        return redirect('/admin')->with('success', 'Loker Berhasil Dihapus');
+        return redirect('/loker')->with('success', 'Loker Berhasil Dihapus');
     }
 }
