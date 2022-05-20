@@ -137,7 +137,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        Http::delete("http://apiwfl.herokuapp.com/api/admin/company/" . $id);
+        Http::delete("http://apiwfl.herokuapp.com/api/post/" . $id);
 
         return redirect('/posts')->with('success', 'Post has been deleted!');
     }
