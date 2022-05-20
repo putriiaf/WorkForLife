@@ -74,13 +74,17 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
+        $response = Http::get("http://apiwfl.herokuapp.com/api/post/" . $id);
+        $response = $response->object();
+        $response2 = Http::get('http://apiwfl.herokuapp.com/api/post/all');
+        $response2 = $response2->object();
         return view('Posts.view', [
             'title' => 'Detail Post',
             'active' => 'post',
-            'post' => $post,
-            'latest_post' => Post::latest()->get(),
+            'post' => $response->data,
+            'latest_post' =>   $response2,
         ]);
     }
 
