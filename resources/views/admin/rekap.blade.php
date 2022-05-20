@@ -104,7 +104,11 @@
                                     @if($company->is_approved == 0)
                                     <a href="/admin/company/{{ $company->id }}/detail" class="font-medium text-dongker">Detail</a>
                                     @endif  
-                                    <a href="#" class="font-medium text-dongker">Hapus</a>
+                                    <form action="/admin/company/delete/{{ $company->id }}" method="post">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="font-medium text-dongker" onclick="return confirm('Apakah Anda yakin ingin menghapus lowongan kerja ini?')">Hapus</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

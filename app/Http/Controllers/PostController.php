@@ -62,11 +62,10 @@ class PostController extends Controller
             'deskripsi' => $request->input('deskripsi'),
             'user_id' => $request->input('user_id')
         ]);
-        if($request->status()){
+        if ($request->status()) {
             return redirect('/posts')->with('success', 'Postingan berhasil diunggah.');
         }
         return redirect('/uploadpost')->with('success', 'Postingan gagal diunggah.');
-        
     }
 
     /**
@@ -134,7 +133,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        Http::delete("http://apiwfl.herokuapp.com/api/post/" . $id);
+        Http::delete("http://apiwfl.herokuapp.com/api//admin/company/delete" . $id);
 
         return redirect('/posts')->with('success', 'Post has been deleted!');
     }

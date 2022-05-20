@@ -48,7 +48,7 @@ class CompanyController extends Controller
             'alamat' => 'required|max:255',
         ];
         $validatedData = $request->validate($rules);
-        Http::asForm()->post("http://apiwfl.herokuapp.com/api/company",[
+        Http::asForm()->post("http://apiwfl.herokuapp.com/api/company", [
             'user_id' => $request->input('user_id'),
             'nama_perusahaan' => $request->input('nama_perusahaan'),
             'namaCP' => $request->input('namaCP'),
@@ -112,6 +112,8 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company)
     {
-        //
+        Http::delete("http://apiwfl.herokuapp.com/api/admin/company/delete/" . $company->id);
+
+        return redirect('/admin')->with('success', 'Perusahaan Berhasil Dihapus');
     }
 }

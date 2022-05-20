@@ -73,7 +73,7 @@ Route::get('/admin', [AdminController::class, 'index'])->middleware('token');
 // });
 Route::get('/admin/company/{company:id}/detail', [AdminController::class, 'show']);
 Route::post('/admin/company/create', [AdminController::class, 'store'])->middleware('token');
-Route::delete('/admin/company/delete', [AdminController::class, 'destroy'])->middleware('token');
+Route::delete('/admin/company/delete/{company:id}', [CompanyController::class, 'destroy'])->middleware('token');
 
 Route::get('/admin/report/{report:id}/detail', [ReportController::class, 'edit']);
 Route::put('/admin/report/{report:id}', [ReportController::class, 'update']);

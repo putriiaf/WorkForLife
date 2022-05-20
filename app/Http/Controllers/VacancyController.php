@@ -89,7 +89,7 @@ class VacancyController extends Controller
             'insentif' => $request->input('insentif'),
             'link_pendaftaran' => $request->input('link_pendaftaran'),
         ]);
-        if($response->status()==200){
+        if ($response->status() == 200) {
             return redirect('/loker')->with('success', 'Loker berhasil diunggah.');
         }
         return redirect('/loker/upload')->with('success', 'Loker berhasil diunggah.');
