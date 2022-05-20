@@ -137,6 +137,8 @@
           @else
           @if(session()->get('role') == 2)
 					<li><a href="/admin" class="block text-sm px-2 py-4 bg-white hover:bg-dongker hover:text-white transition duration-300">Admin</a></li>
+          @elseif(session()->get('role') == 1)
+          <li><a href="/loker/all" class="block text-sm px-2 py-4 bg-white hover:bg-dongker hover:text-white transition duration-300">Rekap Lowongan Kerja</a></li>
           @endif
           @endif
 				</ul>

@@ -47,7 +47,7 @@
                 </div>
             </div>
             @auth
-            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+            <input type="hidden" name="user_id" value="{{ session()->get('id') }}">
             @endauth
         </div>
         </div>
