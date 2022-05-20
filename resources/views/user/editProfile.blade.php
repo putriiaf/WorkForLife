@@ -129,7 +129,9 @@
                       </div>
                       @enderror
                   </div>
-                    <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40 mt-5" type="submit">Update Profile</button>
+                    <div class="flex justify-center item-center pb-4">
+                      <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40 mt-5" type="submit">Update Profile</button>
+                    </div>
                   </form>
             </div>
           </div>
