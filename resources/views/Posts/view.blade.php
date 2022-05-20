@@ -84,7 +84,7 @@
     <div class="shadow-md rounded-lg h-5/6 w-[325px] pb-3">
         @foreach($latest_post as $new_post)
         <div class="pt-2">
-            <a href="/posts/{{ $post->id }}" class="text-dongker text-lg font-bold">{{ $new_post->judul }}</a>
+            <a href="/posts/{{ $new_post->id }}" class="text-dongker text-lg font-bold">{{ $new_post->judul }}</a>
         </div>
         <p class="line-clamp-3 pt-1">{{ $new_post->deskripsi }}</p>
         @endforeach
