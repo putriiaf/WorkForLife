@@ -77,4 +77,4 @@ Route::delete('/admin/company/delete/{company:id}', [CompanyController::class, '
 
 Route::get('/admin/report/{report:id}/detail', [ReportController::class, 'edit']);
 Route::put('/admin/report/{report:id}', [ReportController::class, 'update']);
-Route::delete('/admin/report/{report:id}', [ReportController::class, 'destroy']);
+Route::delete('/admin/report/{id}', [ReportController::class, 'destroy']);

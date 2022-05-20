@@ -110,9 +110,9 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company)
+    public function destroy($id)
     {
-        Http::delete("http://apiwfl.herokuapp.com/api/admin/company/delete/" . $company->id);
+        Http::delete("http://apiwfl.herokuapp.com/api/admin/company/" . $id);
 
         return redirect('/admin')->with('success', 'Perusahaan Berhasil Dihapus');
     }
