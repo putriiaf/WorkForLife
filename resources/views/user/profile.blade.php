@@ -132,6 +132,11 @@
                             <p class="mt-1 text-gray-700 text-sm block n-2 line-clamp-2">
                                 {{ $post->deskripsi  }}
                             </p>
+                            <form action="/posts/{{ $post->id }}" method="post">
+                                @method('delete')
+                                @csrf
+                                <button class="font-medium text-dongker" onclick="return confirm('Apakah Anda yakin ingin menghapus postingan ini?')">Hapus</button>
+                            </form>
                             <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary tombol2">Edit</a>
                         </div>
                 </div>
