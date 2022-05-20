@@ -57,11 +57,7 @@ class PostController extends Controller
         //     'deskripsi' => request('deskripsi'),
         //     'user_id' => request('user_id')
         // ]);
-<<<<<<< HEAD
         $request = Http::asform()->post("http://apiwfl.herokuapp.com/api/post", [
-=======
-        Http::asForm()->post("http://apiwfl.herokuapp.com/api/post", [
->>>>>>> f589612a64d3a89e1fe94bcdaa1a389a4f1811e8
             'judul' => $request->input('judul'),
             'deskripsi' => $request->input('deskripsi'),
             'user_id' => $request->input('user_id')
