@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
+
 class VacancyController extends Controller
 {
     /**
@@ -25,8 +26,9 @@ class VacancyController extends Controller
         //     $object = 1;
         // }
         $object = $request->query('page');
-        $response = Http::get('http://apiwfl.herokuapp.com/api/loker?page='.$object, [
-            'search' => $request->query('search')]);
+        $response = Http::get('http://apiwfl.herokuapp.com/api/loker?page=' . $object, [
+            'search' => $request->query('search')
+        ]);
         $response = $response->object();
         $title = 'Lowongan Kerja';
         if ($request->input('category')) {
@@ -52,7 +54,7 @@ class VacancyController extends Controller
     //         'active' => 'events',
     //         'lokers' => Vacancy::latest()->filter($request->input(['search']))->paginate(6)->withQueryString()
     //     ]);
-        
+
     // }
 
     /**
@@ -99,7 +101,7 @@ class VacancyController extends Controller
      */
     public function show(Vacancy $vacancy)
     {
-        $response = Http::get('http://apiwfl.herokuapp.com/api/loker/'.$vacancy->id);
+        $response = Http::get('http://apiwfl.herokuapp.com/api/loker/' . $vacancy->id);
         $response = $response->object();
 
         return view('Loker.view', [
@@ -139,7 +141,7 @@ class VacancyController extends Controller
             'posisi' => 'required|max:255',
         ];
         $validatedData = $request->validate($rules);
-        Http::asform()->post("http://apiwfl.herokuapp.com/api/loker/".$id.'?_method=PUT', [
+        Http::asform()->post("http://apiwfl.herokuapp.com/api/loker/" . $id . '?_method=PUT', [
             'posisi' => $request->input('posisi'),
             'jobdesc' => $request->input('jobdesc'),
             'kriteria' => $request->input('kriteria'),

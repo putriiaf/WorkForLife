@@ -19,7 +19,7 @@ class PostController extends Controller
     public function index(Request $request)
     {
         $object = $request->query('page');
-        $response = Http::get('http://apiwfl.herokuapp.com/api/post?page='.$object);
+        $response = Http::get('http://apiwfl.herokuapp.com/api/post?page=' . $object);
         $response = $response->object();
         return view('Posts.posts', [
             "title" => "Sharing",
@@ -61,7 +61,7 @@ class PostController extends Controller
             'user_id' => $request->input('user_id')
         ]);
 
-        return redirect('/posts')->with('success', 'Postingan diunggah.');
+        return redirect('/posts')->with('success', 'Postingan berhasil diunggah.');
     }
 
     /**
@@ -113,8 +113,8 @@ class PostController extends Controller
         ];
         $validatedData["user_id"] = session()->get('id');
         $validatedData = $request->validate($rules);
-        
-        Http::asForm()->post("http://apiwfl.herokuapp.com/api/post/".$id.'?_method=PUT', [
+
+        Http::asForm()->post("http://apiwfl.herokuapp.com/api/post/" . $id . '?_method=PUT', [
             'judul' => $request->input('judul'),
             'deskripsi' => $request->input('deskripsi')
         ]);
