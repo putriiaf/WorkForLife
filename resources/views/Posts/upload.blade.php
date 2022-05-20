@@ -52,7 +52,11 @@
         </div>
         </div>
         <div class="flex justify-center item-center pb-4">
+<<<<<<< HEAD
+            <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40" type="submit">Submit</button>
+=======
             <button type="submit" class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">Submit</button>
+>>>>>>> eda1ac2f694a85856a0f3de56a94ca46712e7db4
         </div>
         </form>
     </div>

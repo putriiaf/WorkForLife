@@ -142,6 +142,7 @@ class VacancyController extends Controller
         ];
         $validatedData = $request->validate($rules);
         Http::asform()->post("http://apiwfl.herokuapp.com/api/loker/" . $id . '?_method=PUT', [
+            'company_id' => $request->input('company_id'),
             'posisi' => $request->input('posisi'),
             'jobdesc' => $request->input('jobdesc'),
             'kriteria' => $request->input('kriteria'),
