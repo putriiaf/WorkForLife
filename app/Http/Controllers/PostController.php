@@ -78,7 +78,7 @@ class PostController extends Controller
     {
         $response = Http::get("http://apiwfl.herokuapp.com/api/post/" . $id);
         $response = $response->object();
-        $response2 = Http::get('http://apiwfl.herokuapp.com/api/post/all');
+        $response2 = Http::get('http://apiwfl.herokuapp.com/api/posts');
         $response2 = $response2->object();
         return view('Posts.view', [
             'title' => 'Detail Post',
