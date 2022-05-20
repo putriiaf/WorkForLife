@@ -50,10 +50,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        Post::create([
-            'judul' => request('judul'),
-            'deskripsi' => request('deskripsi'),
-            'user_id' => request('user_id')
+        // Post::create([
+        //     'judul' => request('judul'),
+        //     'deskripsi' => request('deskripsi'),
+        //     'user_id' => request('user_id')
+        // ]);
+        Http::asform()->post("http://apiwfl.herokuapp.com/api/post", [
+            'judul' => $request->input('judul'),
+            'deskripsi' => $request->input('deskripsi'),
+            'user_id' => $request->input('user_id')
         ]);
 
         return redirect('/posts')->with('success', 'Postingan diunggah.');
