@@ -47,12 +47,12 @@
                 </div>
             </div>
             @auth
-            <input type="hidden" name="user_id" value="{{ session()->get('id') }}">
+            <input type="hidden" id="user_id" name="user_id" value="{{ session()->get('id') }}">
             @endauth
         </div>
         </div>
         <div class="flex justify-center item-center pb-4">
-            <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">Submit</button>
+            <button type="submit" class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">Submit</button>
         </div>
         </form>
     </div>
