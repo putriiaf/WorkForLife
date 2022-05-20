@@ -6,7 +6,11 @@
 <section class="mx-10">
     <div class="flex flex-row font-montserrat">
         <div class="mt-3">
-            <img src="{{ asset('img/gojek.png') }}" alt="">
+            @if($loker->foto_profil == NULL)
+		    <img src="{{ asset('img/avatar.png') }}" alt="" class="w-16 h-16 rounded-full object-cover mr-4 shadow">
+            @else
+            <img src="{{ asset('storage/' . $loker->foto_profil) }}" alt="" class="w-16 h-16 rounded-full object-cover mr-4 shadow">
+        @endif
         </div>
         <div class="px-3 pt-6">
             <h1 class="text-lg font-extrabold mb-3">{{$loker->nama_perusahaan}}</h1>

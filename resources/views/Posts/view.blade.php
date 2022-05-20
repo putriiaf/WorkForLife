@@ -2,7 +2,7 @@
 
 @section('content')
 
-<script src="{{ asset('js/dropdown,js') }}"></script>
+<script src="{{ asset('js/dropdown.js') }}"></script>
 
 <div class="flex mt-7 space-x-8 font-montserrat">
 <div class="ml-16 mr-20 max-w-3xl">
