@@ -58,7 +58,7 @@
 		<div class="pt-2 items-center flex-shrink-0 hidden lg:flex">
       <form action="/logout" method="POST">
         @csrf
-        <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">CompanyId = {{session()->get('company_id')}}</button>
+        <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">Keluar</button>
       </form>
       
       <button type="button" class="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
