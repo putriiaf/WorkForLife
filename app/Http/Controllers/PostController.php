@@ -84,7 +84,7 @@ class PostController extends Controller
             'title' => 'Detail Post',
             'active' => 'post',
             'post' => $response->data,
-            'latest_post' =>   $response2,
+            'latest_post' =>  $response2->data,
         ]);
     }
 
