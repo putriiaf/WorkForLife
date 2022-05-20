@@ -18,8 +18,10 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $object = $request->query('page');
-        $response = Http::get('http://apiwfl.herokuapp.com/api/post?page=' . $object);
+        $response = Http::get('http://apiwfl.herokuapp.com/api/post', [
+            'search' => $request->query('search'),
+            'page' => $request->query('page')
+        ]);
         $response = $response->object();
         return view('Posts.posts', [
             "title" => "Sharing",
@@ -55,13 +57,16 @@ class PostController extends Controller
         //     'deskripsi' => request('deskripsi'),
         //     'user_id' => request('user_id')
         // ]);
-        Http::asform()->post("http://apiwfl.herokuapp.com/api/post", [
+        $request = Http::asform()->post("http://apiwfl.herokuapp.com/api/post", [
             'judul' => $request->input('judul'),
             'deskripsi' => $request->input('deskripsi'),
             'user_id' => $request->input('user_id')
         ]);
-
-        return redirect('/posts')->with('success', 'Postingan berhasil diunggah.');
+        if($request->status()){
+            return redirect('/posts')->with('success', 'Postingan berhasil diunggah.');
+        }
+        return redirect('/uploadpost')->with('success', 'Postingan gagal diunggah.');
+        
     }
 
     /**

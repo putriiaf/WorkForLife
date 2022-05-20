@@ -20,6 +20,16 @@
             <a href=" "class="bg-white px-8 py-2 mt-8 text-dongker block rounded-xl font-semibold uppercase tracking-wide hover:bg-dongker/70 hover:text-white/50">Edit</a>
             <a href=" "class="bg-white px-8 py-2 mt-8 text-dongker block rounded-xl font-semibold uppercase tracking-wide hover:bg-dongker/70 hover:text-white/50">Delete</a>
         </div>
+        @if(session()->get('token') != NULL)
+        @if(session()->get('role') == 1 && (session()->get('company_id') == $loker->company_id))
+        <a href="/loker/{{ $loker->id }}/edit" class="font-medium text-dongker">Edit</a>
+        <form action="/loker/{{ $loker->id }}" method="post">
+            @method('delete')
+            @csrf
+            <button class="font-medium text-dongker" onclick="return confirm('Apakah Anda yakin ingin menghapus lowongan kerja ini?')">Hapus</button>
+        </form>
+        @endif
+        @endif
     </div>
 </section>
 

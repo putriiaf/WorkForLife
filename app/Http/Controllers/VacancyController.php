@@ -25,9 +25,9 @@ class VacancyController extends Controller
         // else{
         //     $object = 1;
         // }
-        $object = $request->query('page');
-        $response = Http::get('http://apiwfl.herokuapp.com/api/loker?page=' . $object, [
-            'search' => $request->query('search')
+        $response = Http::get('http://apiwfl.herokuapp.com/api/loker', [
+            'search' => $request->query('search'),
+            'page' => $request->query('page')
         ]);
         $response = $response->object();
         $title = 'Lowongan Kerja';
@@ -79,7 +79,7 @@ class VacancyController extends Controller
      */
     public function store(Request $request)
     {
-        Http::asform()->post("http://apiwfl.herokuapp.com/api/loker", [
+        $response = Http::asform()->post("http://apiwfl.herokuapp.com/api/loker", [
             'company_id' => $request->input('company_id'),
             'posisi' => $request->input('posisi'),
             'jobdesc' => $request->input('jobdesc'),
@@ -89,8 +89,10 @@ class VacancyController extends Controller
             'insentif' => $request->input('insentif'),
             'link_pendaftaran' => $request->input('link_pendaftaran'),
         ]);
-
-        return redirect('/loker')->with('success', 'Loker berhasil diunggah.');
+        if($response->status()==200){
+            return redirect('/loker')->with('success', 'Loker berhasil diunggah.');
+        }
+        return redirect('/loker/upload')->with('success', 'Loker berhasil diunggah.');
     }
 
     /**
@@ -142,6 +144,7 @@ class VacancyController extends Controller
         ];
         $validatedData = $request->validate($rules);
         Http::asform()->post("http://apiwfl.herokuapp.com/api/loker/" . $id . '?_method=PUT', [
+            // 'company_id' => $request->input('company_id'),
             'posisi' => $request->input('posisi'),
             'jobdesc' => $request->input('jobdesc'),
             'kriteria' => $request->input('kriteria'),

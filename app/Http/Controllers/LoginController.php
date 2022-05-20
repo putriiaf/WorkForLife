@@ -37,6 +37,7 @@ class LoginController extends Controller
             'email' => $request->input('email'),
             'password' => $request->input('password'),
         ]);
+        $status = $response->status();
         $response = $response->object();
         $token = $response->access_token;
         $role = $response->role;
@@ -50,8 +51,10 @@ class LoginController extends Controller
         session(['company_id' => $company_id]);
         session(['username' => $username]);
         session(['foto_profil' => $foto_profil]);
-        return redirect()->intended('/');
-        // return back()->with('loginError', 'Login failed!');
+        if($status == 200){
+            return redirect()->intended('/');
+        }
+        return back()->with('loginError', 'Login failed!');
     }
 
     public function logout(Request $request)
