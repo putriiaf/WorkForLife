@@ -31,7 +31,7 @@
                 <div>
                     <div class="flex flex-col md:flex-row w-max">
                         <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="text" class="p-1 px-2 w-96" name="judul" value="{{ old('judul')}}">
+                            <input type="text" class="p-1 px-2 w-96" id="judul" name="judul" value="{{ old('judul')}}">
                         </div>
                     </div>
                 </div>
@@ -41,18 +41,22 @@
                 <div>
                     <div class="flex flex-col md:flex-row w-max">
                         <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                            <input type="text" class="p-1 px-2 py-10 w-96" name="deskripsi" value="{{ old('deskripsi')}}">
+                            <input type="text" class="p-1 px-2 py-10 w-96"  id="deskripsi" name="deskripsi" value="{{ old('deskripsi')}}">
                         </div>
                     </div>
                 </div>
             </div>
             @auth
-            <input type="hidden" name="user_id" value="{{ session()->get('id') }}">
+            <input type="hidden" id="user_id" name="user_id" value="{{ session()->get('id') }}">
             @endauth
         </div>
         </div>
         <div class="flex justify-center item-center pb-4">
+<<<<<<< HEAD
             <button class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40" type="submit">Submit</button>
+=======
+            <button type="submit" class="px-8 py-2 font-semibold rounded-lg bg-dongker border-2 border-[#123C69] text-white hover:bg-dongker/40 hover:border-[#123C69]/40">Submit</button>
+>>>>>>> eda1ac2f694a85856a0f3de56a94ca46712e7db4
         </div>
         </form>
     </div>
