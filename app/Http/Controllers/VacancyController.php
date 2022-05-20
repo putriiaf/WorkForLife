@@ -101,9 +101,9 @@ class VacancyController extends Controller
      * @param  \App\Models\Vacancy  $vacancy
      * @return \Illuminate\Http\Response
      */
-    public function show(Vacancy $vacancy)
+    public function show($id)
     {
-        $response = Http::get('http://apiwfl.herokuapp.com/api/loker/' . $vacancy->id);
+        $response = Http::get('http://apiwfl.herokuapp.com/api/loker/' . $id);
         $response = $response->object();
 
         return view('Loker.view', [
