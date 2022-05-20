@@ -5,7 +5,7 @@
 <script src="{{ asset('js/dropdown.js') }}"></script>
 
 <div class="flex mt-7 space-x-8 font-montserrat">
-<div class="ml-16 mr-20 max-w-3xl">
+<div class="ml-16 mr-20 max-w-3xl flex-auto">
     <div class="">
         <span class="flex max-w-44">
             <h1 class="text-4xl font-extrabold text-dongker line-clamp-2">{{ $post->judul }}</h1>
