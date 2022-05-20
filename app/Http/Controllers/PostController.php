@@ -132,9 +132,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        Http::delete("http://apiwfl.herokuapp.com/api/post/" . $post->id);
+        Http::delete("http://apiwfl.herokuapp.com/api/post/" . $id);
 
         return redirect('/posts')->with('success', 'Post has been deleted!');
     }
