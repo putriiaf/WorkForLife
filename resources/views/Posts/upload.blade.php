@@ -46,9 +46,9 @@
                     </div>
                 </div>
             </div>
-            @auth
+            @if (session()->has('token'))
             <input type="hidden" id="user_id" name="user_id" value="{{ session()->get('id') }}">
-            @endauth
+            @endif
         </div>
         </div>
         <div class="flex justify-center item-center pb-4">
