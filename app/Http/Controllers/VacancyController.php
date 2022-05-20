@@ -25,7 +25,6 @@ class VacancyController extends Controller
         // else{
         //     $object = 1;
         // }
-        $object = $request->query('page');
         $response = Http::get('http://apiwfl.herokuapp.com/api/loker', [
             'search' => $request->query('search'),
             'page' => $request->query('page')
