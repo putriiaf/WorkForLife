@@ -16,7 +16,7 @@
             <h1 class="text-lg font-extrabold mb-3">{{$loker->nama_perusahaan}}</h1>
             <h1 class="text-lg font-extrabold">{{ $loker->posisi }}</h1>
             <h2 class="pt-1">{{ $loker->domisili }}</h2>
-            <h2 class="pt-1">{{ $loker->min_pengalaman }}</h2>
+            <h2 class="pt-1">Minimal Pengalaman: {{ $loker->min_pengalaman }}</h2>
         </div>
         <div class="ml-[800px]">   
             <h2 class="pt-1 font-bold text-md">{{ $loker->insentif }}</h2>
