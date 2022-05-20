@@ -154,7 +154,7 @@ class VacancyController extends Controller
             'link_pendaftaran' => $request->input('link_pendaftaran')
         ]);
 
-        return redirect('/admin');
+        return redirect('/loker');
     }
 
     /**
