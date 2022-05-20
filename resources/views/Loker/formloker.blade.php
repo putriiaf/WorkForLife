@@ -15,7 +15,7 @@
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="posisi" id="posisi">
+                            <input type="text" class="p-1 px-2 w-full" name="posisi" id="posisi" value="{{ old('judul')}}">
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="domisili" id="domisili">
+                            <input type="text" class="p-1 px-2 w-full" name="domisili" id="domisili" value="{{ old('judul')}}">
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="min_pengalaman" id="min_pengalaman">
+                            <input type="text" class="p-1 px-2 w-full" name="min_pengalaman" id="min_pengalaman" value="{{ old('judul')}}">
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="insentif" id="insentif">
+                            <input type="text" class="p-1 px-2 w-full" name="insentif" id="insentif" value="{{ old('judul')}}">
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="kriteria" id="kriteria">
+                            <input type="text" class="p-1 px-2 w-full" name="kriteria" id="kriteria" value="{{ old('judul')}}">
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="jobdesc" id="jobdesc">
+                            <input type="text" class="p-1 px-2 w-full" name="jobdesc" id="jobdesc" value="{{ old('judul')}}">
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                 <div class="flex-1 flex flex-col md:flex-row">
                     <div class="w-full flex-1 mx-2">
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
-                            <input type="text" class="p-1 px-2 w-full" name="link_pendaftaran" id="link_pendaftaran">
+                            <input type="text" class="p-1 px-2 w-full" name="link_pendaftaran" id="link_pendaftaran" value="{{ old('judul')}}">
                         </div>
                     </div>
                 </div>
