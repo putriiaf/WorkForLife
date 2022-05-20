@@ -79,7 +79,7 @@ class VacancyController extends Controller
      */
     public function store(Request $request)
     {
-        Http::post("http://apiwfl.herokuapp.com/api/loker", [
+        Http::asform()->post("http://apiwfl.herokuapp.com/api/loker", [
             'company_id' => $request->input('company_id'),
             'posisi' => $request->input('posisi'),
             'jobdesc' => $request->input('jobdesc'),
