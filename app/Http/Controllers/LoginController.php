@@ -38,20 +38,20 @@ class LoginController extends Controller
             'password' => $request->input('password'),
         ]);
         $status = $response->status();
-        $response = $response->object();
-        $token = $response->access_token;
-        $role = $response->role;
-        $id = $response->id;
-        $company_id = $response->company_id;
-        $username = $response->username;
-        $foto_profil = $response->foto_profil;
-        session(['token' => $token]);
-        session(['role' => $role]);
-        session(['id' => $id]);
-        session(['company_id' => $company_id]);
-        session(['username' => $username]);
-        session(['foto_profil' => $foto_profil]);
         if($status == 200){
+            $response = $response->object();
+            $token = $response->access_token;
+            $role = $response->role;
+            $id = $response->id;
+            $company_id = $response->company_id;
+            $username = $response->username;
+            $foto_profil = $response->foto_profil;
+            session(['token' => $token]);
+            session(['role' => $role]);
+            session(['id' => $id]);
+            session(['company_id' => $company_id]);
+            session(['username' => $username]);
+            session(['foto_profil' => $foto_profil]);
             return redirect()->intended('/');
         }
         return back()->with('loginError', 'Login failed!');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 
 class RegisterController extends Controller
 {
@@ -31,8 +32,19 @@ class RegisterController extends Controller
         // $validatedData['password'] = bcrypt($validatedData['password']);
         $validatedData['password'] = Hash::make($validatedData['password']);
 
-        User::create($validatedData);
+        // User::create($validatedData);
+        $response = Http::asForm()->post("http://apiwfl.herokuapp.com/api/register", [
+            'nama' => $request->input('nama'),
+            'username' => $request->input('username'),
+            'email' => $request->input('email'),
+            'no_telp' => $request->input('no_telp'),
+            'password' => $request->input('password'),
+            'role' => $request->input('role'),
+            'jk' => $request->input('jk')
+        ]);
         // $request->session()->flash('success', 'Registration successful, please login!');
+        if($response->status()==200){
         return redirect('/login')->with('success', 'Registration successful, please login!');
+        }
     }
 }
