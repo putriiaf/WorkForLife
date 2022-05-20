@@ -11,7 +11,7 @@
             <h1 class="text-4xl font-extrabold text-dongker line-clamp-2">{{ $post->judul }}</h1>
             @guest
             @else
-            @if($post->user_id == auth()->user()->id)
+            @if($post->user_id == session()->get('id'))
             <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
@@ -23,7 +23,7 @@
         <!-- Dropdown menu -->
         @guest
         @else
-        @if($post->user_id == auth()->user()->id)
+        @if($post->user_id == session()->get('id'))
         <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
                 <li>
@@ -43,14 +43,14 @@
     </div>
 
     <div class="flex items-start px-2 py-6">
-        @if($post->user->foto_profil)
-        <img src="{{ asset('storage/' . $post->user->foto_profil) }}" class="w-16 h-16 rounded-full object-cover mr-4 shadow" alt="avatar">
+        @if($post->foto_profil)
+        <img src="{{ asset('storage/' . $post->foto_profil) }}" class="w-16 h-16 rounded-full object-cover mr-4 shadow" alt="avatar">
         @else
         <img src="{{ asset('img/avatar.png') }}" class="w-16 h-16 rounded-full object-cover mr-4 shadow" alt="avatar">
         @endif
         <div class="pt-1">
             <div class="flex items-center justify-between">
-                <h2 class="text-lg font-semibold text-gray-900 mt-1">{{ $post->user->nama }}</h2>
+                <h2 class="text-lg font-semibold text-gray-900 mt-1">{{ $post->nama }}</h2>
             </div>
             <p class="text-gray-700">{{ $post->created_at }}2</p>
         </div>
@@ -61,7 +61,7 @@
     </div>
     @guest
     @else
-    @if($post->user_id == auth()->user()->id)
+    @if($post->user_id == session()->get('id'))
     @else
     <div class="flex space-x-4">
         {{-- <button class="flex pt-5 space-x-2">
