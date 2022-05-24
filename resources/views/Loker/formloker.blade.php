@@ -1,6 +1,8 @@
 @extends('layout.layout')
 
 @section('content')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <div class="font-montserrat my-10">
     <div class="flex justify-center item-center mt-8">
         <h1 class="text-2xl font-bold">Form Tambah Loker</h1>
@@ -47,6 +49,11 @@
                         <div class="my-2 p-1 bg-white flex border border-gray-200 rounded">
                             <input type="text" class="p-1 px-2 w-full" name="insentif" id="insentif" value="{{ old('judul')}}">
                         </div>
+                        <script>
+                            $(document).ready(function(){
+                                $('#insentif').mask('#.##0', {reverse: true});
+                            })
+                        </script>
                     </div>
                 </div>
             </div>
