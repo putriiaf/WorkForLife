@@ -29,6 +29,9 @@
 				<li class="flex">
 					<a rel="noopener noreferrer" href="/posts" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">Sharing</a>
 				</li>
+        <li class="flex">
+					<a rel="noopener noreferrer" href="/levelup" class="flex items-center px-4 -mb-1 border-b-2 border-transparent">LevelUp</a>
+				</li>
         @if (!(session()->has('token')))
         @else
         @if(session()->get('role')== 2)
