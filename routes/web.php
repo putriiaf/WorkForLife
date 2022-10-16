@@ -82,3 +82,6 @@ Route::delete('/admin/report/{id}', [ReportController::class, 'destroy']);
 Route::get('/levelup', function () {
     return view('levelup.levelup');
 });
+Route::get('/levelup/event/1', function() {
+    return view('levelup.detailEvent');
+});

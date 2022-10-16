@@ -10,6 +10,7 @@
     <link href="{{ asset('https://workforlife.herokuapp.com/css/app.css') }}" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <script src="https://unpkg.com/flowbite@1.4.2/dist/flowbite.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
     <!-- Navbar -->
@@ -253,6 +254,6 @@
     </p>
   	</div>
 	</footer>
-
+  <script>feather.replace()</script>
 </body>
 </html>
