@@ -9,7 +9,7 @@
     </p>
     <div>
   	  <form class="font-montserrat flex">
-		    <a href="/loker" class="px-8 rounded-lg bg-[#E84A5F]  text-white font-bold p-4  border-[#E84A5F] hover:bg-[#E84A5F]/75 border-[#E84A5F]/75">Cek Sekarang</a>
+		    <a href="#" class="px-8 rounded-lg bg-[#E84A5F]  text-white font-bold p-4  border-[#E84A5F] hover:bg-[#E84A5F]/75 border-[#E84A5F]/75">Cek Sekarang</a>
 	    </form>
     </div>
 </div>
@@ -25,7 +25,7 @@
 <div class="mx-10 grid grid-cols-3 gap-8">
 
 <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md">
-    <a href="#">
+    <a href="/levelup/event/1">
         <img class="rounded-t-lg" src="{{ asset('img/webinar.jpg')}}" alt="">
     </a>
     <div class="p-6">
@@ -55,7 +55,7 @@
           </ul>
         </div>
         <div class="flex justify-center">
-        <a href="#" class="inline-flex items-center py-2 px-5 text-lg font-medium text-center text-white bg-[#E84A5F] rounded-lg hover:bg-[#E84A5F]/75 focus:ring-4 focus:outline-none focus:ring-blue-300">
+        <a href="/levelup/event/1" class="inline-flex items-center py-2 px-5 text-lg font-medium text-center text-white bg-[#E84A5F] rounded-lg hover:bg-[#E84A5F]/75 focus:ring-4 focus:outline-none focus:ring-blue-300">
             Daftar
         </a>
         </div>
