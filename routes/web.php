@@ -91,3 +91,6 @@ Route::get('/levelup/event/1/daftar', function() {
 Route::get('/levelup/event/1/suksesdaftar', function() {
     return view('levelup.suksesdaftar');
 });
+Route::get('/levelup/event/1/konfirmasi', function() {
+    return view('levelup.konfirmasibayar');
+});
