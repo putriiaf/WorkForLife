@@ -1225,8 +1225,21 @@ input:checked + .toggle-bg {
 .flex-shrink {
   flex-shrink: 1;
 }
-.origin-center {
-  transform-origin: center;
+.table-auto {
+  table-layout: auto;
+}
+.border-separate {
+  border-collapse: separate;
+}
+.border-spacing-2 {
+  --tw-border-spacing-x: 0.5rem;
+  --tw-border-spacing-y: 0.5rem;
+  border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
+}
+.border-spacing-36 {
+  --tw-border-spacing-x: 9rem;
+  --tw-border-spacing-y: 9rem;
+  border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
 }
 .-translate-x-full {
   --tw-translate-x: -100%;
@@ -1288,6 +1301,9 @@ input:checked + .toggle-bg {
 .grid-rows-2 {
   grid-template-rows: repeat(2, minmax(0, 1fr));
 }
+.grid-rows-1 {
+  grid-template-rows: repeat(1, minmax(0, 1fr));
+}
 .flex-row {
   flex-direction: row;
 }
@@ -1332,9 +1348,6 @@ input:checked + .toggle-bg {
 }
 .gap-6 {
   gap: 1.5rem;
-}
-.gap-5 {
-  gap: 1.25rem;
 }
 .space-x-5 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -1503,9 +1516,9 @@ input:checked + .toggle-bg {
   --tw-border-opacity: 1;
   border-color: rgb(26 86 219 / var(--tw-border-opacity));
 }
-.border-black {
+.border-slate-500 {
   --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  border-color: rgb(100 116 139 / var(--tw-border-opacity));
 }
 .bg-\[\#E84A5F\] {
   --tw-bg-opacity: 1;
@@ -1603,6 +1616,9 @@ input:checked + .toggle-bg {
 }
 .p-5 {
   padding: 1.25rem;
+}
+.p-10 {
+  padding: 2.5rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -1757,6 +1773,12 @@ input:checked + .toggle-bg {
 }
 .pb-6 {
   padding-bottom: 1.5rem;
+}
+.pl-2 {
+  padding-left: 0.5rem;
+}
+.pl-1 {
+  padding-left: 0.25rem;
 }
 .text-left {
   text-align: left;
@@ -2298,6 +2320,14 @@ input:checked + .toggle-bg {
 .dark .dark\:text-gray-200 {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
+}
+.dark .dark\:placeholder-gray-400::-moz-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-placeholder-opacity));
+}
+.dark .dark\:placeholder-gray-400::placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-placeholder-opacity));
 }
 .dark .dark\:ring-offset-gray-800 {
   --tw-ring-offset-color: #1F2937;
