@@ -1184,6 +1184,21 @@ input:checked + .toggle-bg {
   width: -moz-fit-content;
   width: fit-content;
 }
+.w-2\/3 {
+  width: 66.666667%;
+}
+.w-2\/5 {
+  width: 40%;
+}
+.w-1\/5 {
+  width: 20%;
+}
+.w-2\.5 {
+  width: 0.625rem;
+}
+.w-2 {
+  width: 0.5rem;
+}
 .min-w-0 {
   min-width: 0px;
 }
@@ -1324,6 +1339,9 @@ input:checked + .toggle-bg {
 }
 .justify-around {
   justify-content: space-around;
+}
+.justify-items-end {
+  justify-items: end;
 }
 .gap-8 {
   gap: 2rem;
