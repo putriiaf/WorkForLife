@@ -325,7 +325,7 @@
         <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="pembayaran" role="tabpanel" aria-labelledby="pembayaran-tab">
             <div class="font-montserrat">
                 <div class="mx-16 mt-8 mb-5">
-                    <h1 class="text-3xl font-bold">Wokwowk</h1>
+                    <h1 class="text-3xl font-bold">Pembayaran</h1>
                 </div>
                 <div class="relative flex justify-center mx-8 mb-5 overflow-x-auto border shadow-md sm:rounded-lg">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
