@@ -18,6 +18,8 @@ use App\Http\Controllers\VacancyController;
 use App\Http\Middleware\AuthCustom;
 use App\Models\Vacancy;
 
+use Illuminate\Support\Facades\Artisan;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +30,10 @@ use App\Models\Vacancy;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/storage', function () {
+    Artisan::call('storage:link');
+});
 
 Route::get('/',  [HomeController::class, 'index'])->name('home');
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
@@ -78,3 +84,19 @@ Route::delete('/admin/company/delete/{company:id}', [CompanyController::class, '
 Route::get('/admin/report/{report:id}/detail', [ReportController::class, 'edit']);
 Route::put('/admin/report/{report:id}', [ReportController::class, 'update']);
 Route::delete('/admin/report/{id}', [ReportController::class, 'destroy']);
+
+Route::get('/levelup', function () {
+    return view('levelup.levelup');
+});
+Route::get('/levelup/event/1', function () {
+    return view('levelup.detailEvent');
+});
+Route::get('/levelup/event/1/daftar', function () {
+    return view('levelup.formdaftar');
+});
+Route::get('/levelup/event/1/suksesdaftar', function () {
+    return view('levelup.suksesdaftar');
+});
+Route::get('/levelup/event/1/konfirmasi', function () {
+    return view('levelup.konfirmasibayar');
+});
