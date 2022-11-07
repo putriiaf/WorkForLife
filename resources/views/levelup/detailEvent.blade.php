@@ -26,18 +26,17 @@
     </nav>
     <div class="grid grid-cols-2 gap-8 mt-5 justify-between">
         <div class="">
-            <h2 class="text-3xl font-bold lg:mb-4">How to Start Shifting Your Career in Technology</h2>
+            <h2 class="text-3xl font-bold lg:mb-4">{{ $event->nama }}</h2>
             <div class="pt-3">
                 <kbd
                     class="px-2 py-1.5 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-full dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">Career</kbd>
                 <kbd
                     class="px-2 py-1.5 text-xs font-semibold text-gray-800 bg-gray-100 border border-gray-200 rounded-full dark:bg-gray-600 dark:text-gray-100 dark:border-gray-500">Technology</kbd>
             </div>
-            <p class="py-5">Dr. Ganesha Education merupakan platform bimbingan belajar untuk persiapan siswa
-                SMA/sederajat atau Gap Year dalam berjuang meraih mimpi Masuk Perguruan Tinggi Negeri.</p>
+            <p class="py-5">{{ $event->deskripsi }}</p>
             <div class="flex">
                 <p class="mr-4"><i data-feather="user" class="inline mr-3"></i>Work For Life</p>
-                <p><i data-feather="calendar" class="inline mr-3"></i>23/09/2021</p>
+                <p><i data-feather="calendar" class="inline mr-3"></i>{{ date('d/m/Y', strtotime($event->created_at)) }}</p>
                 <i data-feather="heart" class="ml-3"></i>
                 <i data-feather="share-2" class="ml-3"></i>
             </div>
@@ -50,8 +49,7 @@
                 </a>
                 <div class="px-8 py-5">
                     <a href="#">
-                        <h5 class="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">How to Start
-                            Shifting Your Career in Technology</h5>
+                        <h5 class="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $event->nama }}</h5>
                     </a>
                     <ul class="mb-6 text-base">
                         <li class="mb-2">
@@ -61,7 +59,7 @@
                                     d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
                                 </path>
                             </svg>
-                            Jumat, 9 Oktober 2022
+                            {{ date('Y-m-d', strtotime($event->tanggal_event)) }}
                         </li>
                         <li class="mb-2">
                             <svg class="w-6 h-6 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -69,7 +67,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
-                            19.00 - 21.00
+                            {{ date('H:i:s', strtotime($event->tanggal_event)) }}
                         </li>
                         <li class="mb-2">
                             <svg class="w-6 h-6 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -78,7 +76,7 @@
                                     d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z">
                                 </path>
                             </svg>
-                            Rp40.000
+                            Rp {{ $event->harga }}
                         </li>
                     </ul>
                     <a href="/levelup/event/1/daftar"

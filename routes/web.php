@@ -87,9 +87,7 @@ Route::put('/admin/report/{report:id}', [ReportController::class, 'update']);
 Route::delete('/admin/report/{id}', [ReportController::class, 'destroy']);
 
 Route::get('/levelup', [EventController::class, 'index']);
-Route::get('/levelup/event/1', function () {
-    return view('levelup.detailEvent');
-});
+Route::get('/levelup/event/{event:id}', [EventController::class, 'show']);
 Route::get('/levelup/event/1/daftar', function () {
     return view('levelup.formdaftar');
 });
