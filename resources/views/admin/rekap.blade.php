@@ -33,6 +33,12 @@
             <li class="mr-2" role="presentation">
                 <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="report-tab" data-tabs-target="#report" type="button" role="tab" aria-controls="report" aria-selected="false">Report</button>
             </li>
+            <li class="mr-2" role="presentation">
+                <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="event-tab" data-tabs-target="#event" type="button" role="tab" aria-controls="event" aria-selected="false">Event</button>
+            </li>
+            <li class="mr-2" role="presentation">
+                <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="pendaftaran-tab" data-tabs-target="#pendaftaran" type="button" role="tab" aria-controls="pendaftaran" aria-selected="false">Pendaftaran</button>
+            </li>
             <li role="presentation">
                 <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="pembayaran-tab" data-tabs-target="#pembayaran" type="button" role="tab" aria-controls="pembayaran" aria-selected="false">Pembayaran</button>
             </li>
@@ -317,6 +323,142 @@
                                 </td>
                             </tr>
                             @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="event" role="tabpanel" aria-labelledby="event-tab">
+            <div class="font-montserrat">
+                <div class="mx-16 mt-8 mb-5">
+                    <h1 class="text-3xl font-bold">Event</h1>
+                </div>
+                <div class="relative flex justify-center mx-8 mb-5 overflow-x-auto border shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    ID
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Nama Event
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Harga
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Deskripsi
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Tanggal Event
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Aksi
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- @foreach($reports as $report)
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    {{ $report->id }}
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ $report->user_id }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $report->postingan_id }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $report->alasan }}
+                                </td>
+                                @if($report->is_approved == 0)
+                                <td class="px-6 py-4">
+                                    Belum diproses
+                                </td>
+                                @else
+                                <td class="px-6 py-4">
+                                    Sudah diproses
+                                </td>
+                                @endif
+                                <td class="px-5 py-4 text-right space-x-5">
+                                    <a href="/admin/report/{{ $report->id }}/detail" class="font-medium text-dongker">Edit</a>
+                                    <form action="/admin/report/{{ $report->id }}" method="post">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="font-medium text-dongker" onclick="return confirm('Apakah Anda yakin ingin menghapus report?')">Hapus</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="pendaftaran" role="tabpanel" aria-labelledby="pendaftaran-tab">
+            <div class="font-montserrat">
+                <div class="mx-16 mt-8 mb-5">
+                    <h1 class="text-3xl font-bold">Pendaftaran</h1>
+                </div>
+                <div class="relative flex justify-center mx-8 mb-5 overflow-x-auto border shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    ID
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Event ID
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    User ID
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Status Pembayaran
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Bukti Pembayaran
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Aksi
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- @foreach($reports as $report)
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    {{ $report->id }}
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ $report->user_id }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $report->postingan_id }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $report->alasan }}
+                                </td>
+                                @if($report->is_approved == 0)
+                                <td class="px-6 py-4">
+                                    Belum diproses
+                                </td>
+                                @else
+                                <td class="px-6 py-4">
+                                    Sudah diproses
+                                </td>
+                                @endif
+                                <td class="px-5 py-4 text-right space-x-5">
+                                    <a href="/admin/report/{{ $report->id }}/detail" class="font-medium text-dongker">Edit</a>
+                                    <form action="/admin/report/{{ $report->id }}" method="post">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="font-medium text-dongker" onclick="return confirm('Apakah Anda yakin ingin menghapus report?')">Hapus</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach -->
                         </tbody>
                     </table>
                 </div>
