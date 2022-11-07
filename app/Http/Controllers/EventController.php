@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class EventController extends Controller
 {
@@ -13,7 +14,12 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $response = Http::get('http://apiwfl.herokuapp.com/api/event');
+        $response = $response->object();
+        return view('levelup.levelup', [
+            "title" => "Sharing",
+            "events" => $response->data,
+        ]);
     }
 
     /**
@@ -34,7 +40,16 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request = Http::asform()->post("http://apiwfl.herokuapp.com/api/event", [
+            'nama' => $request->input('nama'),
+            'harga' => $request->input('harga'),
+            'deskripsi' => $request->input('deskripsi'),
+            'tanggal_event' => $request->input('tanggal_event')
+        ]);
+        if ($request->status()) {
+            return redirect('/levelup')->with('success', 'Postingan berhasil diunggah.');
+        }
+        return redirect('/event')->with('success', 'Postingan gagal diunggah.');
     }
 
     /**
@@ -45,7 +60,13 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+        $response = Http::get("http://apiwfl.herokuapp.com/api/event/" . $id);
+        $response = $response->object();
+        return view('levelup.detailEvent', [
+            'title' => 'Detail Event',
+            'active' => 'event',
+            'event' => $response->data,
+        ]);
     }
 
     /**
@@ -68,7 +89,23 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'nama' => 'required',
+            'harga' => 'required',
+            'deskripsi' => 'required',
+            'tanggal_event' => 'required'
+        ];
+        $validatedData["user_id"] = session()->get('id');
+        $validatedData = $request->validate($rules);
+
+        Http::asForm()->post("http://apiwfl.herokuapp.com/api/event/" . $id . '?_method=PUT', [
+            'nama' => $request->input('nama'),
+            'harga' => $request->input('harga'),
+            'deskripsi' => $request->input('deskripsi'),
+            'tanggal_event' => $request->input('tanggal_event')
+        ]);
+
+        return redirect('/posts');
     }
 
     /**
@@ -79,6 +116,8 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Http::delete("http://apiwfl.herokuapp.com/api/event/" . $id);
+
+        return redirect('/levelup')->with('success', 'Event has been deleted!');
     }
 }
