@@ -17,8 +17,8 @@ class EventController extends Controller
         $response = Http::get('http://apiwfl.herokuapp.com/api/event');
         $response = $response->object();
         return view('levelup.levelup', [
-            "title" => "Sharing",
-            "events" => $response->data,
+            'title' => 'Sharing',
+            'events' => $response->data
         ]);
     }
 

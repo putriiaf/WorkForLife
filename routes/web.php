@@ -15,6 +15,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\VacancyController;
+use App\Http\Controllers\EventController;
 use App\Http\Middleware\AuthCustom;
 use App\Models\Vacancy;
 
@@ -85,9 +86,7 @@ Route::get('/admin/report/{report:id}/detail', [ReportController::class, 'edit']
 Route::put('/admin/report/{report:id}', [ReportController::class, 'update']);
 Route::delete('/admin/report/{id}', [ReportController::class, 'destroy']);
 
-Route::get('/levelup', function () {
-    return view('levelup.levelup');
-});
+Route::get('/levelup', [EventController::class, 'index']);
 Route::get('/levelup/event/1', function () {
     return view('levelup.detailEvent');
 });
