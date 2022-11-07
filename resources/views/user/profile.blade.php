@@ -181,7 +181,6 @@
                         @endforeach
                     </div>
                     <div class="hidden" id="tab-events">
-
                         <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                 <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">
@@ -201,73 +200,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @foreach ($my_events as $event)
                                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                         <th scope="row"
                                             class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            Placeholder Nama Event
+                                            {{ $event->nama }}
                                         </th>
                                         <td class="py-4 px-6">
-                                            Placeholder Deskripsi Event
+                                        {{ $event->deskripsi }}
                                         </td>
                                         <td class="py-4 px-6">
-                                            Placeholder Tanggal Event
+                                        {{ $event->tanggal_event }}
                                         </td>
                                         <td class="py-4 px-6">
                                             <p class="p-2 rounded-md text-white text-xs uppercase"
-                                                style="background-color: #D6AD2B">Menunggu Pembayaran</p>
+                                                style="background-color: #D6AD2B">{{ $event->status_bayar }}</p>
                                         </td>
                                     </tr>
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                        <th scope="row"
-                                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            Placeholder Nama Event 2
-                                        </th>
-                                        <td class="py-4 px-6">
-                                            Placeholder Deskripsi Event 2
-                                        </td>
-                                        <td class="py-4 px-6">
-                                            Placeholder Tanggal Event 2
-                                        </td>
-                                        <td class="py-4 px-6">
-                                            <p class="p-2 rounded-md text-white text-xs uppercase"
-                                                style="background-color: #6680C2">Menunggu Konfirmasi</p>
-                                        </td>
-                                    </tr>
-                                    <tr class="bg-white dark:bg-gray-800">
-                                        <th scope="row"
-                                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            Placeholder Nama Event 3
-                                        </th>
-                                        <td class="py-4 px-6">
-                                            Placeholder Deskripsi Event 3
-                                        </td>
-                                        <td class="py-4 px-6">
-                                            Placeholder Tanggal Event 3
-                                        </td>
-                                        <td class="py-4 px-6">
-                                            <p class="p-2 rounded-md text-white text-xs uppercase inline"
-                                                style="background-color: #2F9960; width: fit-content;">Berhasil</p>
-                                            <p class="inline p-2"><i data-feather="link"
-                                                    class="mr-3 rounded-md text-md uppercase inline p-1"
-                                                    style="background-color: #EBEBEB"></i></p>
-                                        </td>
-                                    </tr>
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                        <th scope="row"
-                                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            Placeholder Nama Event 2
-                                        </th>
-                                        <td class="py-4 px-6">
-                                            Placeholder Deskripsi Event 2
-                                        </td>
-                                        <td class="py-4 px-6">
-                                            Placeholder Tanggal Event 2
-                                        </td>
-                                        <td class="py-4 px-6">
-                                            <p class="p-2 rounded-md text-white text-xs uppercase w-fit"
-                                                style="background-color: #6D6D6D; width: fit-content;">Gagal</p>
-                                        </td>
-                                    </tr>
+                                 @endforeach
                                 </tbody>
                             </table>
                         </div>

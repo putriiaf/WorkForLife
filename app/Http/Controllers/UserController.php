@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -25,12 +26,13 @@ class UserController extends Controller
         // $my_posts = Post::where('user_id', $user_id)->get();
         $response = Http::withHeaders([
             'Accept' => 'application/json',
-            'Authorization' => 'Bearer ' . session('token'),
+            'Authorization' => 'Bearer ' . session('token')
         ])->get('http://apiwfl.herokuapp.com/api/profile');
-        $response = $response->object();
-        $profilUser = $response->profile;
-        $my_posts = $response->post;
-        return view('/user/profile', compact(['title', 'profilUser', 'my_posts']));
+            $response = $response->object();
+            $profilUser = $response->profile;
+            $my_posts = $response->post;
+            $my_events = $response->events;
+            return view('/user/profile', compact(['title', 'profilUser', 'my_posts', 'my_events']));
     }
 
     /**
