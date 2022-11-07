@@ -100,3 +100,15 @@ Route::get('/levelup/event/1/suksesdaftar', function () {
 Route::get('/levelup/event/1/konfirmasi', function () {
     return view('levelup.konfirmasibayar');
 });
+
+Route::get('/registration', 'RegistrationEventController@index');
+Route::post('/registration', 'RegistrationEventController@store');
+Route::get('/registration/{id}', 'RegistrationEventController@show');
+Route::put('/registration/{id}', 'RegistrationEventController@update');
+Route::put('/payment/{id}', 'RegistrationEventController@payment');
+Route::delete('/registration/{id}', 'RegistrationEventController@destroy');
+Route::get('/event', 'EventController@index');
+Route::post('/event', 'EventController@store');
+Route::get('/event/{id}', 'EventController@show');
+Route::put('/event/{id}', 'EventController@update');
+Route::delete('/event/{id}', 'EventController@destroy');
