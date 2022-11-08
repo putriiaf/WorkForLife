@@ -67,7 +67,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
-                            {{ date('H:i:s', strtotime($event->tanggal_event)) }}
+                            {{ date('H:i', strtotime($event->tanggal_event)) }}
                         </li>
                         <li class="mb-2">
                             <svg class="w-6 h-6 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -79,7 +79,7 @@
                             Rp {{ $event->harga }}
                         </li>
                     </ul>
-                    <a href="/levelup/event/1/daftar"
+                    <a href="/levelup/event/{{ $event->id }}/daftar"
                         class="mx-16 block text-md items-center py-2 font-medium text-center text-white bg-[#E84A5F] rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Daftar
                     </a>

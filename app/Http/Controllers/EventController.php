@@ -105,7 +105,7 @@ class EventController extends Controller
             'tanggal_event' => $request->input('tanggal_event')
         ]);
 
-        return redirect('/posts');
+        return redirect('/admin');
     }
 
     /**
@@ -118,6 +118,6 @@ class EventController extends Controller
     {
         Http::delete("http://apiwfl.herokuapp.com/api/event/" . $id);
 
-        return redirect('/levelup')->with('success', 'Event has been deleted!');
+        return redirect('/admin')->with('success', 'Event has been deleted!');
     }
 }

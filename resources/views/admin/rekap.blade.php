@@ -39,9 +39,6 @@
             <li class="mr-2" role="presentation">
                 <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="pendaftaran-tab" data-tabs-target="#pendaftaran" type="button" role="tab" aria-controls="pendaftaran" aria-selected="false">Pendaftaran</button>
             </li>
-            <li role="presentation">
-                <button class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="pembayaran-tab" data-tabs-target="#pembayaran" type="button" role="tab" aria-controls="pembayaran" aria-selected="false">Pembayaran</button>
-            </li>
         </ul>
     </div>
 
@@ -184,7 +181,7 @@
                                     {{ $loker->insentif }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $loker->link_pendaftaran }}
+                                    <a href="{{ $loker->link_pendaftaran }}" target="_blank">{{ $loker->link_pendaftaran }}</a>
                                 </td>
                                 <td class="px-5 py-4 text-right space-x-5">
                                     <a href="/loker/{{ $loker->id }}/edit" class="font-medium text-dongker">Edit</a>
@@ -353,44 +350,44 @@
                                     Tanggal Event
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    Link
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Aksi
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- @foreach($reports as $report)
+                            @foreach($events as $event)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                    {{ $report->id }}
+                                    {{ $event->id }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $report->user_id }}
+                                    {{ $event->nama }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $report->postingan_id }}
+                                    Rp {{ $event->harga }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $report->alasan }}
+                                    {{ $event->deskripsi }}
                                 </td>
-                                @if($report->is_approved == 0)
                                 <td class="px-6 py-4">
-                                    Belum diproses
+                                    {{ date('d-m-Y', strtotime($event->tanggal_event)) }}
                                 </td>
-                                @else
                                 <td class="px-6 py-4">
-                                    Sudah diproses
+                                    <a href="{{ $event->link_conference }}" target="_blank">{{ $event->link_conference }}</a>
                                 </td>
-                                @endif
                                 <td class="px-5 py-4 text-right space-x-5">
-                                    <a href="/admin/report/{{ $report->id }}/detail" class="font-medium text-dongker">Edit</a>
-                                    <form action="/admin/report/{{ $report->id }}" method="post">
+                                    <a href="/event/{{ $event->id }}/edit" class="font-medium text-dongker">Edit</a>
+                                    <form action="/event/{{ $event->id }}" method="post">
                                         @method('delete')
                                         @csrf
-                                        <button class="font-medium text-dongker" onclick="return confirm('Apakah Anda yakin ingin menghapus report?')">Hapus</button>
+                                        <button class="font-medium text-dongker" onclick="return confirm('Apakah Anda yakin ingin menghapus event ini?')">Hapus</button>
                                     </form>
                                 </td>
                             </tr>
-                            @endforeach -->
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -409,83 +406,15 @@
                                     ID
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Event ID
+                                    Nama Event
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    User ID
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Status Pembayaran
+                                    Nama User
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Bukti Pembayaran
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Aksi
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- @foreach($reports as $report)
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                    {{ $report->id }}
-                                </th>
-                                <td class="px-6 py-4">
-                                    {{ $report->user_id }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ $report->postingan_id }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ $report->alasan }}
-                                </td>
-                                @if($report->is_approved == 0)
-                                <td class="px-6 py-4">
-                                    Belum diproses
-                                </td>
-                                @else
-                                <td class="px-6 py-4">
-                                    Sudah diproses
-                                </td>
-                                @endif
-                                <td class="px-5 py-4 text-right space-x-5">
-                                    <a href="/admin/report/{{ $report->id }}/detail" class="font-medium text-dongker">Edit</a>
-                                    <form action="/admin/report/{{ $report->id }}" method="post">
-                                        @method('delete')
-                                        @csrf
-                                        <button class="font-medium text-dongker" onclick="return confirm('Apakah Anda yakin ingin menghapus report?')">Hapus</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="hidden p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="pembayaran" role="tabpanel" aria-labelledby="pembayaran-tab">
-            <div class="font-montserrat">
-                <div class="mx-16 mt-8 mb-5">
-                    <h1 class="text-3xl font-bold">Pembayaran</h1>
-                </div>
-                <div class="relative flex justify-center mx-8 mb-5 overflow-x-auto border shadow-md sm:rounded-lg">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="px-6 py-3">
-                                    ID
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    User ID
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Nama
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Nomor Telepon
-                                </th>
-                                <th scope="col" class="px-6 py-3">
                                     Status Pembayaran
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -494,35 +423,35 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($reports as $report)
+                            @foreach($registration as $reg)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                    {{ $report->id }}
+                                    {{ $reg->id }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $report->user_id }}
+                                    {{ $reg->nama }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $report->postingan_id }}
+                                    {{ $reg->nama_user }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ $report->alasan }}
-                                </td>
-                                @if($report->is_approved == 0)
-                                <td class="px-6 py-4">
-                                    Belum diproses
-                                </td>
-                                @else
-                                <td class="px-6 py-4">
-                                    Sudah diproses
-                                </td>
+                                @if($reg->bukti_bayar != NULL)
+                                    <a href="{{ asset('storage/' . $reg->bukti_bayar) }}" target="_blank">Bukti</a>
                                 @endif
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $reg->status_bayar }}
+                                </td>
                                 <td class="px-5 py-4 text-right space-x-5">
-                                    <a href="/admin/report/{{ $report->id }}/detail" class="font-medium text-dongker">Edit</a>
-                                    <form action="/admin/report/{{ $report->id }}" method="post">
-                                        @method('delete')
+                                    <form action="/confirm/{{ $reg->id }}" method="post">
+                                        @method('put')
                                         @csrf
-                                        <button class="font-medium text-dongker" onclick="return confirm('Apakah Anda yakin ingin menghapus report?')">Hapus</button>
+                                        <button class="font-medium text-dongker" name="status_bayar" type="submit" value="Gagal">Tolak</button>
+                                    </form>
+                                    <form action="/confirm/{{ $reg->id }}" method="post">
+                                        @method('put')
+                                        @csrf
+                                        <button class="font-medium text-dongker" name="status_bayar" type="submit" value="Berhasil">Terima</button>
                                     </form>
                                 </td>
                             </tr>

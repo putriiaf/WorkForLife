@@ -56,7 +56,7 @@
         </div>
         <div class="flex justify-center">
         <a href="/levelup/event/{{ $event->id }}" class="inline-flex items-center py-2 px-5 text-lg font-medium text-center text-white bg-[#E84A5F] rounded-lg hover:bg-[#E84A5F]/75 focus:ring-4 focus:outline-none focus:ring-blue-300">
-            Daftar
+            Detail
         </a>
         </div>
     </div>

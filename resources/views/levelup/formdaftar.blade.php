@@ -19,16 +19,16 @@
                 <div class="my-3 mt-10">
                     <h2 class="mb-2 text-lg font-bold">Detail Acara</h2>
                     <div class="p-2 my-7 mb-5 w-1/2 bg-white rounded-xl border border-gray-200 shadow-md">
-                        <h3 class="font-bold text-lg mb-4">Topik Webinar</h3>
+                        <h3 class="font-bold text-lg mb-4">{{ $event->nama }}</h3>
                         <ul>
                             <li class="mb-2">
-                                <p>Jumat, 7 Oktober 2022</p>
+                                <p>{{ date('l, j F Y', strtotime($event->tanggal_event)) }}</p>
                             </li>
                             <li class="mb-2">
-                                19.00 - 20.00
+                                {{ date('H:i', strtotime($event->tanggal_event)) }}
                             </li>
                             <li class="mb-2">
-                                Rp 40.000
+                                Rp {{ $event->harga }}
                             </li>
                         </ul>
                     </div>

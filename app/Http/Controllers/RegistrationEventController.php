@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class RegistrationEventController extends Controller
 {
@@ -14,6 +15,15 @@ class RegistrationEventController extends Controller
     public function index()
     {
         //
+    }
+
+    public function confirm(Request $request, $id)
+    {
+        Http::asForm()->post("http://apiwfl.herokuapp.com/api/registration/" . $id . '?_method=PUT', [
+            'status_bayar' => $request->input('status_bayar')
+        ]);
+
+        return redirect('/admin');
     }
 
     /**
@@ -56,7 +66,13 @@ class RegistrationEventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $response = Http::get("http://apiwfl.herokuapp.com/api/event/" . $id);
+        $response = $response->object();
+        return view('levelup.formdaftar', [
+            'title' => 'Detail Event',
+            'active' => 'event',
+            'event' => $response->data,
+        ]);
     }
 
     /**

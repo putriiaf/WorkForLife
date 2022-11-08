@@ -16,6 +16,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\RegistrationEventController;
 use App\Http\Middleware\AuthCustom;
 use App\Models\Vacancy;
 
@@ -88,9 +89,10 @@ Route::delete('/admin/report/{id}', [ReportController::class, 'destroy']);
 
 Route::get('/levelup', [EventController::class, 'index']);
 Route::get('/levelup/event/{event:id}', [EventController::class, 'show']);
-Route::get('/levelup/event/1/daftar', function () {
-    return view('levelup.formdaftar');
-});
+// Route::get('/levelup/event/{event:id}/daftar', function () {
+//     return view('levelup.formdaftar');
+// });
+Route::get('/levelup/event/{event:id}/daftar', [RegistrationEventController::class, 'edit']);
 Route::get('/levelup/event/1/suksesdaftar', function () {
     return view('levelup.suksesdaftar');
 });
@@ -102,10 +104,11 @@ Route::get('/registration', 'RegistrationEventController@index');
 Route::post('/registration', 'RegistrationEventController@store');
 Route::get('/registration/{id}', 'RegistrationEventController@show');
 Route::put('/registration/{id}', 'RegistrationEventController@update');
+Route::put('/confirm/{id}', [RegistrationEventController::class, 'confirm']);
 Route::put('/payment/{id}', 'RegistrationEventController@payment');
 Route::delete('/registration/{id}', 'RegistrationEventController@destroy');
-Route::get('/event', 'EventController@index');
-Route::post('/event', 'EventController@store');
-Route::get('/event/{id}', 'EventController@show');
-Route::put('/event/{id}', 'EventController@update');
-Route::delete('/event/{id}', 'EventController@destroy');
+Route::get('/event', [EventController::class, 'index']);
+Route::post('/event', [EventController::class, 'store']);
+Route::get('/event/{id}', [EventController::class, 'show']);
+Route::put('/event/{id}', [EventController::class, 'update']);
+Route::delete('/event/{id}', [EventController::class, 'destroy']);
