@@ -100,16 +100,17 @@ Route::get('/levelup/event/1/konfirmasi', function () {
     return view('levelup.konfirmasibayar');
 });
 
-Route::get('/registration', 'RegistrationEventController@index');
-Route::post('/registration', 'RegistrationEventController@store');
-Route::get('/registration/{id}', 'RegistrationEventController@show');
-Route::put('/registration/{id}', 'RegistrationEventController@update');
+Route::get('/registration', [RegistrationEventController::class, 'index']);
+Route::post('/registration', [RegistrationEventController::class, 'store']);
+Route::get('/registration/{id}', [RegistrationEventController::class, 'show']);
+Route::put('/registration/{id}', [RegistrationEventController::class, 'update']);
 Route::put('/confirm/{id}', [RegistrationEventController::class, 'confirm']);
-Route::put('/payment/{id}', 'RegistrationEventController@payment');
-Route::delete('/registration/{id}', 'RegistrationEventController@destroy');
+Route::put('/payment/{id}', [RegistrationEventController::class, 'payment']);
+Route::delete('/registration/{id}', [RegistrationEventController::class, 'destroy']);
 Route::get('/event', [EventController::class, 'index']);
 Route::get('/event/create', [EventController::class, 'create']);
 Route::post('/event', [EventController::class, 'store']);
 Route::get('/event/{id}', [EventController::class, 'show']);
+Route::get('/event/{id}/edit', [EventController::class, 'edit']);
 Route::put('/event/{id}', [EventController::class, 'update']);
 Route::delete('/event/{id}', [EventController::class, 'destroy']);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class EventController extends Controller
 {
@@ -82,7 +83,12 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $response = Http::get("http://apiwfl.herokuapp.com/api/event/" . $id);
+        $response = $response->object();
+        return view('admin.edit-event', [
+            'title' => 'Edit Event',
+            'event' => $response->data,
+        ]);
     }
 
     /**
@@ -94,25 +100,27 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $rules = [
-            'nama' => 'required',
-            'harga' => 'required',
-            'deskripsi' => 'required',
-            'tanggal_event' => 'required',
-            'link_conference' => 'required'
-        ];
-        $validatedData["user_id"] = session()->get('id');
-        $validatedData = $request->validate($rules);
-
-        Http::asForm()->post("http://apiwfl.herokuapp.com/api/event/" . $id . '?_method=PUT', [
+        // $rules = [
+        //     'nama' => 'required',
+        //     'harga' => 'required',
+        //     'deskripsi' => 'required',
+        //     'tanggal_event' => 'required',
+        //     'link_conference' => 'required'
+        // ];
+        // $validatedData = $request->validate($rules);
+        $request = Http::asform()->post("http://apiwfl.herokuapp.com/api/event/".$id."?_method=PUT", [
             'nama' => $request->input('nama'),
             'harga' => $request->input('harga'),
             'deskripsi' => $request->input('deskripsi'),
             'tanggal_event' => $request->input('tanggal_event'),
             'link_conference' => $request->input('link_conference')
         ]);
-
-        return redirect('/admin');
+        if ($request->status() == 200) {
+            return redirect('/admin')->with('success', 'Event berhasil diupdate.');
+        } else {
+            $request = $request->object();
+            return redirect('/admin')->with('success', 'Event gagal diupdate.');
+        }
     }
 
     /**

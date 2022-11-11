@@ -44,7 +44,18 @@ class RegistrationEventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $response = Http::asform()->post("http://apiwfl.herokuapp.com/api/registration", [
+            'event_id' => $request->input('event_id'),
+            'user_id' => $request->input('user_id')
+        ]);
+        // if ($request->status() == 200) {
+        //     return redirect('/levelup')->with('success', 'Berhasil mendaftar Event.');
+        // } else {
+        //     return redirect('/levelup')->with('success', 'Gagal mendaftar Event.');
+        // }
+        return view('levelup.konfirmasibayar', [
+            'title' => 'Pembayaran'
+        ]);
     }
 
     /**
