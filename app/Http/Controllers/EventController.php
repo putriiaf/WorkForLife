@@ -71,7 +71,7 @@ class EventController extends Controller
         return view('levelup.detailEvent', [
             'title' => 'Detail Event',
             'active' => 'event',
-            'event' => $response->data,
+            'event' => $response->data
         ]);
     }
 

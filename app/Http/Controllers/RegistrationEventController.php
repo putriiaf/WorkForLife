@@ -48,12 +48,10 @@ class RegistrationEventController extends Controller
             'event_id' => $request->input('event_id'),
             'user_id' => $request->input('user_id')
         ]);
-        if ($request->status() == 200) {
-            return view('levelup.konfirmasibayar', [
-                'title' => 'Pembayaran'
-            ]);
+        if ($response->status() == 200) {
+            return redirect()->route('formPayment', [$response->object()->id])->with('success','Pendaftaran Berhasil');
         } else {
-            return redirect ('levelup/formdaftar')->with('success','Pendaftaran Gagal');
+            return redirect ('/levelup')->with('success','Pendaftaran Gagal');
         }
     }
 
@@ -95,6 +93,16 @@ class RegistrationEventController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function formPayment($id)
+    {
+        $response = Http::get("http://apiwfl.herokuapp.com/api/registration/" . $id);
+        $response = $response->object();
+        return view('levelup.konfirmasibayar', [
+            'title' => 'Pembayaran',
+            'data' => $response->data
+        ]);
     }
 
     /**

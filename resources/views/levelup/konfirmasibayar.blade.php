@@ -16,7 +16,7 @@
                                 <p class="text-left">Nama Pengguna</p>
                             </th>
                             <th>
-                                <p class="text-right">John Doe</p>
+                                <p class="text-right">{{ $data->nama_lengkap }}</p>
                             </th>
                         </tr>
                         <tr>
@@ -24,7 +24,7 @@
                                 <p class="text-left">No. Telepon</p>
                             </th>
                             <th>
-                                <p class="text-right">0851639742173</p>    
+                                <p class="text-right">{{ $data->no_telp }}</p>    
                             </th>
                         </tr>
                         <tr class="mt-5">
@@ -41,7 +41,7 @@
                                 <p class="text-left font-normal">Judul Kegiatan</p>
                             </th>
                             <th>
-                                <p class="text-right font-normal">Seminar Internasional</p>
+                                <p class="text-right font-normal">{{ $data->nama_event }}</p>
                             </th>
                         </tr>
                         <tr>
@@ -49,7 +49,7 @@
                                 <p class="text-left font-normal">Tanggal Kegiatan</p>
                             </th>
                             <th>
-                                <p class="text-right font-normal">Jumat, 7 Oktober 2022</p>
+                                <p class="text-right font-normal">{{ date('l, j F Y', strtotime($data->tanggal_event)) }}</p>
                             </th>
                         </tr>
                         <tr>
@@ -57,7 +57,7 @@
                                 <p class="font-normal">Waktu Kegiatan</p>
                             </th>
                             <th>
-                                <p class="text-right font-normal">19.00 - 21.00</p>
+                                <p class="text-right font-normal">{{ date('H:i', strtotime($data->tanggal_event)) }}</p>
                             </th>
                         </tr>
                         <tr>
@@ -65,7 +65,7 @@
                                 <p class="font-normal">Total Biaya</p>
                             </th>
                             <th>
-                                <p class="text-right font-normal">Rp 40.000</p>
+                                <p class="text-right font-normal">Rp {{ $data->harga }}</p>
                             </th>
                         </tr>
                     </table>
