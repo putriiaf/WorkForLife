@@ -79,15 +79,15 @@
         </div>
     </div>
 
+    <form action="/payment/{{$data->id}}" method="POST" enctype="multipart/form-data">
     @method('put')
     @csrf
-    <form>
         <div class="flex justify-center">
-            <label class="block mb-2 font-montserrat text-md font-medium" for="file_input">Upload Bukti Pembayaran</label>
+            <label class="block mb-2 font-montserrat text-md font-medium" for="bukti_bayar">Upload Bukti Pembayaran</label>
         </div>
 
         <div class="flex justify-center overflow-x-auto relative">
-            <input class="block w-1/3 text-sm bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none " id="file_input" type="image" value="{{ }}">
+            <input class="block w-1/3 text-sm bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none " id="bukti_bayar" name="bukti_bayar" type="file">
         </div>
 
         <div class="mt-5 mb-5 w-2.5">

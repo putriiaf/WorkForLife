@@ -115,3 +115,5 @@ Route::get('/event/{id}', [EventController::class, 'show']);
 Route::get('/event/{id}/edit', [EventController::class, 'edit']);
 Route::put('/event/{id}', [EventController::class, 'update']);
 Route::delete('/event/{id}', [EventController::class, 'destroy']);
+
+Route::get('/payment/{id}/success', [RegistrationEventController::class, 'suksesdaftar']);

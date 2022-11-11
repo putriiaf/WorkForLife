@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class RegistrationEventController extends Controller
 {
@@ -93,6 +94,30 @@ class RegistrationEventController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function payment(Request $request, $id)
+    {
+        $uploadPath = public_path('storage/bukti_bayar');
+        if ($request->hasFile('bukti_bayar')) {
+            $file = $request->file('bukti_bayar');
+            $uniqueFileName = uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move($uploadPath, $uniqueFileName);
+            $imagePath = 'bukti_bayar/' . $uniqueFileName;
+        } else {
+            $imagePath = NULL;
+        }
+
+        Http::asForm()->post("http://apiwfl.herokuapp.com/api/payment/" . $id . '?_method=PUT', [
+            'bukti_bayar' => $imagePath
+        ]);
+
+        return view('levelup.suksesdaftar');
+    }
+
+    public function suksesdaftar()
+    {   
+
     }
 
     public function formPayment($id)

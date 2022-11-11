@@ -10,17 +10,17 @@
             <h1 class="text-lg">Pendaftaran Berhasil</h1>
         </div>  
 
-        <div class="border-2 border-gray-500 rounded-lg">
+        <!-- <div class="border-2 border-gray-500 rounded-lg">
             <ul class="py-5 text-lg">
                 <li class="font-semibold">Topik Webinar</li>
                 <li>Jumat, 7 Oktober 2022</li>
                 <li>19.00 - 20.00</li>
                 <li>Rp 40.000</li>
             </ul>
-        </div>
+        </div> -->
 
         <div class="my-10">
-            <button class="mx-8 px-8 py-2 font-semibold rounded-lg bg-white border-2 border-gray-500 text-dongker hover:bg-white/30 hover:border-gray-500/30">Riwayat Pendaftaran Event</button>
+            <a href="/profile" class="mx-8 px-8 py-2 font-semibold rounded-lg bg-white border-2 border-gray-500 text-dongker hover:bg-white/30 hover:border-gray-500/30">Riwayat Pendaftaran Event</a>
         </div>
     </div>
 </div>
