@@ -14,7 +14,7 @@ class RegistrationEventController extends Controller
      */
     public function index()
     {
-        //
+       //
     }
 
     public function confirm(Request $request, $id)
@@ -48,14 +48,13 @@ class RegistrationEventController extends Controller
             'event_id' => $request->input('event_id'),
             'user_id' => $request->input('user_id')
         ]);
-        // if ($request->status() == 200) {
-        //     return redirect('/levelup')->with('success', 'Berhasil mendaftar Event.');
-        // } else {
-        //     return redirect('/levelup')->with('success', 'Gagal mendaftar Event.');
-        // }
-        return view('levelup.konfirmasibayar', [
-            'title' => 'Pembayaran'
-        ]);
+        if ($request->status() == 200) {
+            return view('levelup.konfirmasibayar', [
+                'title' => 'Pembayaran'
+            ]);
+        } else {
+            return redirect ('levelup/formdaftar')->with('success','Pendaftaran Gagal');
+        }
     }
 
     /**
@@ -66,7 +65,7 @@ class RegistrationEventController extends Controller
      */
     public function show($id)
     {
-        //
+       //
     }
 
     /**
@@ -106,6 +105,7 @@ class RegistrationEventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Http::delete("http://apiwfl.herokuapp.com/api/post/" . $id);
+        return redirect('/')->with('success', 'Pendaftaran Berhasil Dihapus');
     }
 }

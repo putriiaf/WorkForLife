@@ -11,11 +11,11 @@
             <div class="gap-6 mb-6">
                 <div class="mb-3">
                     <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Username</label>
-                    <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/3 p-2.5" value="{{ old('nama', session()->get('username')) }}" disabled>
+                    <input type="text" id="user_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/3 p-2.5" value="{{ old('nama', session()->get('username')) }}" disabled>
                 </div>
                 <div class="mb-3">
                     <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama Event</label>
-                    <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/3 p-2.5" value="{{ old('nama',  $event->nama) }}" disabled>
+                    <input type="text" id="event_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/3 p-2.5" value="{{ old('nama',  $event->nama) }}" disabled>
                 </div>
                 <input type="hidden" id="event_id" name="event_id" value="{{ $event->id }}">
                 <input type="hidden" id="user_id" name="user_id" value="{{ session()->get('id') }}">
