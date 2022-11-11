@@ -79,13 +79,15 @@
         </div>
     </div>
 
-    <form action="">
+    @method('put')
+    @csrf
+    <form>
         <div class="flex justify-center">
             <label class="block mb-2 font-montserrat text-md font-medium" for="file_input">Upload Bukti Pembayaran</label>
         </div>
 
         <div class="flex justify-center overflow-x-auto relative">
-            <input class="block w-1/3 text-sm bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none " id="file_input" type="file">
+            <input class="block w-1/3 text-sm bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none " id="file_input" type="image" value="{{ }}">
         </div>
 
         <div class="mt-5 mb-5 w-2.5">
