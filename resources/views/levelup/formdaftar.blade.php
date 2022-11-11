@@ -6,15 +6,16 @@
         <h1 class="text-2xl font-bold">Review Pendaftaranmu</h1>
     </div>
     <div>
-        <form action="">
+        <form action="POST">
+        @csrf
             <div class="gap-6 mb-6">
                 <div class="mb-3">
                     <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama Lengkap</label>
-                    <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/3 p-2.5" placeholder="Masukan Nama Lengkap" required>
+                    <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/3 p-2.5" placeholder="Masukan Nama Lengkap" value="Fadlan" required disabled>
                 </div>
                 <div class="mb-3">
                     <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nomor Handphone</label>
-                    <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/3 p-2.5" placeholder="Masukan Nomor Handphone" required>
+                    <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/3 p-2.5" placeholder="Masukan Nomor Handphone" value="081616212" required disabled>
                 </div>
                 <div class="my-3 mt-10">
                     <h2 class="mb-2 text-lg font-bold">Detail Acara</h2>

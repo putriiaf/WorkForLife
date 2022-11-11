@@ -14,7 +14,7 @@ class RegistrationEventController extends Controller
      */
     public function index()
     {
-        //
+       //
     }
 
     public function confirm(Request $request, $id)
@@ -44,7 +44,14 @@ class RegistrationEventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request = Http::asForm()->post("http://apiwfl.herokuapp.com/api/registration", [
+            'event_id' => $request->input('event_id'),
+            'user_id' => $request->input('user_id')
+        ]);
+        if ($request->status()) {
+            return redirect('levelup/formdaftar')->with('success', 'Pendaftaran Berhasil');
+        }
+        return redirect ('levelup/formdaftar')->with('success','Pendaftaran Gagal');
     }
 
     /**
@@ -55,7 +62,7 @@ class RegistrationEventController extends Controller
      */
     public function show($id)
     {
-        //
+       //
     }
 
     /**
@@ -95,6 +102,7 @@ class RegistrationEventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Http::delete("http://apiwfl.herokuapp.com/api/post/" . $id);
+        return redirect('/')->with('success', 'Pendaftaran Berhasil Dihapus');
     }
 }

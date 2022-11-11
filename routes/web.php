@@ -101,7 +101,7 @@ Route::get('/levelup/event/1/konfirmasi', function () {
 });
 
 Route::get('/registration', 'RegistrationEventController@index');
-Route::post('/registration', 'RegistrationEventController@store');
+Route::post('levelup/event/{event:id}/registration', [RegistrationEventController::class,'store']);
 Route::get('/registration/{id}', 'RegistrationEventController@show');
 Route::put('/registration/{id}', 'RegistrationEventController@update');
 Route::put('/confirm/{id}', [RegistrationEventController::class, 'confirm']);
