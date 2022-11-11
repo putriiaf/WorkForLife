@@ -36,7 +36,8 @@
             <p class="py-5">{{ $event->deskripsi }}</p>
             <div class="flex">
                 <p class="mr-4"><i data-feather="user" class="inline mr-3"></i>Work For Life</p>
-                <p><i data-feather="calendar" class="inline mr-3"></i>{{ date('d/m/Y', strtotime($event->created_at)) }}</p>
+                <p><i data-feather="calendar" class="inline mr-3"></i>{{ date('d/m/Y', strtotime($event->created_at)) }}
+                </p>
                 <i data-feather="heart" class="ml-3"></i>
                 <i data-feather="share-2" class="ml-3"></i>
             </div>
@@ -49,7 +50,8 @@
                 </a>
                 <div class="px-8 py-5">
                     <a href="#">
-                        <h5 class="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $event->nama }}</h5>
+                        <h5 class="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                            {{ $event->nama }}</h5>
                     </a>
                     <ul class="mb-6 text-base">
                         <li class="mb-2">
@@ -83,43 +85,6 @@
                         class="mx-16 block text-md items-center py-2 font-medium text-center text-white bg-[#E84A5F] rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         Daftar
                     </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="">
-        <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
-            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab"
-                data-tabs-toggle="#myTabContent" role="tablist">
-                <li class="mr-2" role="presentation">
-                    <button
-                        class="inline-block p-4 rounded-t-lg border-b-2 text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 dark:border-blue-500"
-                        id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile"
-                        aria-selected="true">DETAIL EVENT</button>
-                </li>
-            </ul>
-        </div>
-        <div id="myTabContent" class="font-montserrat">
-            <div class="p-4 rounded-lg dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <div class="mb-5">
-                    <h3 class="font-semibold text-lg mb-2">Persyaratan</h3>
-                    <ul class="list-disc">
-                        <li>Siswa SMA</li>
-                        <li>Para pejuang gapyear</li>
-                    </ul>
-                </div>
-                <div class="mb-5">
-                    <h3 class="font-semibold text-lg mb-2">Fasilitas</h3>
-                    <ul class="list-disc">
-                        <li>E-certificate</li>
-                        <li>Tryout UTBK (TPS & TKA)</li>
-                        <li>Pembahasan Tryout (Video & Tertulis)</li>
-                        <li>Pembahasan Soal</li>
-                    </ul>
-                </div>
-                <div class="mb-5">
-                    <h3 class="font-semibold text-lg mb-2">Kontak</h3>
-                    <p>https://www.instagram.com/drganesha_education/</p>
                 </div>
             </div>
         </div>
