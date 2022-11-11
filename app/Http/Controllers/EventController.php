@@ -29,7 +29,10 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.create-event', [
+            "title" => "Create Event Data",
+            'message' => NULL
+        ]);
     }
 
     /**
@@ -44,12 +47,14 @@ class EventController extends Controller
             'nama' => $request->input('nama'),
             'harga' => $request->input('harga'),
             'deskripsi' => $request->input('deskripsi'),
-            'tanggal_event' => $request->input('tanggal_event')
+            'tanggal_event' => $request->input('tanggal_event'),
+            'link_conference' => $request->input('link_conference')
         ]);
-        if ($request->status()) {
-            return redirect('/levelup')->with('success', 'Postingan berhasil diunggah.');
+        if ($request->status() == 200) {
+            return redirect('/admin')->with('success', 'Postingan berhasil diunggah.');
+        } else {
+            return redirect('/event')->with('success', 'Postingan gagal diunggah.');
         }
-        return redirect('/event')->with('success', 'Postingan gagal diunggah.');
     }
 
     /**
@@ -93,7 +98,8 @@ class EventController extends Controller
             'nama' => 'required',
             'harga' => 'required',
             'deskripsi' => 'required',
-            'tanggal_event' => 'required'
+            'tanggal_event' => 'required',
+            'link_conference' => 'required'
         ];
         $validatedData["user_id"] = session()->get('id');
         $validatedData = $request->validate($rules);
@@ -102,7 +108,8 @@ class EventController extends Controller
             'nama' => $request->input('nama'),
             'harga' => $request->input('harga'),
             'deskripsi' => $request->input('deskripsi'),
-            'tanggal_event' => $request->input('tanggal_event')
+            'tanggal_event' => $request->input('tanggal_event'),
+            'link_conference' => $request->input('link_conference')
         ]);
 
         return redirect('/admin');

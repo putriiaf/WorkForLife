@@ -108,6 +108,7 @@ Route::put('/confirm/{id}', [RegistrationEventController::class, 'confirm']);
 Route::put('/payment/{id}', 'RegistrationEventController@payment');
 Route::delete('/registration/{id}', 'RegistrationEventController@destroy');
 Route::get('/event', [EventController::class, 'index']);
+Route::get('/event/create', [EventController::class, 'create']);
 Route::post('/event', [EventController::class, 'store']);
 Route::get('/event/{id}', [EventController::class, 'show']);
 Route::put('/event/{id}', [EventController::class, 'update']);
