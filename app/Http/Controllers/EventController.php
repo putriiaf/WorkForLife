@@ -51,9 +51,9 @@ class EventController extends Controller
             'link_conference' => $request->input('link_conference')
         ]);
         if ($request->status() == 200) {
-            return redirect('/admin')->with('success', 'Postingan berhasil diunggah.');
+            return redirect('/admin')->with('success', 'Event berhasil diunggah.');
         } else {
-            return redirect('/event')->with('success', 'Postingan gagal diunggah.');
+            return redirect('/event')->with('success', 'Event gagal diunggah.');
         }
     }
 
