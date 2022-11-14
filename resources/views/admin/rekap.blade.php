@@ -492,6 +492,7 @@
                                 <td class="px-6 py-4">
                                     {{ $reg->status_bayar }}
                                 </td>
+                                @if($reg->status_bayar == "Menunggu Konfirmasi" || $reg->status_bayar == "Menunggu Pembayaran")
                                 <td class="px-5 py-4 text-right space-x-5">
                                     <form action="/confirm/{{ $reg->id }}" method="post">
                                         @method('put')
@@ -506,6 +507,7 @@
                                             value="Berhasil">Terima</button>
                                     </form>
                                 </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>
