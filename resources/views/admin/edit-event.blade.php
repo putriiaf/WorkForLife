@@ -1,6 +1,8 @@
 @extends('layout.layout')
 
 @section('content')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <div class="flex justify-center item-center mt-8">
     @if(session()->has('success'))
     <div id="alert-3" class="flex p-4 mb-4 bg-green-100 rounded-lg " role="alert">
@@ -53,6 +55,11 @@
                                 <input type="text" class="p-1 px-2 py-10 w-96" id="harga" name="harga"
                                     value="{{ old('harga',  $event->harga) }}">
                             </div>
+                            <script>
+                                $(document).ready(function(){
+                                    $('#harga').mask('#.##0', {reverse: true});
+                                })
+                            </script>
                         </div>
                     </div>
                 </div>
