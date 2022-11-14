@@ -1,8 +1,6 @@
 @extends('layout.layout')
 
 @section('content')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <div class="flex justify-center item-center mt-8">
     @if(session()->has('success'))
     <div id="alert-3" class="flex p-4 mb-4 bg-green-100 rounded-lg " role="alert">
@@ -54,11 +52,7 @@
                                 <input type="text" class="p-1 px-2 py-10 w-96" id="harga" name="harga"
                                     value="{{ old('harga')}}">
                             </div>
-                            <script>
-                                $(document).ready(function(){
-                                    $('#harga').mask('#.##0', {reverse: true});
-                                })
-                            </script>
+                            
                         </div>
                     </div>
                 </div>
@@ -78,7 +72,7 @@
                     <div>
                         <div class="flex flex-col md:flex-row w-max">
                             <div class="flex-1 my-2 p-1 bg-white flex border border-gray-200 rounded-lg">
-                                <input type="text" class="p-1 px-2 py-10 w-96" id="tanggal_event" name="tanggal_event"
+                                <input type="datetime-local" class="p-1 px-2 py-10 w-96" id="tanggal_event" name="tanggal_event"
                                     value="{{ old('tanggal_event')}}">
                             </div>
                         </div>
